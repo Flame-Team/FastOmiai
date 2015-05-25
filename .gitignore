@@ -25,3 +25,9 @@ proguard/
 
 # Log Files
 *.log
+
+# Eclipse
+.settings/
+.classpath
+.project
+lint.xml

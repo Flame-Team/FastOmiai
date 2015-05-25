@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- application -->
+    <string name="app_name">快.相亲</string>
+    <string name="app_slogan">快速见到TA，才能快速遇见TA！</string>
+    <string name="action_settings">Settings</string>
+
+</resources>

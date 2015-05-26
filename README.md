@@ -12,3 +12,9 @@
 |见面流程和私信|Olivia-realman||
 |新用户引导|mzlogin|声波传输和 HTTP|
 |发现并建立契约（除私信）|meng85440835|PUSH|
+
+###引用第三方资源
+
+* [Volley](https://developer.android.com/training/volley/index.html)
+* [百度 Android 地图 SDK](http://developer.baidu.com/map/index.php?title=androidsdk)
+* [SinVoice](https://github.com/JesseGu/SinVoice)

@@ -46,6 +46,6 @@ public class SplashActivity extends Activity {
     }
     
     private void startHomePage() {
-        // TODO 鍒ゆ柇鏈湴鏄惁鏈夌櫥褰曟暟鎹拰 Session锛岃烦杞埌瀵瑰簲鐨勯〉闈�    
+        // TODO 判断本地是否有登录数据和 Session，跳转到对应的页面    
     }
 }

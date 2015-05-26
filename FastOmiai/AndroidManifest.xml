@@ -3,6 +3,31 @@
     package="com.sogou.fastomiai"
     android:versionCode="1"
     android:versionName="1.0" >
+    
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />  
+	<uses-permission android:name="android.permission.USE_CREDENTIALS" />  
+	<uses-permission android:name="android.permission.MANAGE_ACCOUNTS" />  
+	<uses-permission android:name="android.permission.AUTHENTICATE_ACCOUNTS" />  
+	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />  
+	<uses-permission android:name="android.permission.INTERNET" />  
+	<uses-permission android:name="com.android.launcher.permission.READ_SETTINGS" />  
+	<uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />  
+	<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />  
+	<uses-permission android:name="android.permission.READ_PHONE_STATE" />  
+	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />  
+	<uses-permission android:name="android.permission.BROADCAST_STICKY" />  
+	<uses-permission android:name="android.permission.WRITE_SETTINGS" />
+	
+	<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"></uses-permission>
+	<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"></uses-permission>
+	<uses-permission android:name="android.permission.ACCESS_WIFI_STATE"></uses-permission>
+	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"></uses-permission>
+	<uses-permission android:name="android.permission.CHANGE_WIFI_STATE"></uses-permission>
+	<uses-permission android:name="android.permission.READ_PHONE_STATE"></uses-permission>
+	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"></uses-permission>
+	<uses-permission android:name="android.permission.INTERNET" />
+	<uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"></uses-permission>
+	<uses-permission android:name="android.permission.READ_LOGS"></uses-permission>
 
     <uses-sdk
         android:minSdkVersion="15"
@@ -13,6 +38,11 @@
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
+        
+        <meta-data  
+	        android:name="com.baidu.lbsapi.API_KEY"  
+	        android:value="3r2DfTaZRZlIxRxEuVg6eFS8" />
+        
         <activity
             android:name=".SplashActivity"
             android:label="@string/app_name"
@@ -23,6 +53,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        
+        <activity
+            android:name=".MapActivity"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
+        </activity>
+        
+        <service android:name="com.baidu.location.f" android:enabled="true" android:process=":remote">
+		</service>
+        
     </application>
 
 </manifest>

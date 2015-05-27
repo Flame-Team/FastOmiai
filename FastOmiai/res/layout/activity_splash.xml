@@ -7,30 +7,86 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.sogou.fastomiai.SplashActivity" >
-    
+
     <TextView
         android:id="@+id/tv_appname"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:text="@string/app_name"
         android:gravity="center"
-        android:textSize="14sp"/>
+        android:text="@string/app_name"
+        android:textSize="14sp" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/tv_appname"
-        android:text="@string/app_slogan" 
         android:gravity="center"
-        android:textSize="12sp"/>
-    
+        android:text="@string/app_slogan"
+        android:textSize="12sp" />
+
     <Button
         android:id="@+id/btn_show_map"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:text="@string/enter_map"
-        android:gravity="center" />
+        android:gravity="center"
+        android:text="@string/enter_map" />
+
+    <LinearLayout
+        android:id="@+id/record"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/btn_show_map"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="50dp"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/start_play"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="start play" />
+
+        <Button
+            android:id="@+id/stop_play"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="stop play" />
+
+        <TextView
+            android:id="@+id/playtext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="play text" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/recognition"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/record"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/start_reg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="start reg" />
+
+        <Button
+            android:id="@+id/stop_reg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="stop reg" />
+
+        <TextView
+            android:id="@+id/regtext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="recognised text" />
+    </LinearLayout>
 
 </RelativeLayout>

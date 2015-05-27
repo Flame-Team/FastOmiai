@@ -31,3 +31,6 @@ proguard/
 .classpath
 .project
 lint.xml
+
+# Mac
+.DS_Store

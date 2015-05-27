@@ -8,8 +8,10 @@
     <string name="enter_map">进入地图</string>
     <string name="login">登录</string>
     <string name="register">注册</string>
-    <string name="login_account_hint">请使用如下账号注册：</string>
-    <string name="login_tel_hint">或者，\n输入手机号码注册：</string>
+    <string name="login_account_hint">请使用如下账号登录：</string>
+    <string name="register_account_hint">请使用如下账号注册：</string>
+    <string name="login_tel_hint">或者，\n输入手机号码登录：</string>
+    <string name="register_tel_hint">或者，\n输入手机号码注册：</string>
     <string name="login_code">验证码</string>
     <string name="login_finish">开始</string>
 

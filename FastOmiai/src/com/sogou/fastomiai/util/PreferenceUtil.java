@@ -6,7 +6,10 @@ import android.content.SharedPreferences;
 public class PreferenceUtil {
     private static final String APP_PREFERENCE = "app_preference";
     
+    // 曾经登录过的用户 ID
     private static final String LOGGED_ID = "logged_id";
+    // 曾经登录过的用户 Token
+    private static final String LOGGED_TOKEN = "logged_token";
     
     public static String getLoggedID(Context context) {
         return getString(context, LOGGED_ID);
@@ -15,6 +18,16 @@ public class PreferenceUtil {
     public static void setLoggedID(Context context, String s) {
         saveString(context, LOGGED_ID, s);
     }
+    
+    public static String getLoggedToken(Context context) {
+        return getString(context, LOGGED_TOKEN);
+    }
+    
+    public static void setLoggedToken(Context context, String s) {
+        saveString(context, LOGGED_TOKEN, s);
+    }
+    
+    ///////////////////////////////////////////////////////////////////////////
     
     private static void saveString(Context context, String key, String value) {
         SharedPreferences.Editor editor = getPreferences(context).edit();

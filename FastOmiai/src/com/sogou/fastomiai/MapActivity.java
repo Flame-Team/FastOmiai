@@ -56,8 +56,7 @@ public class MapActivity extends Activity {
 			
 			@Override
 			public void onClick(View v) {
-				Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
-			    startActivity(intent);
+			    startLoginActivity(true);
 			}
 		});
         mBtnLogin = (Button) findViewById(R.id.btn_loggin);
@@ -65,8 +64,7 @@ public class MapActivity extends Activity {
 			
 			@Override
 			public void onClick(View v) {
-				Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
-			    startActivity(intent);
+			    startLoginActivity(false);
 			}
 		});
         
@@ -132,6 +130,12 @@ public class MapActivity extends Activity {
 			.zIndex(9)
 			.draggable(false);
 		mBaiduMap.addOverlay(option7);
+    }
+    
+    private void startLoginActivity(boolean isRegister) {
+        Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+        intent.putExtra(LoginActivity.IS_REGISTER, isRegister);
+        startActivity(intent);
     }
     
     @Override

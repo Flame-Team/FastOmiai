@@ -5,7 +5,7 @@ import java.util.Map;
 public class NetworkUtil {
     
     public static String getUrl(String url, Map<String, String> params) {
-        if (!url.endsWith("?")) url += "?";
+        if (!url.endsWith("&")) url += "&";
 
         StringBuilder builder = new StringBuilder(url);
 

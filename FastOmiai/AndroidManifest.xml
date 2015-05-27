@@ -58,6 +58,13 @@
         
         <activity
             android:name=".MapActivity"
+            android:launchMode="singleTask"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
+        </activity>
+        
+        <activity
+            android:name=".LoginActivity"
+            android:launchMode="singleTask"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
         </activity>
         

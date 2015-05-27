@@ -16,7 +16,11 @@ import com.baidu.mapapi.map.OverlayOptions;
 import com.baidu.mapapi.model.LatLng;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
 
 public class MapActivity extends Activity {
 	
@@ -35,6 +39,9 @@ public class MapActivity extends Activity {
 	
 	// 定位
 	public LocationClient mLocationClient = null;
+	
+	private Button mBtnRegister = null;
+	private Button mBtnLogin = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +51,24 @@ public class MapActivity extends Activity {
         setContentView(R.layout.activity_map);
         
         mMapView = (MapView) findViewById(R.id.bmapView);
+        mBtnRegister = (Button) findViewById(R.id.btn_register);
+        mBtnRegister.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+			    startActivity(intent);
+			}
+		});
+        mBtnLogin = (Button) findViewById(R.id.btn_loggin);
+        mBtnLogin.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+			    startActivity(intent);
+			}
+		});
         
 	    // 开启定位图层 
 	    mBaiduMap = mMapView.getMap();

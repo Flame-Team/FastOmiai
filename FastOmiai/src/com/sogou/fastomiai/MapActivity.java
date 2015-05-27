@@ -141,10 +141,10 @@ public class MapActivity extends Activity {
     
     @Override
 	protected void onResume() {
+        super.onResume();
         if (SessionManager.getInstance(this).isLogin()) {
             finish();
         } else {
-            super.onResume();
             mMapView.onResume();
         }
 	}

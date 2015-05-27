@@ -166,10 +166,9 @@ public class LoginActivity extends Activity {
     
     @Override
     protected void onResume() {
+        super.onResume();
         if (SessionManager.getInstance(this).isLogin()) {
             finish();
-        } else {
-            super.onResume();
         }
     }
 }

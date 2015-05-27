@@ -12,5 +12,13 @@
     <dimen name="login_icon_top_margin">30dp</dimen>
     <dimen name="login_tel_hint_top_margin">130dp</dimen>
     <dimen name="login_edit_height">40dp</dimen>
+    
+    <dimen name="fill_row_height">40dp</dimen>
+    <dimen name="fill_child_margin">20dp</dimen>
+    <dimen name="fill_photo_title_top_margin">30dp</dimen>
+    <dimen name="fill_desire_width">100dp</dimen>
+    <dimen name="fill_desire_height">400dp</dimen>
+    <dimen name="fill_desire_child_margin">25dp</dimen>
+    <dimen name="fill_desire_item_height">60dp</dimen>
 
 </resources>

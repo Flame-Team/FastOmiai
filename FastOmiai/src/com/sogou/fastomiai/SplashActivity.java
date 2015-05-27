@@ -55,6 +55,9 @@ public class SplashActivity extends Activity {
                                 if (authInfo.isSuccess()) {
                                     // TODO 进入登录后界面
                                     Toast.makeText(SplashActivity.this, "登录成功，目前无跳转界面，请清空数据后体验后续流程", Toast.LENGTH_LONG).show();
+                                    
+                                    Intent intent = new Intent(getApplicationContext(), FillInfoActivity.class);
+                    			    startActivity(intent);
                                 } else {
                                     startMapActivity();
                                 }

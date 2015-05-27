@@ -14,5 +14,21 @@
     <string name="register_tel_hint">或者，\n输入手机号码注册：</string>
     <string name="login_code">验证码</string>
     <string name="login_finish">开始</string>
+    <string name="fill_info_title">立即开始相亲</string>
+    <string name="fill_info_next">下一步</string>
+    <string name="fill_info_name">实名</string>
+    <string name="fill_info_name_hint">平时显示姓**,\n约会后可见全名</string>
+    <string name="fill_info_sex">性别</string>
+    <string name="fill_info_age">年龄</string>
+    <string name="fill_info_income">您的收入</string>
+    <string name="fill_info_car">车</string>
+    <string name="fill_info_house">房</string>
+    <string name="fill_info_education">学历</string>
+    <string name="fill_info_marriage">婚姻经历</string>
+    <string name="fill_info_photo_title">增加一张以上的本人照片</string>
+    <string name="fill_info_photo">照片</string>
+    <string name="fill_info_video">视频</string>
+    <string name="fill_info_desire_title">请选择你对婚姻的渴望程度</string>
+    <string name="fill_info_finish">完成</string>
 
 </resources>

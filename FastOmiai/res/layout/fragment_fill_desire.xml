@@ -1,0 +1,65 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.sogou.fastomiai.SplashActivity" >
+    
+    <TextView
+        android:id="@+id/text_photo_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/fill_photo_title_top_margin"
+        android:layout_centerHorizontal="true"
+        android:text="@string/fill_info_desire_title"
+        android:textSize="20sp"/>
+    
+    <LinearLayout
+        android:layout_width="@dimen/fill_desire_width"
+        android:layout_height="@dimen/fill_desire_height"
+        android:layout_below="@id/text_photo_title"
+        android:layout_marginTop="@dimen/fill_desire_child_margin"
+        android:layout_centerHorizontal="true"
+        android:orientation="vertical" >
+        
+        <Button
+            android:id="@+id/image_desire5"
+            android:layout_width="match_parent"
+        	android:layout_height="@dimen/fill_desire_item_height"
+        	android:background="@drawable/desire_unchecked_shape"
+        	android:text="5" />
+        
+        <Button
+            android:id="@+id/image_desire4"
+            android:layout_width="match_parent"
+        	android:layout_height="@dimen/fill_desire_item_height"
+        	android:layout_marginTop="@dimen/fill_desire_child_margin"
+        	android:background="@drawable/desire_unchecked_shape"
+			android:text="4" />
+        
+        <Button
+            android:id="@+id/image_desire3"
+            android:layout_width="match_parent"
+        	android:layout_height="@dimen/fill_desire_item_height"
+        	android:layout_marginTop="@dimen/fill_desire_child_margin"
+        	android:background="@drawable/desire_unchecked_shape"
+        	android:text="3" />
+        
+        <Button
+            android:id="@+id/image_desire2"
+            android:layout_width="match_parent"
+        	android:layout_height="@dimen/fill_desire_item_height"
+        	android:layout_marginTop="@dimen/fill_desire_child_margin"
+        	android:background="@drawable/desire_unchecked_shape"
+        	android:text="2" />
+        
+        <Button
+            android:id="@+id/image_desire1"
+            android:layout_width="match_parent"
+        	android:layout_height="@dimen/fill_desire_item_height"
+        	android:layout_marginTop="@dimen/fill_desire_child_margin"
+        	android:background="@drawable/desire_checked_shape"
+        	android:text="1" />
+            
+    </LinearLayout>
+
+</RelativeLayout>

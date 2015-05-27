@@ -32,6 +32,7 @@ public class LoginActivity extends Activity {
     private EditText mEditTel = null;
     private EditText mEditCode = null;
     
+    
     private boolean isRegister = false;
 
     @Override
@@ -104,6 +105,9 @@ public class LoginActivity extends Activity {
                                         Toast.makeText(LoginActivity.this, "注册成功", Toast.LENGTH_LONG).show();
                                         SessionManager.getInstance(LoginActivity.this)
                                             .setToken(regInfo.token);
+                                        
+                                        Intent intent = new Intent(getApplicationContext(), FillInfoActivity.class);
+                        			    startActivity(intent);
                                     }
                                 }
                             },
@@ -127,6 +131,9 @@ public class LoginActivity extends Activity {
                                         Toast.makeText(LoginActivity.this, "登录成功", Toast.LENGTH_LONG).show();
                                         SessionManager.getInstance(LoginActivity.this)
                                             .setToken(regInfo.token);
+                                        
+                                        Intent intent = new Intent(getApplicationContext(), FillInfoActivity.class);
+                        			    startActivity(intent);
                                     }
                                 }
                             },

@@ -18,3 +18,4 @@
 * [Volley](https://developer.android.com/training/volley/index.html)
 * [百度 Android 地图 SDK](http://developer.baidu.com/map/index.php?title=androidsdk)
 * [SinVoice](https://github.com/JesseGu/SinVoice)
+* [Gson](https://code.google.com/p/google-gson/)

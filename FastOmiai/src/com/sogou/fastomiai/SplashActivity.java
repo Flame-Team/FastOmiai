@@ -53,11 +53,10 @@ public class SplashActivity extends Activity {
                         public void onResponse(UserAuthInfo authInfo) {
                             if (authInfo != null) {
                                 if (authInfo.isSuccess()) {
-                                    // TODO 进入登录后界面
-                                    Toast.makeText(SplashActivity.this, "登录成功，目前无跳转界面，请清空数据后体验后续流程", Toast.LENGTH_LONG).show();
-                                    
+                                    SessionManager.getInstance(SplashActivity.this).setLoginStatus(true);
                                     Intent intent = new Intent(getApplicationContext(), FillInfoActivity.class);
                     			    startActivity(intent);
+                    			    finish();
                                 } else {
                                     startMapActivity();
                                 }
@@ -79,5 +78,6 @@ public class SplashActivity extends Activity {
     private void startMapActivity() {
         Intent intent = new Intent(getApplicationContext(), MapActivity.class);
         startActivity(intent);
+        finish();
     }
 }

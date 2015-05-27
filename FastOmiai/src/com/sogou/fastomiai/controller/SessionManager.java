@@ -8,6 +8,8 @@ public class SessionManager {
     private volatile static SessionManager sInstance;
     private Context mContext;
     
+    private boolean isLogin = false;
+    
     private SessionManager(Context context) {
         mContext = context;
     }
@@ -29,5 +31,14 @@ public class SessionManager {
     
     public void setToken(String token) {
         PreferenceUtil.setLoggedToken(mContext, token);
+        setLoginStatus(true);
+    }
+    
+    public boolean isLogin() {
+        return isLogin;
+    }
+    
+    public void setLoginStatus(boolean isLoginStatus) {
+        isLogin = isLoginStatus;
     }
 }

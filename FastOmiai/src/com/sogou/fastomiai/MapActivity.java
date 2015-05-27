@@ -14,6 +14,7 @@ import com.baidu.mapapi.map.MarkerOptions;
 import com.baidu.mapapi.map.MyLocationData;
 import com.baidu.mapapi.map.OverlayOptions;
 import com.baidu.mapapi.model.LatLng;
+import com.sogou.fastomiai.controller.SessionManager;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -140,9 +141,12 @@ public class MapActivity extends Activity {
     
     @Override
 	protected void onResume() {
-		super.onResume();
-		
-		mMapView.onResume();
+        if (SessionManager.getInstance(this).isLogin()) {
+            finish();
+        } else {
+            super.onResume();
+            mMapView.onResume();
+        }
 	}
 	
 	@Override

@@ -2,12 +2,14 @@ package com.sogou.fastomiai;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Random;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.View.OnFocusChangeListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -60,6 +62,17 @@ public class LoginActivity extends Activity {
         
         mEditTel = (EditText)findViewById(R.id.edit_tel);
         mEditCode = (EditText)findViewById(R.id.edit_code);
+        mEditCode.setOnFocusChangeListener(new OnFocusChangeListener() {
+            
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (hasFocus) {
+                    Random rand = new Random(System.currentTimeMillis());
+                    int code = 1000 + rand.nextInt(9000);
+                    mEditCode.setText(String.valueOf(code));
+                }
+            }
+        });
         
         mBtnBack = (ImageButton) findViewById(R.id.btn_login_back);
         mBtnBack.setOnClickListener(new OnClickListener() {
@@ -98,23 +111,24 @@ public class LoginActivity extends Activity {
                             new Response.Listener<UserRegInfo>() {
                                 @Override
                                 public void onResponse(UserRegInfo regInfo) {
-                                    if (regInfo == null || regInfo.token.isEmpty()) {
-                                        Toast.makeText(LoginActivity.this, "登录失败", Toast.LENGTH_LONG).show();
+                                    if (regInfo == null || regInfo.token == null || 
+                                            regInfo.token.isEmpty()) {
+                                        Toast.makeText(LoginActivity.this, "注册失败", Toast.LENGTH_SHORT).show();
                                     } else {
-                                        // TODO 这里要跳转成功界面
-                                        Toast.makeText(LoginActivity.this, "注册成功", Toast.LENGTH_LONG).show();
+                                        Toast.makeText(LoginActivity.this, "注册成功", Toast.LENGTH_SHORT).show();
                                         SessionManager.getInstance(LoginActivity.this)
                                             .setToken(regInfo.token);
                                         
                                         Intent intent = new Intent(getApplicationContext(), FillInfoActivity.class);
                         			    startActivity(intent);
+                        			    finish();
                                     }
                                 }
                             },
                             new Response.ErrorListener() {
                                 @Override
                                 public void onErrorResponse(VolleyError error) {
-                                    Toast.makeText(LoginActivity.this, "登录失败", Toast.LENGTH_LONG).show();
+                                    Toast.makeText(LoginActivity.this, "注册失败", Toast.LENGTH_SHORT).show();
                                 }
                             }, 
                             false);
@@ -123,29 +137,39 @@ public class LoginActivity extends Activity {
                     NetworkRequest.get(url, UserLoginInfo.class, 
                             new Response.Listener<UserLoginInfo>() {
                                 @Override
-                                public void onResponse(UserLoginInfo regInfo) {
-                                    if (regInfo == null || regInfo.token.isEmpty()) {
-                                        Toast.makeText(LoginActivity.this, "登录失败", Toast.LENGTH_LONG).show();
+                                public void onResponse(UserLoginInfo loginInfo) {
+                                    if (loginInfo == null || loginInfo.token == null ||
+                                            loginInfo.token.isEmpty()) {
+                                        Toast.makeText(LoginActivity.this, "登录失败", Toast.LENGTH_SHORT).show();
                                     } else {
-                                        // TODO 这里要跳转成功界面
-                                        Toast.makeText(LoginActivity.this, "登录成功", Toast.LENGTH_LONG).show();
+                                        Toast.makeText(LoginActivity.this, "登录成功", Toast.LENGTH_SHORT).show();
                                         SessionManager.getInstance(LoginActivity.this)
-                                            .setToken(regInfo.token);
+                                            .setToken(loginInfo.token);
                                         
                                         Intent intent = new Intent(getApplicationContext(), FillInfoActivity.class);
                         			    startActivity(intent);
+                        			    finish();
                                     }
                                 }
                             },
                             new Response.ErrorListener() {
                                 @Override
                                 public void onErrorResponse(VolleyError error) {
-                                    Toast.makeText(LoginActivity.this, "登录失败", Toast.LENGTH_LONG).show();
+                                    Toast.makeText(LoginActivity.this, "登录失败", Toast.LENGTH_SHORT).show();
                                 }
                             }, 
                             false);
                 }
             }
         });
+    }
+    
+    @Override
+    protected void onResume() {
+        if (SessionManager.getInstance(this).isLogin()) {
+            finish();
+        } else {
+            super.onResume();
+        }
     }
 }

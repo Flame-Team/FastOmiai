@@ -31,7 +31,7 @@ public class HomePageActivity extends Activity {
 			
 			@Override
 			public void onClick(View v) {
-				Intent intent = new Intent(getApplicationContext(), FillInfoActivity.class);
+				Intent intent = new Intent(getApplicationContext(), BrowseActivity.class);
 			    startActivity(intent);
 			}
 		});
@@ -50,7 +50,7 @@ public class HomePageActivity extends Activity {
 			
 			@Override
 			public void onClick(View v) {
-				Toast.makeText(getApplicationContext(), "通知", Toast.LENGTH_SHORT).show();				
+				Toast.makeText(getApplicationContext(), "通知", Toast.LENGTH_SHORT).show();
 			}
 		});
         

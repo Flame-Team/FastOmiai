@@ -57,7 +57,7 @@ public class FillInfoActivity extends FragmentActivity {
 					setTabSelection(mIndex + 1);
 					break;
 				case 2:
-					Intent intent = new Intent(getApplicationContext(), HomePageActivity.class);
+					Intent intent = new Intent(getApplicationContext(), BrowseActivity.class);
 				    startActivity(intent);
 				    break;
 				default:

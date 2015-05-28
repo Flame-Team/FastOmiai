@@ -50,7 +50,8 @@ public class HomePageActivity extends Activity {
 			
 			@Override
 			public void onClick(View v) {
-				Toast.makeText(getApplicationContext(), "通知", Toast.LENGTH_SHORT).show();
+		        Intent intent = new Intent(getApplicationContext(), NotificationListActivity.class);
+		        startActivity(intent);
 			}
 		});
         

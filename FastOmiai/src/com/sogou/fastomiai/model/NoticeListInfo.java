@@ -6,9 +6,9 @@ import com.google.gson.annotations.SerializedName;
 
 public class NoticeListInfo extends ResponseInfo {
     @SerializedName("data")
-    public ArrayList<Data> data;
-
-    public class Data {
+    public ArrayList<NoticeInfo> data;
+    
+    public static class NoticeInfo {
         @SerializedName("notice_id")
         public int noticeID;
 

@@ -30,6 +30,7 @@
     <string name="fill_info_video">视频</string>
     <string name="fill_info_desire_title">请选择你对婚姻的渴望程度</string>
     <string name="fill_info_finish">完成</string>
+    <string name="fill_info_declaration">个人宣言</string>
     <string name="homepage_title">我</string>
     <string name="homepage_dating_count">已经进行过5次快相亲</string>
     <string name="homepage_opportunity">机会</string>
@@ -48,5 +49,8 @@
     <string name="browse_filter">筛选</string>
     <string name="browse_no_love">无爱</string>
     <string name="browse_date">约TA</string>
+    <string name="notification_list_title">通知</string>
+    <string name="notification_item_tip">林志玲的见面邀请</string>
+    <string name="notification_item_arrow">＞</string>
 
 </resources>

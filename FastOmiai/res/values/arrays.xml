@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="sex">
+        <item>男</item>
+        <item>女</item>
+    </string-array>
+    
+	<string-array name="age">
+		<item>18</item>
+		<item>19</item>
+		<item>20</item>
+		<item>21</item>
+		<item>22</item>
+		<item>23</item>
+		<item>24</item>
+		<item>25</item>
+		<item>26</item>
+		<item>27</item>
+		<item>28</item>
+		<item>29</item>
+		<item>30</item>
+		<item>31</item>
+		<item>32</item>
+		<item>33</item>
+		<item>34</item>
+		<item>35</item>
+		<item>36</item>
+		<item>37</item>
+		<item>38</item>
+		<item>39</item>
+		<item>40</item>
+		<item>41</item>
+		<item>42</item>
+		<item>43</item>
+		<item>44</item>
+		<item>45</item>
+		<item>46</item>
+		<item>47</item>
+		<item>48</item>
+		<item>49</item>
+		<item>50</item>
+    </string-array>
+    
+    <string-array name="income">
+        <item>两千以下</item>
+        <item>两千到五千</item>
+        <item>五千到一万</item>
+        <item>一万到两万</item>
+        <item>两万以上</item>
+    </string-array>
+    
+	<string-array name="has_or_no">
+        <item>无</item>
+        <item>有</item>
+    </string-array>
+    
+	<string-array name="education">
+        <item>高中或相当学历</item>
+        <item>大专</item>
+        <item>本科</item>
+        <item>硕士</item>
+        <item>博士</item>
+    </string-array>
+    
+	<string-array name="marriage">
+        <item>未婚</item>
+        <item>离婚</item>
+        <item>丧偶</item>
+    </string-array>
+    
+</resources>

@@ -46,15 +46,14 @@
 	        android:text="@string/fill_info_sex"
 	        android:textSize="20sp"/>
         
-        <EditText
-            android:id="@+id/edit_sex"
-	        android:layout_width="0dp"
-	        android:layout_height="match_parent"
+        <Spinner
+            android:id="@+id/spinner_sex"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
 	        android:layout_marginLeft="@dimen/fill_child_margin"
 	        android:layout_marginRight="@dimen/fill_child_margin"
-	        android:singleLine="true"
 	        android:layout_weight="1"
-	        android:inputType="text" />
+	        android:entries="@array/sex"/>
         
         <TextView
 	        android:layout_width="wrap_content"
@@ -62,15 +61,14 @@
 	        android:text="@string/fill_info_age"
 	        android:textSize="20sp"/>
         
-        <EditText
-            android:id="@+id/edit_age"
-	        android:layout_width="0dp"
-	        android:layout_height="match_parent"
+		<Spinner
+            android:id="@+id/spinner_age"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
 	        android:layout_marginLeft="@dimen/fill_child_margin"
 	        android:layout_marginRight="@dimen/fill_child_margin"
-	        android:singleLine="true"
 	        android:layout_weight="1"
-	        android:inputType="number" />
+	        android:entries="@array/age"/>
         
     </LinearLayout>
     
@@ -82,18 +80,17 @@
         <TextView
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
-	        android:text="@string/fill_info_sex"
+	        android:text="@string/fill_info_income"
 	        android:textSize="20sp"/>
         
-        <EditText
-            android:id="@+id/edit_income"
-	        android:layout_width="0dp"
-	        android:layout_height="match_parent"
+        <Spinner
+            android:id="@+id/spinner_income"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
 	        android:layout_marginLeft="@dimen/fill_child_margin"
 	        android:layout_marginRight="@dimen/fill_child_margin"
-	        android:singleLine="true"
 	        android:layout_weight="1"
-	        android:inputType="number" />
+	        android:entries="@array/income"/>
 
     </LinearLayout>
     
@@ -108,15 +105,14 @@
 	        android:text="@string/fill_info_car"
 	        android:textSize="20sp"/>
         
-        <EditText
-            android:id="@+id/edit_car"
-	        android:layout_width="0dp"
-	        android:layout_height="match_parent"
+		<Spinner
+            android:id="@+id/spinner_car"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
 	        android:layout_marginLeft="@dimen/fill_child_margin"
 	        android:layout_marginRight="@dimen/fill_child_margin"
-	        android:singleLine="true"
 	        android:layout_weight="1"
-	        android:inputType="text" />
+	        android:entries="@array/has_or_no"/>
         
         <TextView
 	        android:layout_width="wrap_content"
@@ -124,15 +120,14 @@
 	        android:text="@string/fill_info_house"
 	        android:textSize="20sp"/>
         
-        <EditText
-            android:id="@+id/edit_house"
-	        android:layout_width="0dp"
-	        android:layout_height="match_parent"
+        <Spinner
+            android:id="@+id/spinner_house"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
 	        android:layout_marginLeft="@dimen/fill_child_margin"
 	        android:layout_marginRight="@dimen/fill_child_margin"
-	        android:singleLine="true"
 	        android:layout_weight="1"
-	        android:inputType="text" />
+	        android:entries="@array/has_or_no"/>
         
     </LinearLayout>
     
@@ -147,15 +142,14 @@
 	        android:text="@string/fill_info_education"
 	        android:textSize="20sp"/>
         
-        <EditText
-            android:id="@+id/edit_education"
-	        android:layout_width="0dp"
-	        android:layout_height="match_parent"
+		<Spinner
+            android:id="@+id/spinner_education"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
 	        android:layout_marginLeft="@dimen/fill_child_margin"
 	        android:layout_marginRight="@dimen/fill_child_margin"
-	        android:singleLine="true"
 	        android:layout_weight="1"
-	        android:inputType="number" />
+	        android:entries="@array/education"/>
 
     </LinearLayout>
     
@@ -169,17 +163,38 @@
 	        android:layout_height="wrap_content"
 	        android:text="@string/fill_info_marriage"
 	        android:textSize="20sp"/>
+
+		<Spinner
+            android:id="@+id/spinner_marriage"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+	        android:layout_marginLeft="@dimen/fill_child_margin"
+	        android:layout_marginRight="@dimen/fill_child_margin"
+	        android:layout_weight="1"
+	        android:entries="@array/marriage"/>
+
+    </LinearLayout>
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/fill_row_height"
+        android:layout_marginTop="@dimen/fill_child_margin" >
+        
+        <TextView
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="@string/fill_info_declaration"
+	        android:textSize="20sp"/>
         
         <EditText
-            android:id="@+id/edit_marriage"
+            android:id="@+id/edit_declaration"
 	        android:layout_width="0dp"
 	        android:layout_height="match_parent"
 	        android:layout_marginLeft="@dimen/fill_child_margin"
 	        android:layout_marginRight="@dimen/fill_child_margin"
 	        android:singleLine="true"
 	        android:layout_weight="1"
-	        android:inputType="number" />
-
-    </LinearLayout>
+	        android:inputType="text" />
+	</LinearLayout>
 
 </LinearLayout>

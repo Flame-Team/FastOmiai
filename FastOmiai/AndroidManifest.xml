@@ -94,7 +94,13 @@
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
         </activity>
         
-        	<activity android:name="org.androidpn.client.NotificationDetailsActivity"
+		<activity
+            android:name=".NotificationListActivity"
+            android:launchMode="singleTask"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
+        </activity>
+        
+        <activity android:name="org.androidpn.client.NotificationDetailsActivity"
 			android:label="Notification Details">
 		</activity>
 		

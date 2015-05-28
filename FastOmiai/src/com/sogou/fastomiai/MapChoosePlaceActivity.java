@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.Toast;
@@ -15,6 +16,7 @@ import android.widget.ImageButton;
 public class MapChoosePlaceActivity extends Activity {
 
 	private ImageButton mBtnBack = null;
+	private Button mBtnDate = null;
 	
 	private CheckBox mCheckPlace1 = null;
 	private CheckBox mCheckPlace2 = null;
@@ -39,6 +41,23 @@ public class MapChoosePlaceActivity extends Activity {
 			}
 		});
         
+        mBtnDate = (Button) findViewById(R.id.btn_choose);
+        mBtnDate.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				if (0 >= getPlacesCount()) {
+					Toast.makeText(getApplicationContext(),
+							getString(R.string.choose_none_hint),
+							Toast.LENGTH_SHORT).show();
+				}
+				else {
+					Intent intent = new Intent(getApplicationContext(), ConfirmActivity.class);
+				    startActivity(intent);
+				}				
+			}
+		});
+        
         mCheckPlace1 = (CheckBox) findViewById(R.id.check_place1);
         mCheckPlace1.setOnCheckedChangeListener(new OnCheckedChangeListener() {
 			
@@ -46,7 +65,7 @@ public class MapChoosePlaceActivity extends Activity {
 			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
 				if (isChecked && (2 < getPlacesCount())) {
 					Toast.makeText(getApplicationContext(),
-							getString(R.string.choose_hint),
+							getString(R.string.choose_over_hint),
 							Toast.LENGTH_SHORT).show();
 					mCheckPlace1.setChecked(false);
 					return;
@@ -64,7 +83,7 @@ public class MapChoosePlaceActivity extends Activity {
 			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
 				if (isChecked && (2 < getPlacesCount())) {
 					Toast.makeText(getApplicationContext(),
-							getString(R.string.choose_hint),
+							getString(R.string.choose_over_hint),
 							Toast.LENGTH_SHORT).show();
 					mCheckPlace2.setChecked(false);
 					return;
@@ -82,7 +101,7 @@ public class MapChoosePlaceActivity extends Activity {
 			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
 				if (isChecked && (2 < getPlacesCount())) {
 					Toast.makeText(getApplicationContext(),
-							getString(R.string.choose_hint),
+							getString(R.string.choose_over_hint),
 							Toast.LENGTH_SHORT).show();
 					mCheckPlace3.setChecked(false);
 					return;
@@ -100,7 +119,7 @@ public class MapChoosePlaceActivity extends Activity {
 			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
 				if (isChecked && (2 < getPlacesCount())) {
 					Toast.makeText(getApplicationContext(),
-							getString(R.string.choose_hint),
+							getString(R.string.choose_over_hint),
 							Toast.LENGTH_SHORT).show();
 					mCheckPlace4.setChecked(false);
 					return;
@@ -118,7 +137,7 @@ public class MapChoosePlaceActivity extends Activity {
 			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
 				if (isChecked && (2 < getPlacesCount())) {
 					Toast.makeText(getApplicationContext(),
-							getString(R.string.choose_hint),
+							getString(R.string.choose_over_hint),
 							Toast.LENGTH_SHORT).show();
 					mCheckPlace5.setChecked(false);
 					return;

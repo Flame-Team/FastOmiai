@@ -25,13 +25,20 @@ public class HomePageActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_homepage);
-        
+     
         mBtnBack = (ImageButton) findViewById(R.id.btn_homepage_back);
         mBtnBack.setOnClickListener(new OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
-				Intent intent = new Intent(getApplicationContext(), BrowseActivity.class);
+				Intent intent = null;
+				String strFrom = getIntent().getExtras().getString("from");
+		        if (strFrom.equals("ConfirmActivity")) {
+		        	intent = new Intent(getApplicationContext(), ConfirmActivity.class);
+		        }
+		        else if (strFrom.equals("BrowseActivity")) {
+		        	intent = new Intent(getApplicationContext(), BrowseActivity.class);
+		        }
 			    startActivity(intent);
 			}
 		});

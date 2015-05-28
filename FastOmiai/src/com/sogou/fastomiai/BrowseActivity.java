@@ -34,6 +34,7 @@ public class BrowseActivity extends FragmentActivity {
 			@Override
 			public void onClick(View v) {
 				Intent intent = new Intent(getApplicationContext(), HomePageActivity.class);
+				intent.putExtra("from", "BrowseActivity");
 			    startActivity(intent);
 			}
 		});

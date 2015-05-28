@@ -1,0 +1,157 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.sogou.fastomiai.SplashActivity"
+    android:orientation="vertical" >
+    
+    <RelativeLayout
+        android:id="@+id/layout_confirm_title"
+        android:layout_width="match_parent"
+    	android:layout_height="@dimen/title_height"
+    	android:layout_marginLeft="@dimen/activity_horizontal_margin"
+    	android:layout_marginRight="@dimen/activity_horizontal_margin"
+    	android:orientation="horizontal" >
+        
+        <Button
+	        android:id="@+id/btn_homepage"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:background="@drawable/homepage_notification_shape"
+	        android:layout_centerVertical="true"
+	        android:text="@string/homepage_title"
+	        android:textSize="22sp"
+	        android:textColor="@android:color/white"
+	        android:paddingLeft="30dp"
+	        android:paddingRight="30dp"
+	        android:paddingTop="@dimen/browse_title_button_padding"
+	        android:paddingBottom="@dimen/browse_title_button_padding" />
+        
+        <TextView
+	        android:id="@+id/text_fill_info_title"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_centerInParent="true"
+	        android:text="@string/browse_title"
+	        android:textSize="28sp" />
+        
+        <Button
+	        android:id="@+id/btn_filter"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:background="@drawable/homepage_notification_shape"
+	        android:layout_centerVertical="true"
+	        android:layout_alignParentRight="true"
+	        android:text="@string/browse_filter"
+	        android:textSize="22sp"
+	        android:textColor="@android:color/white"
+	        android:paddingLeft="30dp"
+	        android:paddingRight="30dp"
+	        android:paddingTop="@dimen/browse_title_button_padding"
+	        android:paddingBottom="@dimen/browse_title_button_padding" />
+        
+    </RelativeLayout>
+    
+    <ImageView
+        android:id="@+id/image_sepline"
+        android:layout_width="match_parent"
+	    android:layout_height="@dimen/sepline_height"
+	    android:layout_below="@id/layout_confirm_title"
+	    android:layout_marginLeft="@dimen/activity_horizontal_margin"
+    	android:layout_marginRight="@dimen/activity_horizontal_margin"
+	    android:background="@color/main_blue" />
+    
+    <RelativeLayout 
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:layout_marginLeft="@dimen/activity_horizontal_margin"
+    	android:layout_marginRight="@dimen/activity_horizontal_margin"
+    	android:layout_marginTop="@dimen/activity_vertical_margin"
+	    android:layout_below="@id/image_sepline" >
+	
+	    <ImageView 
+	        android:id="@+id/image_user_photo"
+	        android:layout_width="@dimen/browse_photo_size"
+	        android:layout_height="@dimen/browse_photo_size"
+	        android:layout_centerInParent="true"
+	        android:scaleType="centerCrop"
+	        android:background="@drawable/woman" />
+	
+	    <Button
+	        android:id="@+id/text_tag1"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_centerHorizontal="true"
+	        android:layout_marginTop="80dp"
+	        android:background="@drawable/homepage_baseinfo_item_shape"
+	        android:text="是不是"
+	        android:textSize="@dimen/browse_tag_textsize"
+	        android:padding="@dimen/browse_tag_padding" />
+	    
+	    <Button
+	        android:id="@+id/text_tag2"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_marginTop="150dp"
+	        android:background="@drawable/homepage_baseinfo_item_shape"
+	        android:text="是不是"
+	        android:textSize="@dimen/browse_tag_textsize"
+	        android:padding="@dimen/browse_tag_padding" />
+	    
+	    <Button
+	        android:id="@+id/text_tag3"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_marginTop="300dp"
+	        android:background="@drawable/homepage_baseinfo_item_shape"
+	        android:text="是不是"
+	        android:textSize="@dimen/browse_tag_textsize"
+	        android:padding="@dimen/browse_tag_padding" />
+	    
+	    <Button
+	        android:id="@+id/text_tag4"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignParentRight="true"
+	        android:layout_marginTop="150dp"
+	        android:background="@drawable/homepage_baseinfo_item_shape"
+	        android:text="是不是"
+	        android:textSize="@dimen/browse_tag_textsize"
+	        android:padding="@dimen/browse_tag_padding" />
+	    
+	    <Button
+	        android:id="@+id/text_tag5"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignParentRight="true"
+	        android:layout_marginTop="300dp"
+	        android:background="@drawable/homepage_baseinfo_item_shape"
+	        android:text="是不是"
+	        android:textSize="@dimen/browse_tag_textsize"
+	        android:padding="@dimen/browse_tag_padding" />
+	    
+	    <TextView
+	        android:id="@+id/text_countdown"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_below="@id/image_user_photo"
+	        android:layout_marginTop="@dimen/countdown_top_margin"
+	        android:layout_centerHorizontal="true"
+	        android:gravity="center"
+	        android:padding="@dimen/countdown_padding"
+	        android:background="@drawable/blue_button_shape"
+	        android:text="等待对方回复\n23:59:59"
+	        android:textSize="22sp" />
+	    
+	    <TextView
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignParentBottom="true"
+	        android:layout_centerHorizontal="true"
+	        android:text="@string/confirm_hint"
+	        android:textSize="22sp" />
+	
+	</RelativeLayout>	    
+
+</RelativeLayout>

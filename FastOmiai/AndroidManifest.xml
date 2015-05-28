@@ -75,6 +75,12 @@
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
         </activity>
         
+        <activity
+            android:name=".HomePageActivity"
+            android:launchMode="singleTask"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
+        </activity>
+        
         <service android:name="com.baidu.location.f" android:enabled="true" android:process=":remote">
 		</service>
         

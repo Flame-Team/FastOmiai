@@ -30,5 +30,19 @@
     <string name="fill_info_video">视频</string>
     <string name="fill_info_desire_title">请选择你对婚姻的渴望程度</string>
     <string name="fill_info_finish">完成</string>
+    <string name="homepage_title">我</string>
+    <string name="homepage_dating_count">已经进行过5次快相亲</string>
+    <string name="homepage_opportunity">机会</string>
+    <string name="homepage_reputation">信誉</string>
+    <string name="homepage_fate">缘分</string>
+    <string name="homepage_photo">相册</string>
+    <string name="homepage_photo_hint">想看你的家庭视频!</string>
+    <string name="homepage_notification">通知</string>
+    <string name="homepage_message">私信</string>
+    <string name="homepage_data">资料</string>
+    <string name="homepage_authentication">已认证</string>
+    <string name="homepage_strategy">攻略</string>
+    <string name="homepage_help">帮助</string>
+    <string name="homepage_coupon">使用券</string>
 
 </resources>

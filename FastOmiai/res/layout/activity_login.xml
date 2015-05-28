@@ -11,7 +11,7 @@
     <RelativeLayout
         android:id="@+id/layout_login_title"
         android:layout_width="match_parent"
-    	android:layout_height="@dimen/login_title_height"
+    	android:layout_height="@dimen/title_height"
     	android:orientation="horizontal" >
         
         <ImageButton
@@ -35,7 +35,7 @@
     
     <ImageView 
         android:layout_width="match_parent"
-	    android:layout_height="@dimen/login_title_sep_height"
+	    android:layout_height="@dimen/sepline_height"
 	    android:layout_below="@id/layout_login_title"
 	    android:background="@android:color/holo_blue_dark" />
     

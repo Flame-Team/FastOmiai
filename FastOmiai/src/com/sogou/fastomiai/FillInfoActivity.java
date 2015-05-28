@@ -1,5 +1,6 @@
 package com.sogou.fastomiai;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
@@ -48,11 +49,20 @@ public class FillInfoActivity extends FragmentActivity {
 			
 			@Override
 			public void onClick(View v) {
-				if (2 == mIndex + 1) {
+				switch (mIndex) {
+				case 1:
 					mBtnNext.setText(getResources().getString(R.string.fill_info_finish));
+				case 0:
+					mBtnBack.setVisibility(View.VISIBLE);
+					setTabSelection(mIndex + 1);
+					break;
+				case 2:
+					Intent intent = new Intent(getApplicationContext(), HomePageActivity.class);
+				    startActivity(intent);
+				    break;
+				default:
+					break;
 				}
-				mBtnBack.setVisibility(View.VISIBLE);
-				setTabSelection(mIndex + 1);
 			}
 		});
         

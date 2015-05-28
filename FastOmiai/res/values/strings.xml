@@ -49,6 +49,15 @@
     <string name="browse_filter">筛选</string>
     <string name="browse_no_love">无爱</string>
     <string name="browse_date">约TA</string>
+    <string name="choose_place_title">约定地点</string>
+    <string name="choose_place_hint">选择3个约会地点，\n以供对方选择</string>
+    <string name="choose_ok">约起</string>
+    <string name="choose_place1">COSTA</string>
+    <string name="choose_place2">麻辣诱惑</string>
+    <string name="choose_place3">星巴克</string>
+    <string name="choose_place4">必胜客</string>
+    <string name="choose_place5">咖啡厅</string>
+    <string name="choose_hint">您最多只能选择3个地点</string>
     <string name="notification_list_title">通知</string>
     <string name="notification_item_tip">林志玲的见面邀请</string>
     <string name="notification_item_arrow">＞</string>

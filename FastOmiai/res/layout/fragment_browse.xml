@@ -79,7 +79,7 @@
         android:padding="@dimen/browse_button_padding" />
     
     <Button
-        android:id="@+id/btn_date"
+        android:id="@+id/btn_browse_date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/pink_button_shape"

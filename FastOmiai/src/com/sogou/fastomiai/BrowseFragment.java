@@ -1,10 +1,14 @@
 package com.sogou.fastomiai;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.View.OnClickListener;
+import android.widget.Button;
 
 /**
  * A fragment representing a single step in a wizard. The fragment shows a dummy title indicating
@@ -23,19 +27,23 @@ public class BrowseFragment extends Fragment {
      * The fragment's page number, which is set to the argument value for {@link #ARG_PAGE}.
      */
     private int mPageNumber;
+    
+    private Context mContext;
+    private Button mBtnDate = null;
 
     /**
      * Factory method for this fragment class. Constructs a new fragment for the given page number.
      */
-    public static BrowseFragment create(int pageNumber) {
-    	BrowseFragment fragment = new BrowseFragment();
+    public static BrowseFragment create(Context context, int pageNumber) {
+    	BrowseFragment fragment = new BrowseFragment(context);
         Bundle args = new Bundle();
         args.putInt(ARG_PAGE, pageNumber);
         fragment.setArguments(args);
         return fragment;
     }
 
-    public BrowseFragment() {
+    public BrowseFragment(Context context) {
+    	mContext = context;
     }
 
     @Override
@@ -50,6 +58,16 @@ public class BrowseFragment extends Fragment {
 
         ViewGroup rootView = (ViewGroup) inflater
                 .inflate(R.layout.fragment_browse, container, false);
+        
+        mBtnDate = (Button) rootView.findViewById(R.id.btn_browse_date);
+        mBtnDate.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				Intent intent = new Intent(mContext, MapChoosePlaceActivity.class);
+			    startActivity(intent);
+			}
+		});
 
         return rootView;
     }

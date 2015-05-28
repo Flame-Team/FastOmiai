@@ -41,7 +41,7 @@ public class HomePageActivity extends Activity {
 			
 			@Override
 			public void onClick(View v) {
-				Toast.makeText(getApplicationContext(), "相册", Toast.LENGTH_SHORT).show();				
+				Toast.makeText(getApplicationContext(), "相册", Toast.LENGTH_SHORT).show();
 			}
 		});
         

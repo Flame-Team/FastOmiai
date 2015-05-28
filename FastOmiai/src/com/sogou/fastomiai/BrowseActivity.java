@@ -59,7 +59,7 @@ public class BrowseActivity extends FragmentActivity {
 
         @Override
         public Fragment getItem(int position) {
-            return BrowseFragment.create(position);
+            return BrowseFragment.create(getApplicationContext(), position);
         }
 
         @Override

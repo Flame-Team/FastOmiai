@@ -94,6 +94,12 @@
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
         </activity>
         
+        <activity
+            android:name=".MapChoosePlaceActivity"
+            android:launchMode="singleTask"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
+        </activity>
+        
 		<activity
             android:name=".NotificationListActivity"
             android:launchMode="singleTask"

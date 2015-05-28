@@ -1,0 +1,170 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:orientation="vertical"
+    tools:context="com.sogou.fastomiai.MapActivity" >
+    
+    <RelativeLayout
+        android:id="@+id/layout_choose_place_title"
+        android:layout_width="match_parent"
+    	android:layout_height="@dimen/title_height"
+    	android:orientation="horizontal" >
+        
+        <ImageButton
+	        android:id="@+id/btn_choose_place_back"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:src="@drawable/ic_action_back"
+	        android:background="@android:color/transparent"
+	        android:layout_alignParentLeft="true"
+	        android:layout_centerVertical="true" />
+        
+        <TextView
+	        android:id="@+id/text_fill_info_title"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_centerInParent="true"
+	        android:text="@string/choose_place_title"
+	        android:textSize="28sp"/>
+        
+    </RelativeLayout>
+    
+    <ImageView 
+        android:layout_width="match_parent"
+	    android:layout_height="@dimen/sepline_height"
+	    android:background="@android:color/holo_blue_dark" />
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/choose_hint_height"
+        android:orientation="horizontal" >
+        
+        <TextView
+	        android:id="@+id/text_choose_hint"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:background="@drawable/blue_button_shape"
+	        android:text="@string/choose_place_hint"
+	        android:layout_gravity="center_vertical"
+	        android:textSize="16sp"
+	        android:padding="@dimen/choose_hint_padding" />
+        
+        <Button
+	        android:id="@+id/btn_choose"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:background="@drawable/pink_button_shape"
+	        android:layout_gravity="center_vertical"
+	        android:layout_marginLeft="@dimen/choose_button_left_margin"
+	        android:text="@string/choose_ok"
+	        android:textSize="22sp"
+	        android:textColor="@android:color/white"
+	        android:padding="@dimen/choose_button_padding" />
+        
+    </LinearLayout>
+    
+    <RelativeLayout 
+        android:layout_width="match_parent"
+	    android:layout_height="0dp"
+	    android:layout_marginTop="@dimen/choose_map_top_margin"
+	    android:layout_weight="1" >
+        
+        <ImageView 
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:scaleType="centerCrop"
+            android:background="@drawable/map_choose_place" />
+        
+        <CheckBox
+            android:id="@+id/check_place1"
+            android:layout_width="wrap_content"
+	    	android:layout_height="wrap_content"
+	    	android:layout_marginTop="220dp"
+	    	android:layout_marginLeft="60dp"
+	    	android:background="@drawable/checkbox_selector"
+	    	android:button="@null" />
+        
+        <CheckBox
+            android:id="@+id/check_place2"
+            android:layout_width="wrap_content"
+	    	android:layout_height="wrap_content"
+	    	android:layout_marginTop="100dp"
+	    	android:layout_marginLeft="90dp"
+	    	android:background="@drawable/checkbox_selector"
+	    	android:button="@null" />
+        
+        <CheckBox
+            android:id="@+id/check_place3"
+            android:layout_width="wrap_content"
+	    	android:layout_height="wrap_content"
+	    	android:layout_marginTop="150dp"
+	    	android:layout_marginLeft="150dp"
+	    	android:background="@drawable/checkbox_selector"
+	    	android:button="@null" />
+        
+        <CheckBox
+            android:id="@+id/check_place4"
+            android:layout_width="wrap_content"
+	    	android:layout_height="wrap_content"
+	    	android:layout_marginTop="67dp"
+	    	android:layout_marginLeft="180dp"
+	    	android:background="@drawable/checkbox_selector"
+	    	android:button="@null" />
+        
+        <CheckBox
+            android:id="@+id/check_place5"
+            android:layout_width="wrap_content"
+	    	android:layout_height="wrap_content"
+	    	android:layout_marginTop="180dp"
+	    	android:layout_marginLeft="210dp"
+	    	android:background="@drawable/checkbox_selector"
+	    	android:button="@null" />
+        
+        <TextView 
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="158dp"
+	    	android:layout_marginLeft="30dp"
+            android:text="@string/choose_place1"
+            android:background="@drawable/a4_" />
+        
+        <TextView 
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="38dp"
+	    	android:layout_marginLeft="55dp"
+            android:text="@string/choose_place2"
+            android:background="@drawable/a4_" />
+        
+        <TextView 
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="88dp"
+	    	android:layout_marginLeft="123dp"
+            android:text="@string/choose_place3"
+            android:background="@drawable/a4_" />
+        
+        <TextView 
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+	    	android:layout_marginLeft="153dp"
+            android:text="@string/choose_place4"
+            android:background="@drawable/a4_" />
+        
+        <TextView 
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="118dp"
+	    	android:layout_marginLeft="183dp"
+            android:text="@string/choose_place5"
+            android:background="@drawable/a4_" />
+        
+    </RelativeLayout>
+
+</LinearLayout>

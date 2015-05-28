@@ -88,6 +88,12 @@
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
         </activity>
         
+        <activity
+            android:name=".BrowseActivity"
+            android:launchMode="singleTask"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
+        </activity>
+        
         	<activity android:name="org.androidpn.client.NotificationDetailsActivity"
 			android:label="Notification Details">
 		</activity>

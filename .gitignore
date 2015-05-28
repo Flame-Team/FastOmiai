@@ -34,3 +34,9 @@ lint.xml
 
 # Mac
 .DS_Store
+
+# docx
+~$*
+
+# Vim
+*.swp

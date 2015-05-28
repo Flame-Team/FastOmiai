@@ -10,14 +10,10 @@ public class ChatItemInfo extends ResponseInfo {
 
     public class ChatItem {
         @SerializedName("user")
-        public ArrayList<User> users;
+        public ArrayList<InviteUser> users;
 
         @SerializedName("chatlist")
         public ArrayList<ChatMsg> chatlist;
-    }
-
-    public class User {
-        // TODO 待填充
     }
 
     public class ChatMsg {

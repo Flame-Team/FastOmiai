@@ -1,12 +1,17 @@
 package com.sogou.fastomiai.model;
 
+import java.util.ArrayList;
+
 import com.google.gson.annotations.SerializedName;
 
-public class InviteItemInfo extends ResponseInfo {
+public class UserInviteInfo extends ResponseInfo {
     @SerializedName("data")
-    public InviteItem data;
+    public ArrayList<InviteInfo> data;
 
-    public class InviteItem {
+    public class InviteInfo {
+        @SerializedName("id")
+        public int id;
+
         @SerializedName("status")
         public InviteStatusEnum status;
 
@@ -17,14 +22,6 @@ public class InviteItemInfo extends ResponseInfo {
         public InviteUser user;
 
         @SerializedName("position")
-        public InvitePosition position = null;
-    }
-
-    public enum SexEnum {
-        @SerializedName("w")
-        FEMALE,
-
-        @SerializedName("m")
-        MALE
+        public InvitePosition position;
     }
 }

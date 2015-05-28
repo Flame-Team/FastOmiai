@@ -53,29 +53,30 @@ public class ConfirmActivity extends Activity {
 		});
         
         mTextCountDown = (TextView) findViewById(R.id.text_countdown);
-        if (null == mTimer) {
-        	mTimer = new Timer();
-            TimerTask task = new TimerTask() {    
-                @Override    
-                public void run() {    
-           
-                    runOnUiThread(new Runnable() {  
-                        @Override    
-                        public void run() {    
-                        	sTotalTime--;
-                            mTextCountDown.setText(getString(R.string.confirm_wait) + "\n" +
-                            		sTotalTime / (60 * 60) + ":" +
-                            		(sTotalTime % (60 * 60)) / 60 + ":" + 
-                            		((sTotalTime % (60 * 24)) % 60));    
-                            if(sTotalTime < 0){    
-                            	mTimer.cancel();      
-                            }    
+        if (null != mTimer) {
+        	mTimer.cancel();
+        }        
+        mTimer = new Timer();
+        TimerTask task = new TimerTask() {    
+            @Override    
+            public void run() {    
+       
+                runOnUiThread(new Runnable() {  
+                    @Override    
+                    public void run() {    
+                    	sTotalTime--;
+                        mTextCountDown.setText(getString(R.string.confirm_wait) + "\n" +
+                        		sTotalTime / (60 * 60) + ":" +
+                        		(sTotalTime % (60 * 60)) / 60 + ":" + 
+                        		((sTotalTime % (60 * 24)) % 60));    
+                        if(sTotalTime < 0){    
+                        	mTimer.cancel();
                         }    
-                    });    
-                }    
-            }; 
-            mTimer.schedule(task, 0, 1000);
-        }
+                    }    
+                });    
+            }    
+        }; 
+        mTimer.schedule(task, 0, 1000);
         
     }
 
@@ -83,6 +84,6 @@ public class ConfirmActivity extends Activity {
 	protected void onSaveInstanceState(Bundle outState) {
 		super.onSaveInstanceState(outState);
 		outState.putLong("time", sTotalTime);
-	} 
+	}
 }
 

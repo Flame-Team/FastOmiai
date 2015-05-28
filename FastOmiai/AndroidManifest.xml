@@ -30,7 +30,14 @@
 	<uses-permission android:name="android.permission.READ_LOGS"></uses-permission>
 
 	<uses-permission android:name="android.permission.RECORD_AUDIO" />
-
+	
+	<uses-permission android:name="android.permission.READ_PHONE_STATE" />
+	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+	<uses-permission android:name="android.permission.INTERNET" />
+	<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+	<uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+	<uses-permission android:name="android.permission.VIBRATE" />
+	
     <uses-sdk
         android:minSdkVersion="15"
         android:targetSdkVersion="22" />
@@ -80,6 +87,22 @@
             android:launchMode="singleTask"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
         </activity>
+        
+        	<activity android:name="org.androidpn.client.NotificationDetailsActivity"
+			android:label="Notification Details">
+		</activity>
+		
+		<activity android:name="org.androidpn.client.NotificationSettingsActivity"
+			android:label="Notification Settings">
+		</activity>
+		
+		<service android:enabled="true"
+			android:name="org.androidpn.client.NotificationService"
+			android:label="NotificationService">
+			<intent-filter>
+				<action android:name="org.androidpn.client.NotificationService" />
+			</intent-filter>
+		</service>
         
         <service android:name="com.baidu.location.f" android:enabled="true" android:process=":remote">
 		</service>

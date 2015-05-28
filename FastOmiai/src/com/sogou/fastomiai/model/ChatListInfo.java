@@ -8,7 +8,7 @@ public class ChatListInfo extends ResponseInfo {
     @SerializedName("data")
     public ArrayList<OneChat> data;
 
-    public class OneChat {
+    public static class OneChat {
         @SerializedName("uid")
         public String uid;
 

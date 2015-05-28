@@ -52,5 +52,6 @@
     <string name="notification_list_title">通知</string>
     <string name="notification_item_tip">林志玲的见面邀请</string>
     <string name="notification_item_arrow">＞</string>
-
+    <string name="chat_list_title">私信</string>
+	<string name="chat_item_tip">来自林志玲的私信</string>
 </resources>

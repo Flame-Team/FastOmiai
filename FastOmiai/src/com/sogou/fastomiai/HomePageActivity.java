@@ -60,7 +60,8 @@ public class HomePageActivity extends Activity {
 			
 			@Override
 			public void onClick(View v) {
-				Toast.makeText(getApplicationContext(), "私信", Toast.LENGTH_SHORT).show();				
+                Intent intent = new Intent(getApplicationContext(), ChatListActivity.class);
+                startActivity(intent);
 			}
 		});
         

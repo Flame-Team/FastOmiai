@@ -38,4 +38,6 @@
     <dimen name="browse_button_margin">40dp</dimen>
 
     <dimen name="notification_item_child_margin">16dp</dimen>
+
+    <dimen name="chat_item_child_margin">16dp</dimen>
 </resources>

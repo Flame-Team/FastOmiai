@@ -1,6 +1,7 @@
 package com.sogou.fastomiai;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -31,6 +32,8 @@ public class NotificationInfoFragment extends Fragment {
     private Context mContext;
     private Button mBtnRegret = null;
     private Button mBtnAgree = null;
+    
+    boolean[] mPlaces = {false, false, false, false, false};
 
     /**
      * Factory method for this fragment class. Constructs a new fragment for the given page number.
@@ -74,7 +77,9 @@ public class NotificationInfoFragment extends Fragment {
 			
 			@Override
 			public void onClick(View v) {
-				Toast.makeText(mContext, "同意", Toast.LENGTH_SHORT).show();
+				Intent intent = new Intent(mContext, PlacePickerActivity.class);
+				intent.putExtra("places", mPlaces);
+			    startActivity(intent);
 			}
 		});
 

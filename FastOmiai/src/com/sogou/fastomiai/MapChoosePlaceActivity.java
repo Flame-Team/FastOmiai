@@ -46,7 +46,7 @@ public class MapChoosePlaceActivity extends Activity {
 			
 			@Override
 			public void onClick(View v) {
-				if (0 >= getPlacesCount()) {
+				if (3 > getPlacesCount()) {
 					Toast.makeText(getApplicationContext(),
 							getString(R.string.choose_none_hint),
 							Toast.LENGTH_SHORT).show();

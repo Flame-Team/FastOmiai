@@ -119,6 +119,12 @@
         </activity>
         
 		<activity
+            android:name=".PlacePickerActivity"
+            android:launchMode="singleTask"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
+        </activity>
+        
+		<activity
             android:name=".ChatListActivity"
             android:launchMode="singleTask"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >

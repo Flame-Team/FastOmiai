@@ -72,8 +72,7 @@
         android:background="@drawable/blue_button_shape"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="@dimen/browse_button_bottom_margin"
-        android:layout_marginLeft="@dimen/browse_button_margin"
-        android:text="@string/browse_no_love"
+        android:text="@string/notification_regret"
         android:textSize="22sp"
         android:textColor="@android:color/white"
         android:padding="@dimen/browse_button_padding" />
@@ -86,8 +85,7 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:layout_marginBottom="@dimen/browse_button_bottom_margin"
-        android:layout_marginRight="@dimen/browse_button_margin"
-        android:text="@string/browse_date"
+        android:text="@string/notification_agree"
         android:textSize="22sp"
         android:textColor="@android:color/white"
         android:padding="@dimen/browse_button_padding" />

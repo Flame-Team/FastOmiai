@@ -57,10 +57,14 @@
     <string name="choose_place3">星巴克</string>
     <string name="choose_place4">必胜客</string>
     <string name="choose_place5">咖啡厅</string>
-    <string name="choose_none_hint">您至少要选择1个地点</string>
+    <string name="choose_none_hint">您必须选择3个地点</string>
     <string name="choose_over_hint">您最多只能选择3个地点</string>
     <string name="confirm_hint">若对方在规定时间内不回复将会扣除其信誉值</string>
     <string name="confirm_wait">等待对方回复</string>
+    <string name="confirm_place_title">确定地点</string>
+    <string name="confirm_place_hint">在3个地点中选择\n心仪的一个？</string>
+    <string name="confirm_place_partner">携带闺蜜</string>
+    <string name="confirm_place_ok">接受！</string>
     <string name="notification_list_title">通知</string>
     <string name="notification_item_tip">林志玲的见面邀请</string>
     <string name="notification_item_arrow">＞</string>

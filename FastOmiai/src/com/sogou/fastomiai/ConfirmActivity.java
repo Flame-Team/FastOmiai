@@ -20,7 +20,7 @@ public class ConfirmActivity extends Activity {
     static private Timer mTimer = null; 
 	
     private Button mBtnHomePage = null;
-    private Button mBtnFilter = null;    
+    private Button mBtnFilter = null; 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

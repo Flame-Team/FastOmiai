@@ -4,13 +4,12 @@
     android:orientation="vertical"
     android:padding="16dp">
 
-    <ImageView 
+    <com.android.volley.toolbox.NetworkImageView 
         android:id="@+id/image_user_photo"
         android:layout_width="@dimen/browse_photo_size"
         android:layout_height="@dimen/browse_photo_size"
         android:layout_centerInParent="true"
-        android:scaleType="centerCrop"
-        android:background="@drawable/woman" />
+        android:scaleType="centerCrop" />
 
     <Button
         android:id="@+id/text_tag1"
@@ -21,7 +20,9 @@
         android:background="@drawable/homepage_baseinfo_item_shape"
         android:text="是不是"
         android:textSize="@dimen/browse_tag_textsize"
-        android:padding="@dimen/browse_tag_padding" />
+        android:padding="@dimen/browse_tag_padding" 
+        android:visibility="gone"
+        />
     
     <Button
         android:id="@+id/text_tag2"
@@ -31,7 +32,9 @@
         android:background="@drawable/homepage_baseinfo_item_shape"
         android:text="是不是"
         android:textSize="@dimen/browse_tag_textsize"
-        android:padding="@dimen/browse_tag_padding" />
+        android:padding="@dimen/browse_tag_padding"
+         android:visibility="gone"
+         />
     
     <Button
         android:id="@+id/text_tag3"
@@ -41,7 +44,9 @@
         android:background="@drawable/homepage_baseinfo_item_shape"
         android:text="是不是"
         android:textSize="@dimen/browse_tag_textsize"
-        android:padding="@dimen/browse_tag_padding" />
+        android:padding="@dimen/browse_tag_padding"
+         android:visibility="gone"
+         />
     
     <Button
         android:id="@+id/text_tag4"
@@ -52,7 +57,9 @@
         android:background="@drawable/homepage_baseinfo_item_shape"
         android:text="是不是"
         android:textSize="@dimen/browse_tag_textsize"
-        android:padding="@dimen/browse_tag_padding" />
+        android:padding="@dimen/browse_tag_padding"
+         android:visibility="gone"
+         />
     
     <Button
         android:id="@+id/text_tag5"
@@ -63,7 +70,9 @@
         android:background="@drawable/homepage_baseinfo_item_shape"
         android:text="是不是"
         android:textSize="@dimen/browse_tag_textsize"
-        android:padding="@dimen/browse_tag_padding" />
+        android:padding="@dimen/browse_tag_padding" 
+         android:visibility="gone"
+        />
     
     <Button
         android:id="@+id/btn_no_love"

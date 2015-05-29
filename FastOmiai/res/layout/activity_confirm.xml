@@ -76,7 +76,7 @@
 	        android:layout_height="@dimen/browse_photo_size"
 	        android:layout_centerInParent="true"
 	        android:scaleType="centerCrop"
-	        android:background="@drawable/woman" />
+ />
 	
 	    <Button
 	        android:id="@+id/text_tag1"
@@ -87,7 +87,9 @@
 	        android:background="@drawable/homepage_baseinfo_item_shape"
 	        android:text="是不是"
 	        android:textSize="@dimen/browse_tag_textsize"
-	        android:padding="@dimen/browse_tag_padding" />
+	        android:padding="@dimen/browse_tag_padding"
+	        android:visibility="gone"
+	         />
 	    
 	    <Button
 	        android:id="@+id/text_tag2"
@@ -97,7 +99,9 @@
 	        android:background="@drawable/homepage_baseinfo_item_shape"
 	        android:text="是不是"
 	        android:textSize="@dimen/browse_tag_textsize"
-	        android:padding="@dimen/browse_tag_padding" />
+	        android:padding="@dimen/browse_tag_padding"
+	        android:visibility="gone"
+	         />
 	    
 	    <Button
 	        android:id="@+id/text_tag3"
@@ -107,7 +111,9 @@
 	        android:background="@drawable/homepage_baseinfo_item_shape"
 	        android:text="是不是"
 	        android:textSize="@dimen/browse_tag_textsize"
-	        android:padding="@dimen/browse_tag_padding" />
+	        android:padding="@dimen/browse_tag_padding" 
+	        android:visibility="gone"
+	        />
 	    
 	    <Button
 	        android:id="@+id/text_tag4"
@@ -118,7 +124,9 @@
 	        android:background="@drawable/homepage_baseinfo_item_shape"
 	        android:text="是不是"
 	        android:textSize="@dimen/browse_tag_textsize"
-	        android:padding="@dimen/browse_tag_padding" />
+	        android:padding="@dimen/browse_tag_padding" 
+	        android:visibility="gone"
+	        />
 	    
 	    <Button
 	        android:id="@+id/text_tag5"
@@ -129,7 +137,9 @@
 	        android:background="@drawable/homepage_baseinfo_item_shape"
 	        android:text="是不是"
 	        android:textSize="@dimen/browse_tag_textsize"
-	        android:padding="@dimen/browse_tag_padding" />
+	        android:padding="@dimen/browse_tag_padding"
+	        android:visibility="gone"
+	         />
 	    
 	    <TextView
 	        android:id="@+id/text_countdown"

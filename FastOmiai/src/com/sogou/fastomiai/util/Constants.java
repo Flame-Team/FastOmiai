@@ -35,6 +35,7 @@ public class Constants {
     public static final String ID = "id";
     public static final String ACT = "act";
     public static final String POSITION = "position";
+    public static final String POS = "pos";
     public static final String SCORE = "score";
     public static final String COMMENT = "comment";
     public static final String TO_UID = "to_uid";

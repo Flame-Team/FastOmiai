@@ -71,7 +71,7 @@ public class FillBaseInfoFragment extends Fragment {
 	    position = mSpinnerMarriage.getSelectedItemPosition();
 	    info.marriage = MarriageEnum.values()[position];
 	    
-	    // TODO 个人宣言？
+	    // 个人宣言？
 	}
 	
 	public boolean isFilled() {

@@ -45,6 +45,7 @@
     <string name="homepage_strategy">攻略</string>
     <string name="homepage_help">帮助</string>
     <string name="homepage_coupon">使用券</string>
+    <string name="homepage_meeting">见面</string>
     <string name="browse_title">发现</string>
     <string name="browse_filter">筛选</string>
     <string name="browse_no_love">无爱</string>
@@ -86,4 +87,6 @@
 	<string name="chat_content2">你手机号多少？</string>
 	<string name="chat_content3">2的13次方，减去1504</string>
 	<string name="chat_content4">哇，直接说吧，我数学不好</string>
+	<string name="meeting_title">见面中</string>
+	<string name="meeting_tip">请将两个手机碰在一起，并关闭静音以确定见面！</string>
 </resources>

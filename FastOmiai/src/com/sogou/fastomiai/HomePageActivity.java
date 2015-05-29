@@ -20,6 +20,7 @@ public class HomePageActivity extends Activity {
     private RelativeLayout mLayoutStrategy = null;
     private RelativeLayout mLayoutHelp = null;
     private RelativeLayout mLayoutCoupon = null;
+    private RelativeLayout mLayoutMeeting = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -108,6 +109,15 @@ public class HomePageActivity extends Activity {
 			}
 		});
 
+        mLayoutMeeting = (RelativeLayout) findViewById(R.id.layout_meeting);
+        mLayoutMeeting.setOnClickListener(new OnClickListener() {
+            
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), MeetingActivity.class);
+                startActivity(intent);
+            }
+        });
     }
     
 }

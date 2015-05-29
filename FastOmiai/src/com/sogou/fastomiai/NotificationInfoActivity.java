@@ -64,6 +64,7 @@ public class NotificationInfoActivity extends FragmentActivity {
 				}
 			}
 		});
+        // TODO
     }
 
     private class ScreenSlidePagerAdapter extends FragmentStatePagerAdapter {

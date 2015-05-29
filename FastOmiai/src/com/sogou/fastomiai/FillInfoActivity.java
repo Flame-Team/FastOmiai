@@ -128,6 +128,7 @@ public class FillInfoActivity extends FragmentActivity {
                             Intent intent = new Intent(getApplicationContext(),
                                     BrowseActivity.class);
                             startActivity(intent);
+                            finish();
                         } else {
                             if (suppInfo != null && suppInfo.errmsg != null) {
                                 Toast.makeText(getApplicationContext(),

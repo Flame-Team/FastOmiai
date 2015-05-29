@@ -54,4 +54,6 @@
     <dimen name="deposit_button_padding">15dp</dimen>
 
     <dimen name="chat_item_child_margin">16dp</dimen>
+    
+    <dimen name="meeting_text_width">150dp</dimen>
 </resources>

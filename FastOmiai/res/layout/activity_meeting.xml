@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+	
+	<RelativeLayout
+        android:id="@+id/layout_metting_title"
+        android:layout_width="match_parent"
+    	android:layout_height="@dimen/title_height"
+    	android:orientation="horizontal" >
+        
+        <ImageButton
+	        android:id="@+id/btn_meeting_back"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:src="@drawable/ic_action_back"
+	        android:background="@android:color/transparent"
+	        android:layout_alignParentLeft="true"
+	        android:layout_centerVertical="true"
+	        android:visibility="invisible" />
+        
+        <TextView
+	        android:id="@+id/text_meeting_title"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_centerInParent="true"
+	        android:text="@string/meeting_title"
+	        android:textSize="28sp"/>
+        
+    </RelativeLayout>
+    
+	<TextView 
+	    android:layout_width="@dimen/meeting_text_width"
+	    android:layout_height="@dimen/meeting_text_width"
+	    android:background="@drawable/add_photo_shape"
+	    android:text="@string/meeting_tip"
+	    android:textSize="20sp"
+	    android:gravity="center_vertical"
+	    android:layout_gravity="center" />
+	
+	<LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/start_reg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="start reg" />
+
+        <Button
+            android:id="@+id/stop_reg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="stop reg" />
+
+        <TextView
+            android:id="@+id/regtext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="recognised text" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="50dp"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/start_play"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="start play" />
+
+        <Button
+            android:id="@+id/stop_play"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="stop play" />
+
+        <TextView
+            android:id="@+id/playtext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="play text" />
+    </LinearLayout>
+
+</LinearLayout>

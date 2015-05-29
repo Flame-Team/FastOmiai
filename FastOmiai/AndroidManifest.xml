@@ -46,7 +46,7 @@
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme" >
+        android:theme="@android:style/Theme.Light.NoTitleBar.Fullscreen" >
         
         <meta-data  
 	        android:name="com.baidu.lbsapi.API_KEY"  
@@ -54,8 +54,7 @@
         
         <activity
             android:name=".SplashActivity"
-            android:label="@string/app_name"
-            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
+            android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -65,86 +64,72 @@
         
         <activity
             android:name=".MapActivity"
-            android:launchMode="singleTask"
-            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
+            android:launchMode="singleTask" >
         </activity>
         
         <activity
             android:name=".LoginActivity"
-            android:launchMode="singleTask"
-            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
+            android:launchMode="singleTask" >
         </activity>
         
         <activity
             android:name=".FillInfoActivity"
-            android:launchMode="singleTask"
-            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
+            android:launchMode="singleTask" >
         </activity>
         
         <activity
             android:name=".HomePageActivity"
-            android:launchMode="singleTask"
-            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
+            android:launchMode="singleTask" >
         </activity>
         
         <activity
             android:name=".BrowseActivity"
-            android:launchMode="singleTask"
-            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
+            android:launchMode="singleTask" >
         </activity>
         
         <activity
             android:name=".MapChoosePlaceActivity"
-            android:launchMode="singleTask"
-            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
+            android:launchMode="singleTask" >
         </activity>
         
         <activity
             android:name=".ConfirmActivity"
-            android:launchMode="singleTask"
-            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
+            android:launchMode="singleTask" >
         </activity>
         
 		<activity
             android:name=".NotificationListActivity"
-            android:launchMode="singleTask"
-            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
+            android:launchMode="singleTask" >
         </activity>
         
 		<activity
             android:name=".NotificationInfoActivity"
-            android:launchMode="singleTask"
-            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
+            android:launchMode="singleTask" >
         </activity>
         
 		<activity
             android:name=".PlacePickerActivity"
-            android:launchMode="singleTask"
-            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
+            android:launchMode="singleTask" >
         </activity>
         
 		<activity
             android:name=".DepositActivity"
-            android:launchMode="singleTask"
-            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
+            android:launchMode="singleTask" >
         </activity>
         
 		<activity
             android:name=".DepositReceiverActivity"
-            android:launchMode="singleTask"
-            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
+            android:launchMode="singleTask" >
         </activity>
         
 		<activity
             android:name=".ChatActivity"
-            android:launchMode="singleTask"
-            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
+            android:launchMode="singleTask" >
         </activity>
         
 		<activity
             android:name=".ChatListActivity"
-            android:launchMode="singleTask"
-            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
+            android:launchMode="singleTask" >
         </activity>
         
 		<activity

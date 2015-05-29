@@ -1,5 +1,9 @@
 package com.sogou.fastomiai;
 
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.util.ArrayList;
 
 import android.app.Activity;
@@ -10,9 +14,11 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.provider.MediaStore;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Base64;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -39,11 +45,15 @@ public class FillPhotoFragment extends Fragment {
     
     private Button mBtnSelPhoto;
     private ImageView mImageSelPhoto;
+    
+    private ArrayList<FileItem> mFiles;
 
 	@Override
 	public View onCreateView(LayoutInflater inflater,
 			@Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 		View v = inflater.inflate(R.layout.fragment_fill_photo, container, false);
+		
+		mFiles = new ArrayList<FileItem>();
 		
 		mImagePhoto1 = (ImageView)v.findViewById(R.id.image_photo1);
 		mImagePhoto2 = (ImageView)v.findViewById(R.id.image_photo2);
@@ -145,6 +155,25 @@ public class FillPhotoFragment extends Fragment {
                             mImageSelPhoto.setVisibility(View.VISIBLE);
                             mImageSelPhoto.setImageBitmap(image);
                             isFilled = true;
+                            
+                            FileItem item = new FileItem();
+                            item.name = String.valueOf(System.currentTimeMillis()) + ".png";
+                            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                            image.compress(Bitmap.CompressFormat.PNG, 100, baos);
+                            item.file = Base64.encodeToString(baos.toByteArray(), Base64.DEFAULT);
+                            mFiles.add(item);
+                            try {
+                                File file = new File(
+                                        Environment
+                                                .getExternalStorageDirectory(),
+                                        "fastomiai.png");
+                                FileOutputStream fos = new FileOutputStream(
+                                        file);
+                                fos.write(baos.toByteArray());
+                                fos.close();
+                            } catch (Exception e) {
+
+                            }
                         }
                     } catch (Exception e) {
                         e.printStackTrace();
@@ -159,6 +188,25 @@ public class FillPhotoFragment extends Fragment {
                             mImageSelPhoto.setVisibility(View.VISIBLE);
                             mImageSelPhoto.setImageBitmap(image);
                             isFilled = true;
+                            
+                            FileItem item = new FileItem();
+                            item.name = String.valueOf(System.currentTimeMillis()) + ".png";
+                            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                            image.compress(Bitmap.CompressFormat.PNG, 100, baos);
+                            item.file = Base64.encodeToString(baos.toByteArray(), Base64.DEFAULT);
+                            mFiles.add(item);
+                            try {
+                                File file = new File(
+                                        Environment
+                                                .getExternalStorageDirectory(),
+                                        "fastomiai.png");
+                                FileOutputStream fos = new FileOutputStream(
+                                        file);
+                                fos.write(baos.toByteArray());
+                                fos.close();
+                            } catch (Exception e) {
+
+                            }
                         }
                     }
                 }
@@ -173,11 +221,9 @@ public class FillPhotoFragment extends Fragment {
     public void fillInfo(UserSupplementInfo info) {
         info.photo = new ArrayList<FileItem>();
         info.vedio = new ArrayList<FileItem>();
-        FileItem item = new FileItem();
-        item.name = "1.png";
-        item.file = "abc";
-        info.photo.add(item);
-        info.vedio.add(item);
+        if (mFiles.size() != 0) {
+            info.photo = mFiles;
+        }
     }
     
     public boolean isFilled() {

@@ -92,8 +92,8 @@ public class BrowseFragment extends Fragment {
         
         String strID = mContext.getID();
     	if (strID != null && strID.equals(strUser)) {
-    		rootView = (ViewGroup) inflater
-	                .inflate(R.layout.fragment_confirm, container, false);	
+//    		rootView = (ViewGroup) inflater
+//	                .inflate(R.layout.fragment_confirm, container, false);	
     		
 		}
     	else {

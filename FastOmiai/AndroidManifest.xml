@@ -138,19 +138,19 @@
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
         </activity>
         
-        <activity android:name="org.androidpn.client.NotificationDetailsActivity"
+        <activity android:name="com.android.pushclient.NotificationDetailsActivity"
 			android:label="Notification Details">
 		</activity>
 		
-		<activity android:name="org.androidpn.client.NotificationSettingsActivity"
+		<activity android:name="com.android.pushclient.NotificationSettingsActivity"
 			android:label="Notification Settings">
 		</activity>
 		
 		<service android:enabled="true"
-			android:name="org.androidpn.client.NotificationService"
+			android:name="com.android.pushclient.NotificationService"
 			android:label="NotificationService">
 			<intent-filter>
-				<action android:name="org.androidpn.client.NotificationService" />
+				<action android:name="com.android.pushclient.NotificationService" />
 			</intent-filter>
 		</service>
         

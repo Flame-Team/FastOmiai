@@ -97,6 +97,8 @@ public final class ServiceManager {
             @Override
             public void run() {
                 Intent intent = NotificationService.getIntent();
+                intent.setAction("com.android.pushclient.NotificationService");
+                intent.setPackage("com.sogou.fastomiai");
                 context.startService(intent);
             }
         });

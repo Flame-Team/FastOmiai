@@ -71,9 +71,23 @@ public class FillInfoActivity extends FragmentActivity {
 			@Override
 			public void onClick(View v) {
 				switch (mIndex) {
-				case 1:
-					mBtnNext.setText(getResources().getString(R.string.fill_info_finish));
+                case 1:
+//                    if (mTab02 != null && !mTab02.isFilled()) {
+//                        Toast.makeText(getApplicationContext(), "请上传照片",
+//                                Toast.LENGTH_SHORT).show();
+//                        return;
+//                    }
+                    mBtnNext.setText(getResources().getString(
+                            R.string.fill_info_finish));
+                    mBtnBack.setVisibility(View.VISIBLE);
+                    setTabSelection(mIndex + 1);
+                    break;
 				case 0:
+                    if (mTab01 != null && !mTab01.isFilled()) {
+                        Toast.makeText(getApplicationContext(), "请补全资料",
+                                Toast.LENGTH_SHORT).show();
+                        return;
+                    }
 					mBtnBack.setVisibility(View.VISIBLE);
 					setTabSelection(mIndex + 1);
 					break;

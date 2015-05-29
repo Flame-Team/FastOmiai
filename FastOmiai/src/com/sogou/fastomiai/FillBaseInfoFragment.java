@@ -73,4 +73,13 @@ public class FillBaseInfoFragment extends Fragment {
 	    
 	    // TODO 个人宣言？
 	}
+	
+	public boolean isFilled() {
+	    String name = mEditName.getText().toString();
+	    if (name == null || name.isEmpty()) {
+	        return false;
+	    }
+	    
+	    return true;
+	}
 }

@@ -25,6 +25,11 @@ public class InviteItemInfo extends ResponseInfo {
         SEX_MALE,
         
         @SerializedName("w")
-        SEX_FEMALE
+        SEX_FEMALE;
+        
+        public String toString() {
+            String[] values = {"m", "w"};
+            return values[ordinal()];
+        }
     }
 }

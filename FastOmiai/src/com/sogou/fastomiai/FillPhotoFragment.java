@@ -27,6 +27,8 @@ import com.sogou.fastomiai.FillInfoActivity.UserSupplementInfo;
 
 public class FillPhotoFragment extends Fragment {
     
+    private boolean isFilled = false;
+    
     private Button mBtnPhoto1;
     private Button mBtnPhoto2;
     private Button mBtnVideo1;
@@ -142,6 +144,7 @@ public class FillPhotoFragment extends Fragment {
                             mBtnSelPhoto.setVisibility(View.GONE);
                             mImageSelPhoto.setVisibility(View.VISIBLE);
                             mImageSelPhoto.setImageBitmap(image);
+                            isFilled = true;
                         }
                     } catch (Exception e) {
                         e.printStackTrace();
@@ -155,10 +158,10 @@ public class FillPhotoFragment extends Fragment {
                             mBtnSelPhoto.setVisibility(View.GONE);
                             mImageSelPhoto.setVisibility(View.VISIBLE);
                             mImageSelPhoto.setImageBitmap(image);
+                            isFilled = true;
                         }
                     }
                 }
-
             }
             break;
         default:
@@ -175,5 +178,9 @@ public class FillPhotoFragment extends Fragment {
         item.file = "abc";
         info.photo.add(item);
         info.vedio.add(item);
+    }
+    
+    public boolean isFilled() {
+        return isFilled;
     }
 }

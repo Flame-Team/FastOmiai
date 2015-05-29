@@ -15,9 +15,9 @@ public class InviteItemInfo extends ResponseInfo {
 
         @SerializedName("user")
         public InviteUser user;
-
-        @SerializedName("position")
-        public InvitePosition position = null;
+        
+        @SerializedName("pos")
+        public String pos;
     }
 
     public enum SexEnum {

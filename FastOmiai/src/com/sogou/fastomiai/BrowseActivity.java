@@ -12,6 +12,7 @@ import com.sogou.fastomiai.util.Constants;
 import com.sogou.fastomiai.util.NetworkRequest;
 import com.sogou.fastomiai.util.NetworkUtil;
 
+import android.R.string;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -28,6 +29,7 @@ import android.widget.Toast;
 
 public class BrowseActivity extends FragmentActivity {
 
+    public static final String EXTRA_USERID = "USERID";
     private static final int NUM_PAGES = 5;
     private ViewPager mPager;
     private PagerAdapter mPagerAdapter;
@@ -36,11 +38,18 @@ public class BrowseActivity extends FragmentActivity {
     private Button mBtnFilter = null; 
     private FindListInfo mFindListInfo;
     
+    private String strConfirmID;
+
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_browse);
-        
+        Intent intent = getIntent();
+		if (intent != null) {
+			strConfirmID = (String) intent.getStringExtra(EXTRA_USERID);
+			getFindListData();
+		}
         mBtnHomePage = (Button) findViewById(R.id.btn_homepage);
         mBtnHomePage.setOnClickListener(new OnClickListener() {
 			
@@ -65,7 +74,12 @@ public class BrowseActivity extends FragmentActivity {
        
       
     }
-
+    
+    public String getID()
+    {
+    	return strConfirmID;
+    }
+    
     private class ScreenSlidePagerAdapter extends FragmentStatePagerAdapter {
         
       
@@ -76,7 +90,7 @@ public class BrowseActivity extends FragmentActivity {
 
         @Override
         public Fragment getItem(int position) {
-            return BrowseFragment.create(getApplicationContext(), position, mFindListInfo);
+            return BrowseFragment.create(BrowseActivity.this, position, mFindListInfo);
         }
 
         @Override
@@ -125,4 +139,11 @@ public class BrowseActivity extends FragmentActivity {
                 },
                 false);
     }
+    
+	protected void onNewIntent(Intent intent) {
+		if (intent != null) {
+			strConfirmID = (String) intent.getStringExtra(EXTRA_USERID);
+			getFindListData();
+		}
+	}
 }

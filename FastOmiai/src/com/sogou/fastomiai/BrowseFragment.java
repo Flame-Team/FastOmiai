@@ -34,7 +34,7 @@ public class BrowseFragment extends Fragment {
      */
     private int mPageNumber;
     
-    private Context mContext;
+    private BrowseActivity mContext;
     private Button mBtnDate = null;
     private ArrayList<Button> listBtn = new ArrayList<Button>();
     private Button mBtnTag1 = null;
@@ -56,7 +56,7 @@ public class BrowseFragment extends Fragment {
     /**
      * Factory method for this fragment class. Constructs a new fragment for the given page number.
      */
-    public static BrowseFragment create(Context context, int pageNumber, FindListInfo findListInfo) {
+    public static BrowseFragment create(BrowseActivity context, int pageNumber, FindListInfo findListInfo) {
     	BrowseFragment fragment = new BrowseFragment(context, findListInfo);
         Bundle args = new Bundle();
         args.putInt(ARG_PAGE, pageNumber);
@@ -65,7 +65,7 @@ public class BrowseFragment extends Fragment {
         return fragment;
     }
 
-    public BrowseFragment(Context context, FindListInfo findListInfo) {
+    public BrowseFragment(BrowseActivity context, FindListInfo findListInfo) {
     	mContext = context;
     	mFindListInfo = findListInfo;
     }
@@ -79,47 +79,59 @@ public class BrowseFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
-
-        ViewGroup rootView = (ViewGroup) inflater
-                .inflate(R.layout.fragment_browse, container, false);
-        
+    	
+     
         if (mFindListInfo.data.size() <= mPageNumber) {
 			return null;
 		}
+        ViewGroup rootView = null;
         
         mStrUrl = mFindListInfo.data.get(mPageNumber).headUrl;
         mListTags = mFindListInfo.data.get(mPageNumber).tags;
         strUser =  mFindListInfo.data.get(mPageNumber).uid;
         
-        NetworkImageView imageHead = (NetworkImageView)rootView.findViewById(R.id.image_user_photo);
-        //imageHead.setImageUrl(mStrUrl, NetworkRequest.getInstance(mContext.getApplicationContext()).getImageLoader());
-        imageHead.setBackgroundResource(imageIds[mPageNumber]);
-        mBtnTag1 = (Button) rootView.findViewById(R.id.text_tag1);
-        mBtnTag2 = (Button) rootView.findViewById(R.id.text_tag2);
-        mBtnTag3 = (Button) rootView.findViewById(R.id.text_tag3);
-        mBtnTag4 = (Button) rootView.findViewById(R.id.text_tag4);
-        mBtnTag5 = (Button) rootView.findViewById(R.id.text_tag5);
-        listBtn.add(mBtnTag1);
-        listBtn.add(mBtnTag2);
-        listBtn.add(mBtnTag3);
-        listBtn.add(mBtnTag4);
-        listBtn.add(mBtnTag5);
-        for(int i=0; i<mListTags.size(); i++)
-        {
-        	listBtn.get(i).setText(mListTags.get(i));
-        	listBtn.get(i).setVisibility(View.VISIBLE);
-        }
+        String strID = mContext.getID();
+    	if (strID != null && strID.equals(strUser)) {
+    		rootView = (ViewGroup) inflater
+	                .inflate(R.layout.fragment_confirm, container, false);	
+    		
+		}
+    	else {
+    		rootView = (ViewGroup) inflater
+    	                .inflate(R.layout.fragment_browse, container, false);	
+            NetworkImageView imageHead = (NetworkImageView)rootView.findViewById(R.id.image_user_photo);
+            //imageHead.setImageUrl(mStrUrl, NetworkRequest.getInstance(mContext.getApplicationContext()).getImageLoader());
+            imageHead.setBackgroundResource(imageIds[mPageNumber]);
+            mBtnTag1 = (Button) rootView.findViewById(R.id.text_tag1);
+            mBtnTag2 = (Button) rootView.findViewById(R.id.text_tag2);
+            mBtnTag3 = (Button) rootView.findViewById(R.id.text_tag3);
+            mBtnTag4 = (Button) rootView.findViewById(R.id.text_tag4);
+            mBtnTag5 = (Button) rootView.findViewById(R.id.text_tag5);
+            listBtn.add(mBtnTag1);
+            listBtn.add(mBtnTag2);
+            listBtn.add(mBtnTag3);
+            listBtn.add(mBtnTag4);
+            listBtn.add(mBtnTag5);
+            for(int i=0; i<mListTags.size(); i++)
+            {
+            	listBtn.get(i).setText(mListTags.get(i));
+            	listBtn.get(i).setVisibility(View.VISIBLE);
+            }
+            
+            mBtnDate = (Button) rootView.findViewById(R.id.btn_browse_date);
+            if (mBtnDate != null) {
+                mBtnDate.setOnClickListener(new OnClickListener() {
+        			
+        			@Override
+        			public void onClick(View v) {
+        				Intent intent = new Intent(mContext, MapChoosePlaceActivity.class);
+        				intent.putExtra("USERID", strUser);
+        			    startActivity(intent);
+        			}
+        		});
+    		}
+		}
         
-        mBtnDate = (Button) rootView.findViewById(R.id.btn_browse_date);
-        mBtnDate.setOnClickListener(new OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				Intent intent = new Intent(mContext, MapChoosePlaceActivity.class);
-				intent.putExtra("USERID", strUser);
-			    startActivity(intent);
-			}
-		});
 
         return rootView;
     }

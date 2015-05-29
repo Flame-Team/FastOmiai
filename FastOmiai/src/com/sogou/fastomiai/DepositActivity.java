@@ -91,6 +91,7 @@ public class DepositActivity extends Activity {
                         false);
 			    
 				Intent intent = new Intent(getApplicationContext(), BrowseActivity.class);
+				intent.putExtra(MapChoosePlaceActivity.EXTRA_USERID, mStrUID);
 			    startActivity(intent);
 			}
 		});

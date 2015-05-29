@@ -47,7 +47,12 @@ public class BrowseFragment extends Fragment {
     private FindListInfo mFindListInfo;
     private String strUser;
     private NetworkImageView netImageView; 
-    
+	private final int[] imageIds = {R.drawable.a, R.drawable.b,
+			R.drawable.c, R.drawable.d,
+			R.drawable.e, R.drawable.f,
+			R.drawable.g, R.drawable.h,
+			R.drawable.i, R.drawable.j,
+	};
     /**
      * Factory method for this fragment class. Constructs a new fragment for the given page number.
      */
@@ -87,7 +92,8 @@ public class BrowseFragment extends Fragment {
         strUser =  mFindListInfo.data.get(mPageNumber).uid;
         
         NetworkImageView imageHead = (NetworkImageView)rootView.findViewById(R.id.image_user_photo);
-        imageHead.setImageUrl(mStrUrl, NetworkRequest.getInstance(mContext.getApplicationContext()).getImageLoader());
+        //imageHead.setImageUrl(mStrUrl, NetworkRequest.getInstance(mContext.getApplicationContext()).getImageLoader());
+        imageHead.setBackgroundResource(imageIds[mPageNumber]);
         mBtnTag1 = (Button) rootView.findViewById(R.id.text_tag1);
         mBtnTag2 = (Button) rootView.findViewById(R.id.text_tag2);
         mBtnTag3 = (Button) rootView.findViewById(R.id.text_tag3);

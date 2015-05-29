@@ -65,6 +65,7 @@
     <string name="confirm_place_hint">在3个地点中选择\n心仪的一个？</string>
     <string name="confirm_place_partner">携带闺蜜</string>
     <string name="confirm_place_ok">接受！</string>
+    <string name="confirm_none_hint">您至少要选择1个地点</string>
     <string name="notification_list_title">通知</string>
     <string name="notification_item_tip">林志玲的见面邀请</string>
     <string name="notification_item_arrow">＞</string>
@@ -74,4 +75,10 @@
 	<string name="notification_regret">礼貌拒绝</string>
 	<string name="notification_agree">同意见面</string>
 	<string name="notification_hint">若你在规定时间内不回复将会扣除\n你的信誉值，拒绝不扣任何信誉值</string>
+	<string name="deposit_title">支付保证金</string>
+	<string name="deposit_sponsor">为了保证你们能够真实见面，我们将收取见面的保证金。\n\n我们承诺：\n见面后立即退还到您的现金账号。\n\n因为任何原因见面失败，将会在7天内退还保证金。</string>
+	<string name="deposit_cancel">取消见面>></string>
+	<string name="deposit_agree">保存50元</string>
+	<string name="deposit_invite">已经支付了保证金50元，诚心邀请您见面。</string>
+	<string name="deposit_agree_and_chat">保存50元，并开始聊天</string>
 </resources>

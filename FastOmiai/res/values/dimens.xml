@@ -50,6 +50,8 @@
     
     <dimen name="confirm_partner_height">50dp</dimen>
     <dimen name="confirm_place_child_margin">5dp</dimen>
+    
+    <dimen name="deposit_button_padding">15dp</dimen>
 
     <dimen name="chat_item_child_margin">16dp</dimen>
 </resources>

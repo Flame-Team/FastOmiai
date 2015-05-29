@@ -9,6 +9,7 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
+import android.widget.Toast;
 import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -61,7 +62,15 @@ public class PlacePickerActivity extends Activity {
 			
 			@Override
 			public void onClick(View v) {
-				// to do 接受邀请
+				if (0 >= getCheckedCount()) {
+					Toast.makeText(getApplicationContext(),
+							getString(R.string.confirm_none_hint),
+							Toast.LENGTH_SHORT).show();
+				}
+				else {
+					Intent intent = new Intent(getApplicationContext(), DepositReceiverActivity.class);
+				    startActivity(intent);
+				}				
 			}
 		});
         

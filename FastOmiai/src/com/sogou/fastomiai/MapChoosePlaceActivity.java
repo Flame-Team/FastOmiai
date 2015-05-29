@@ -52,7 +52,7 @@ public class MapChoosePlaceActivity extends Activity {
 							Toast.LENGTH_SHORT).show();
 				}
 				else {
-					Intent intent = new Intent(getApplicationContext(), ConfirmActivity.class);
+					Intent intent = new Intent(getApplicationContext(), DepositActivity.class);
 				    startActivity(intent);
 				}				
 			}

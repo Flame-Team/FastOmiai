@@ -1,5 +1,8 @@
 package com.sogou.fastomiai;
 
+import com.sogou.fastomiai.FillInfoActivity.LevelEnum;
+import com.sogou.fastomiai.FillInfoActivity.UserSupplementInfo;
+
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -11,6 +14,8 @@ import android.widget.Button;
 
 
 public class FillDesireFragment extends Fragment {
+    
+    private int levelPosition = 0;
 	
 	private Button mImageDesire01 = null;
 	private Button mImageDesire02 = null;
@@ -33,6 +38,7 @@ public class FillDesireFragment extends Fragment {
 			
 			@Override
 			public void onClick(View v) {
+			    levelPosition = 0;
 				mImageDesire02.setBackgroundResource(R.drawable.desire_unchecked_shape);
 				mImageDesire03.setBackgroundResource(R.drawable.desire_unchecked_shape);
 				mImageDesire04.setBackgroundResource(R.drawable.desire_unchecked_shape);
@@ -44,6 +50,7 @@ public class FillDesireFragment extends Fragment {
 			
 			@Override
 			public void onClick(View v) {
+			    levelPosition = 1;
 				mImageDesire02.setBackgroundResource(R.drawable.desire_checked_shape);
 				mImageDesire03.setBackgroundResource(R.drawable.desire_unchecked_shape);
 				mImageDesire04.setBackgroundResource(R.drawable.desire_unchecked_shape);
@@ -55,6 +62,7 @@ public class FillDesireFragment extends Fragment {
 			
 			@Override
 			public void onClick(View v) {
+			    levelPosition = 2;
 				mImageDesire02.setBackgroundResource(R.drawable.desire_checked_shape);
 				mImageDesire03.setBackgroundResource(R.drawable.desire_checked_shape);
 				mImageDesire04.setBackgroundResource(R.drawable.desire_unchecked_shape);
@@ -66,6 +74,7 @@ public class FillDesireFragment extends Fragment {
 			
 			@Override
 			public void onClick(View v) {
+			    levelPosition = 3;
 				mImageDesire02.setBackgroundResource(R.drawable.desire_checked_shape);
 				mImageDesire03.setBackgroundResource(R.drawable.desire_checked_shape);
 				mImageDesire04.setBackgroundResource(R.drawable.desire_checked_shape);
@@ -77,6 +86,7 @@ public class FillDesireFragment extends Fragment {
 			
 			@Override
 			public void onClick(View v) {
+			    levelPosition = 4;
 				mImageDesire02.setBackgroundResource(R.drawable.desire_checked_shape);
 				mImageDesire03.setBackgroundResource(R.drawable.desire_checked_shape);
 				mImageDesire04.setBackgroundResource(R.drawable.desire_checked_shape);
@@ -85,4 +95,7 @@ public class FillDesireFragment extends Fragment {
 		});
 	}
     
+   public void fillInfo(UserSupplementInfo info) {
+       info.level = LevelEnum.values()[levelPosition];
+   }
 }

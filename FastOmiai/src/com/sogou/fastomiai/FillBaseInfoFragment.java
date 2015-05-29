@@ -9,6 +9,13 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.Spinner;
 
+import com.sogou.fastomiai.FillInfoActivity.EducationEnum;
+import com.sogou.fastomiai.FillInfoActivity.IncomeEnum;
+import com.sogou.fastomiai.FillInfoActivity.MarriageEnum;
+import com.sogou.fastomiai.FillInfoActivity.UserSupplementInfo;
+import com.sogou.fastomiai.FillInfoActivity.ZeroOrOneEnum;
+import com.sogou.fastomiai.model.InviteItemInfo.SexEnum;
+
 
 public class FillBaseInfoFragment extends Fragment {
     
@@ -40,4 +47,30 @@ public class FillBaseInfoFragment extends Fragment {
 		return v;
 	}
     
+	public void fillInfo(UserSupplementInfo info) {
+	    info.name = mEditName.getText().toString();
+	    
+	    int position = mSpinnerSex.getSelectedItemPosition();
+	    info.sex = SexEnum.values()[position];
+	    
+	    position = mSpinnerAge.getSelectedItemPosition();
+	    info.age = Integer.parseInt(getResources().getStringArray(R.array.age)[position]);
+	    
+	    position = mSpinnerIncome.getSelectedItemPosition();
+	    info.income = IncomeEnum.values()[position];
+	    
+	    position = mSpinnerCar.getSelectedItemPosition();
+	    info.hasCar = ZeroOrOneEnum.values()[position];
+	    
+	    position = mSpinnerHouse.getSelectedItemPosition();
+	    info.hasHouse = ZeroOrOneEnum.values()[position];
+	    
+	    position = mSpinnerEducation.getSelectedItemPosition();
+	    info.edu = EducationEnum.values()[position];
+	    
+	    position = mSpinnerMarriage.getSelectedItemPosition();
+	    info.marriage = MarriageEnum.values()[position];
+	    
+	    // TODO 个人宣言？
+	}
 }

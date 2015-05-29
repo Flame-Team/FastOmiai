@@ -21,10 +21,10 @@ public class InviteItemInfo extends ResponseInfo {
     }
 
     public enum SexEnum {
-        @SerializedName("w")
-        FEMALE,
-
         @SerializedName("m")
-        MALE
+        SEX_MALE,
+        
+        @SerializedName("w")
+        SEX_FEMALE
     }
 }

@@ -14,6 +14,7 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.sogou.fastomiai.model.NoticeListInfo.MsgTypeEnum;
 import com.sogou.fastomiai.model.NoticeListInfo.NoticeInfo;
 
 public class NotificationListActivity extends Activity {
@@ -73,6 +74,10 @@ public class NotificationListActivity extends Activity {
                 @Override
                 public void onClick(View v) {
                 	Intent intent = new Intent(getApplicationContext(), NotificationInfoActivity.class);
+                	if (info.type == MsgTypeEnum.USER_MSG) {
+                	    intent.putExtra(NotificationInfoActivity.EXTRA_INVITE_ID, info.inviteId);
+                	}
+                	intent.putExtra(NotificationInfoActivity.EXTRA_NOTICE_ID, info.noticeID);
                     startActivity(intent);
                 }
             });

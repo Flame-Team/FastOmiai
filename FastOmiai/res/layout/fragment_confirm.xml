@@ -1,0 +1,93 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_below="@id/image_sepline"
+    android:layout_marginLeft="@dimen/activity_horizontal_margin"
+    android:layout_marginRight="@dimen/activity_horizontal_margin" >
+
+    <com.android.volley.toolbox.NetworkImageView
+        android:id="@+id/image_user_photo"
+        android:layout_width="@dimen/browse_photo_size"
+        android:layout_height="@dimen/browse_photo_size"
+        android:layout_centerInParent="true"
+        android:scaleType="centerCrop" />
+
+    <Button
+        android:id="@+id/text_tag1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="80dp"
+        android:background="@drawable/homepage_baseinfo_item_shape"
+        android:padding="@dimen/browse_tag_padding"
+        android:text="是不是"
+        android:textSize="@dimen/browse_tag_textsize"
+        android:visibility="gone" />
+
+    <Button
+        android:id="@+id/text_tag2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="150dp"
+        android:background="@drawable/homepage_baseinfo_item_shape"
+        android:padding="@dimen/browse_tag_padding"
+        android:text="是不是"
+        android:textSize="@dimen/browse_tag_textsize"
+        android:visibility="gone" />
+
+    <Button
+        android:id="@+id/text_tag3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="300dp"
+        android:background="@drawable/homepage_baseinfo_item_shape"
+        android:padding="@dimen/browse_tag_padding"
+        android:text="是不是"
+        android:textSize="@dimen/browse_tag_textsize"
+        android:visibility="gone" />
+
+    <Button
+        android:id="@+id/text_tag4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="150dp"
+        android:background="@drawable/homepage_baseinfo_item_shape"
+        android:padding="@dimen/browse_tag_padding"
+        android:text="是不是"
+        android:textSize="@dimen/browse_tag_textsize"
+        android:visibility="gone" />
+
+    <Button
+        android:id="@+id/text_tag5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="300dp"
+        android:background="@drawable/homepage_baseinfo_item_shape"
+        android:padding="@dimen/browse_tag_padding"
+        android:text="是不是"
+        android:textSize="@dimen/browse_tag_textsize"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/text_countdown"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/image_user_photo"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/blue_button_shape"
+        android:gravity="center"
+        android:padding="@dimen/countdown_padding"
+        android:text="等待对方回复\n23:59:59"
+        android:textSize="22sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:text="@string/confirm_hint"
+        android:textSize="22sp" />
+
+</RelativeLayout>

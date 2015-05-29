@@ -17,6 +17,8 @@ package com.android.pushclient;
 
 import java.util.Random;
 
+import com.sogou.fastomiai.NotificationListActivity;
+
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -99,7 +101,7 @@ public class Notifier {
             //            }
 
             Intent intent = new Intent(context,
-                    NotificationDetailsActivity.class);
+            		NotificationListActivity.class);
             intent.putExtra(Constants.NOTIFICATION_ID, notificationId);
             intent.putExtra(Constants.NOTIFICATION_API_KEY, apiKey);
             intent.putExtra(Constants.NOTIFICATION_TITLE, title);

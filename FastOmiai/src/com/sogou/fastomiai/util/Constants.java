@@ -52,4 +52,25 @@ public class Constants {
     public static final String MARRIAGE = "marriage";
     public static final String PHOTO = "photo";
     public static final String VIDEO = "video";
+    
+ // NOTIFICATION FIELDS
+
+    public static final String NOTIFICATION_ID = "NOTIFICATION_ID";
+
+    public static final String NOTIFICATION_API_KEY = "NOTIFICATION_API_KEY";
+
+    public static final String NOTIFICATION_TITLE = "NOTIFICATION_TITLE";
+
+    public static final String NOTIFICATION_MESSAGE = "NOTIFICATION_MESSAGE";
+
+    public static final String NOTIFICATION_URI = "NOTIFICATION_URI";
+
+    // INTENT ACTIONS
+
+    public static final String ACTION_SHOW_NOTIFICATION = "org.androidpn.client.SHOW_NOTIFICATION";
+
+    public static final String ACTION_NOTIFICATION_CLICKED = "org.androidpn.client.NOTIFICATION_CLICKED";
+
+    public static final String ACTION_NOTIFICATION_CLEARED = "org.androidpn.client.NOTIFICATION_CLEARED";
+
 }

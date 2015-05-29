@@ -11,8 +11,7 @@
         android:layout_width="match_parent"
     	android:layout_height="@dimen/title_height"
     	android:layout_marginLeft="@dimen/activity_horizontal_margin"
-    	android:layout_marginRight="@dimen/activity_horizontal_margin"
-    	android:orientation="horizontal" >
+    	android:layout_marginRight="@dimen/activity_horizontal_margin" >
         
         <Button
 	        android:id="@+id/btn_homepage"

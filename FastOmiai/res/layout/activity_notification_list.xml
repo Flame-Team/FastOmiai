@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="match_parent"   
+    android:layout_marginLeft="@dimen/activity_horizontal_margin"
+    android:layout_marginRight="@dimen/activity_horizontal_margin"
     android:orientation="vertical" >
     
 	<RelativeLayout
         android:id="@+id/layout_notification_list_title"
         android:layout_width="match_parent"
-    	android:layout_height="@dimen/title_height"
-    	android:orientation="horizontal" >
+    	android:layout_height="@dimen/title_height" >
         
         <ImageButton
 	        android:id="@+id/btn_notification_list_back"
@@ -28,9 +29,16 @@
         
     </RelativeLayout>
     
+	<ImageView
+        android:id="@+id/image_sepline"
+        android:layout_width="match_parent"
+	    android:layout_height="@dimen/sepline_height"
+	    android:background="@color/main_blue" />
+    
 	<ListView 
 	    android:id="@+id/notification_list"
 	    android:layout_width="match_parent"
-	    android:layout_height="wrap_content"></ListView>
+	    android:layout_height="wrap_content"
+	    android:layout_marginTop="@dimen/activity_vertical_margin" ></ListView>
 
 </LinearLayout>

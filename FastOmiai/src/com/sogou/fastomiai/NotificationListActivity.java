@@ -13,7 +13,6 @@ import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.sogou.fastomiai.model.NoticeListInfo.NoticeInfo;
 
@@ -73,7 +72,8 @@ public class NotificationListActivity extends Activity {
                 
                 @Override
                 public void onClick(View v) {
-                    Toast.makeText(getApplicationContext(), "打开一条通知", Toast.LENGTH_SHORT).show();   
+                	Intent intent = new Intent(getApplicationContext(), NotificationInfoActivity.class);
+                    startActivity(intent);
                 }
             });
             

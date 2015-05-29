@@ -66,4 +66,8 @@
     <string name="notification_item_arrow">＞</string>
     <string name="chat_list_title">私信</string>
 	<string name="chat_item_tip">来自林志玲的私信</string>
+	<string name="notification_title">通知</string>
+	<string name="notification_regret">礼貌拒绝</string>
+	<string name="notification_agree">同意见面</string>
+	<string name="notification_hint">若你在规定时间内不回复将会扣除\n你的信誉值，拒绝不扣任何信誉值</string>
 </resources>

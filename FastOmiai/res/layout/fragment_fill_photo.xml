@@ -25,14 +25,32 @@
 	        android:layout_height="wrap_content"
 	        android:orientation="horizontal" >
 	        
-            <Button 
+			<ImageView
+                android:id="@+id/image_photo1"
+                android:layout_width="wrap_content"
+        		android:layout_height="wrap_content"
+        		android:layout_marginRight="@dimen/fill_child_margin"
+        		android:background="@drawable/add_photo_shape"
+        		android:visibility="gone"/>
+            
+            <Button
+                android:id="@+id/btn_photo1"
                 android:layout_width="wrap_content"
         		android:layout_height="wrap_content"
         		android:layout_marginRight="@dimen/fill_child_margin"
         		android:background="@drawable/add_photo_shape"
         		android:text="@string/fill_info_photo" />
             
-            <Button 
+            <ImageView
+                android:id="@+id/image_photo2"
+                android:layout_width="wrap_content"
+        		android:layout_height="wrap_content"
+        		android:layout_marginRight="@dimen/fill_child_margin"
+        		android:background="@drawable/add_photo_shape"
+        		android:visibility="gone"/>
+            			
+            <Button
+                android:id="@+id/btn_photo2"
                 android:layout_width="wrap_content"
         		android:layout_height="wrap_content"
         		android:background="@drawable/add_photo_shape"
@@ -46,14 +64,16 @@
 	        android:layout_marginTop="@dimen/fill_child_margin"
 	        android:orientation="horizontal" >
 	        
-            <Button 
+            <Button
+                android:id="@+id/btn_video1"
                 android:layout_width="wrap_content"
         		android:layout_height="wrap_content"
         		android:layout_marginRight="@dimen/fill_child_margin"
         		android:background="@drawable/add_photo_shape"
         		android:text="@string/fill_info_video" />
             
-            <Button 
+            <Button
+                android:id="@+id/btn_video2"
                 android:layout_width="wrap_content"
         		android:layout_height="wrap_content"
         		android:background="@drawable/add_photo_shape"

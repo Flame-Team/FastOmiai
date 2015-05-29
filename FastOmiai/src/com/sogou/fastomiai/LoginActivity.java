@@ -146,7 +146,7 @@ public class LoginActivity extends Activity {
                                         SessionManager.getInstance(LoginActivity.this)
                                             .setToken(loginInfo.token);
                                         
-                                        Intent intent = new Intent(getApplicationContext(), FillInfoActivity.class);
+                                        Intent intent = new Intent(getApplicationContext(), BrowseActivity.class);
                         			    startActivity(intent);
                         			    finish();
                                     }

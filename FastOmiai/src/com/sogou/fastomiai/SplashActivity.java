@@ -54,7 +54,7 @@ public class SplashActivity extends Activity {
                             if (authInfo != null) {
                                 if (authInfo.isSuccess()) {
                                     SessionManager.getInstance(SplashActivity.this).setLoginStatus(true);
-                                    Intent intent = new Intent(getApplicationContext(), FillInfoActivity.class);
+                                    Intent intent = new Intent(getApplicationContext(), BrowseActivity.class);
                     			    startActivity(intent);
                     			    finish();
                                 } else {

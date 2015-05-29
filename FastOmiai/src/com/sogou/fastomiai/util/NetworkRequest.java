@@ -93,33 +93,4 @@ public class NetworkRequest {
         };
         return queue.add(request);
     }
-    
-    public static <T> Request<T> post(String url,
-            final byte[] buffer, Class<T> clazz,
-            Response.Listener<T> listener, Response.ErrorListener errorListener,
-            boolean needUrlDecode) {
-        RequestQueue queue = sInstance.getRequestQueue();
-        GsonRequest<T> request = new GsonRequest<T>(Request.Method.POST, url, clazz, listener, 
-                errorListener, needUrlDecode) {
-            @Override
-            public byte[] getBody() throws AuthFailureError {
-                return buffer;
-            }
-        };
-        return queue.add(request);
-    }
-    
-    public static Request<String> post(String url, final byte[] buffer,
-            Response.Listener<String> listener,
-            Response.ErrorListener errorListener) {
-        RequestQueue queue = sInstance.getRequestQueue();
-        StringRequest request = new StringRequest(Request.Method.POST, url,
-                listener, errorListener) {
-            @Override
-            public byte[] getBody() throws AuthFailureError {
-                return buffer;
-            }
-        };
-        return queue.add(request);
-    }
 }

@@ -80,7 +80,8 @@ public class ChatListActivity extends Activity {
                 
                 @Override
                 public void onClick(View v) {
-                    Toast.makeText(getApplicationContext(), "打开一条私信", Toast.LENGTH_SHORT).show();   
+                	Intent intent = new Intent(getApplicationContext(), ChatActivity.class);
+    			    startActivity(intent);  
                 }
             });
             

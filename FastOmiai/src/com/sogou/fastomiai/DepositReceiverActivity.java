@@ -55,7 +55,8 @@ public class DepositReceiverActivity extends Activity {
 			
 			@Override
 			public void onClick(View v) {
-				// to do
+				Intent intent = new Intent(getApplicationContext(), ChatActivity.class);
+			    startActivity(intent);
 			}
 		});
         

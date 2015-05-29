@@ -45,7 +45,7 @@ public class BrowseFragment extends Fragment {
     private ArrayList<String> mListTags;
     private String mStrUrl;
     private FindListInfo mFindListInfo;
-    
+    private String strUser;
     private NetworkImageView netImageView; 
     
     /**
@@ -84,6 +84,7 @@ public class BrowseFragment extends Fragment {
         
         mStrUrl = mFindListInfo.data.get(mPageNumber).headUrl;
         mListTags = mFindListInfo.data.get(mPageNumber).tags;
+        strUser =  mFindListInfo.data.get(mPageNumber).uid;
         
         NetworkImageView imageHead = (NetworkImageView)rootView.findViewById(R.id.image_user_photo);
         imageHead.setImageUrl(mStrUrl, NetworkRequest.getInstance(mContext.getApplicationContext()).getImageLoader());
@@ -109,6 +110,7 @@ public class BrowseFragment extends Fragment {
 			@Override
 			public void onClick(View v) {
 				Intent intent = new Intent(mContext, MapChoosePlaceActivity.class);
+				intent.putExtra("USERID", strUser);
 			    startActivity(intent);
 			}
 		});

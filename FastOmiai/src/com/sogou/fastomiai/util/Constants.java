@@ -67,10 +67,10 @@ public class Constants {
 
     // INTENT ACTIONS
 
-    public static final String ACTION_SHOW_NOTIFICATION = "org.androidpn.client.SHOW_NOTIFICATION";
+    public static final String ACTION_SHOW_NOTIFICATION = "com.android.pushclient.SHOW_NOTIFICATION";
 
-    public static final String ACTION_NOTIFICATION_CLICKED = "org.androidpn.client.NOTIFICATION_CLICKED";
+    public static final String ACTION_NOTIFICATION_CLICKED = "com.android.pushclient.NOTIFICATION_CLICKED";
 
-    public static final String ACTION_NOTIFICATION_CLEARED = "org.androidpn.client.NOTIFICATION_CLEARED";
+    public static final String ACTION_NOTIFICATION_CLEARED = "com.android.pushclient.NOTIFICATION_CLEARED";
 
 }

@@ -37,10 +37,13 @@ public class FillBaseInfoFragment extends Fragment {
 		mEditName = (EditText)v.findViewById(R.id.edit_name);
 		mSpinnerSex = (Spinner)v.findViewById(R.id.spinner_sex);
 		mSpinnerAge = (Spinner)v.findViewById(R.id.spinner_age);
+		mSpinnerAge.setSelection(8, true);
 		mSpinnerIncome = (Spinner)v.findViewById(R.id.spinner_income);
+		mSpinnerIncome.setSelection(2, true);
 		mSpinnerCar = (Spinner)v.findViewById(R.id.spinner_car);
 		mSpinnerHouse = (Spinner)v.findViewById(R.id.spinner_house);
 		mSpinnerEducation = (Spinner)v.findViewById(R.id.spinner_education);
+		mSpinnerEducation.setSelection(2, true);
 		mSpinnerMarriage = (Spinner)v.findViewById(R.id.spinner_marriage);
 		mEditDeclaration = (EditText)v.findViewById(R.id.edit_declaration);
 		

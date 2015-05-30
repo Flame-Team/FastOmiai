@@ -13,10 +13,10 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.android.volley.toolbox.NetworkImageView;
 import com.sogou.fastomiai.model.FindListInfo;
+import com.sogou.fastomiai.util.NetworkRequest;
 
 /**
  * A fragment representing a single step in a wizard. The fragment shows a dummy title indicating
@@ -103,11 +103,11 @@ public class BrowseFragment extends Fragment {
         
         String strID = mContext.getID();
     	if (strID != null && strID.equals(strUser)) {
-//    		rootView = (ViewGroup) inflater
-//	                .inflate(R.layout.fragment_confirm, container, false);	
+    		rootView = (ViewGroup) inflater
+	                .inflate(R.layout.fragment_confirm, container, false);	
             NetworkImageView imageHead = (NetworkImageView)rootView.findViewById(R.id.image_user_photo);
-            //imageHead.setImageUrl(mStrUrl, NetworkRequest.getInstance(mContext.getApplicationContext()).getImageLoader());
-            imageHead.setBackgroundResource(imageIds[mPageNumber]);
+            imageHead.setImageUrl(mStrUrl, NetworkRequest.getInstance(mContext.getApplicationContext()).getImageLoader());
+            //imageHead.setBackgroundResource(imageIds[mPageNumber]);
             mBtnTag1 = (Button) rootView.findViewById(R.id.text_tag1);
             mBtnTag2 = (Button) rootView.findViewById(R.id.text_tag2);
             mBtnTag3 = (Button) rootView.findViewById(R.id.text_tag3);
@@ -155,8 +155,8 @@ public class BrowseFragment extends Fragment {
     		rootView = (ViewGroup) inflater
     	                .inflate(R.layout.fragment_browse, container, false);	
             NetworkImageView imageHead = (NetworkImageView)rootView.findViewById(R.id.image_user_photo);
-            //imageHead.setImageUrl(mStrUrl, NetworkRequest.getInstance(mContext.getApplicationContext()).getImageLoader());
-            imageHead.setBackgroundResource(imageIds[mPageNumber]);
+            imageHead.setImageUrl(mStrUrl, NetworkRequest.getInstance(mContext.getApplicationContext()).getImageLoader());
+            //imageHead.setBackgroundResource(imageIds[mPageNumber]);
             mBtnTag1 = (Button) rootView.findViewById(R.id.text_tag1);
             mBtnTag2 = (Button) rootView.findViewById(R.id.text_tag2);
             mBtnTag3 = (Button) rootView.findViewById(R.id.text_tag3);

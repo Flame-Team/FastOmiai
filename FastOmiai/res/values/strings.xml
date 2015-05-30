@@ -94,7 +94,9 @@
 	<string name="meeting_tip_success">系统已经成功退回50元，祝你们聊得愉快！</string>
 	<string name="meeting_gift">这是系统赠送的美团打折券，感谢使用我们的服务！</string>
 	<string name="target_title">王**的个人主页</string>
+	<string name="target_title_format">%1$s 的个人主页</string>
 	<string name="target_name">王** 见面后可见全名</string>
+	<string name="target_name_format">%1$s 见面后可见全名</string>
 	<string name="target_verify">车：已验证    房：已验证    银行流水：无</string>
 	<string name="target_stars">4.3星</string>
 	<string name="wait_meeting_title">等待见面</string>

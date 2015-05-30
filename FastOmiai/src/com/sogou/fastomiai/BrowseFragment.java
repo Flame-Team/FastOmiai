@@ -126,6 +126,8 @@ public class BrowseFragment extends Fragment {
 				public void onClick(View v) {
 					Intent intent = new Intent(mContext, TargetInfoActivity.class);
 					intent.putExtra(EXTRA_USERID, strUser);
+					intent.putExtra(TargetInfoActivity.EXTRA_UID, mFindListInfo.data.get(mPageNumber).uid);
+					intent.putExtra(TargetInfoActivity.EXTRA_HEAD, mFindListInfo.data.get(mPageNumber).headUrl);
     			    startActivity(intent);
 				}
 			});
@@ -265,6 +267,8 @@ public class BrowseFragment extends Fragment {
 				public void onClick(View v) {
 					Intent intent = new Intent(mContext, TargetInfoActivity.class);
 					intent.putExtra(EXTRA_USERID, strUser);
+                    intent.putExtra(TargetInfoActivity.EXTRA_UID, mFindListInfo.data.get(mPageNumber).uid);
+                    intent.putExtra(TargetInfoActivity.EXTRA_HEAD, mFindListInfo.data.get(mPageNumber).headUrl);
     			    startActivity(intent);
 				}
 			});

@@ -68,4 +68,6 @@
     <dimen name="meeting_gift_width">300dp</dimen>
     <dimen name="meeting_gift_height">60dp</dimen>
     <dimen name="meeting_top_margin">30dp</dimen>
+    
+    <dimen name="target_tag_margin">30dp</dimen>
 </resources>

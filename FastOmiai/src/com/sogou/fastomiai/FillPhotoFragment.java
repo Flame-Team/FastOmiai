@@ -4,14 +4,19 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.ArrayList;
 
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.ActivityNotFoundException;
+import android.content.ContentResolver;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Matrix;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
@@ -19,6 +24,7 @@ import android.provider.MediaStore;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.util.Base64;
+import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -142,82 +148,140 @@ public class FillPhotoFragment extends Fragment {
         switch (resultCode) {
         case Activity.RESULT_OK:
             if (data != null) {
-                //取得返回的Uri,基本上选择照片的时候返回的是以Uri形式，但是在拍照中有得机子呢Uri是空的，所以要特别注意
-                Uri mImageCaptureUri = data.getData();
-                //返回的Uri不为空时，那么图片信息数据都会在Uri中获得。如果为空，那么我们就进行下面的方式获取
-                if (mImageCaptureUri != null) {
-                    Bitmap image;
-                    try {
-                        //这个方法是根据Uri获取Bitmap图片的静态方法
-                        image = MediaStore.Images.Media.getBitmap(getActivity().getContentResolver(), mImageCaptureUri);
-                        if (image != null) {
-                            mBtnSelPhoto.setVisibility(View.GONE);
-                            mImageSelPhoto.setVisibility(View.VISIBLE);
-                            mImageSelPhoto.setImageBitmap(image);
-                            isFilled = true;
-                            
-                            FileItem item = new FileItem();
-                            item.name = String.valueOf(System.currentTimeMillis()) + ".png";
-                            ByteArrayOutputStream baos = new ByteArrayOutputStream();
-                            image.compress(Bitmap.CompressFormat.PNG, 100, baos);
-                            item.file = Base64.encodeToString(baos.toByteArray(), Base64.DEFAULT);
-                            mFiles.add(item);
-                            try {
-                                File file = new File(
-                                        Environment
-                                                .getExternalStorageDirectory(),
-                                        "fastomiai.png");
-                                FileOutputStream fos = new FileOutputStream(
-                                        file);
-                                fos.write(baos.toByteArray());
-                                fos.close();
-                            } catch (Exception e) {
-
-                            }
+                // 从相册选择
+                ContentResolver resolver = getActivity().getContentResolver();
+                // 照片的原始资源地址
+                Uri originalUri = data.getData();
+                try {
+                    // 使用ContentProvider通过URI获取原始图片
+                    Bitmap photo = MediaStore.Images.Media.getBitmap(resolver,
+                            originalUri);
+                    if (photo != null) {
+                        // 为防止原始图片过大导致内存溢出，这里先缩小原图显示，然后释放原始Bitmap占用的内存
+                        int SCALE = photo.getWidth() / 640;
+                        if (SCALE < 1) {
+                            SCALE = 1;
                         }
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                } else {
-                    Bundle extras = data.getExtras();
-                    if (extras != null) {
-                        //这里是有些拍照后的图片是直接存放到Bundle中的所以我们可以从这里面获取Bitmap图片
-                        Bitmap image = extras.getParcelable("data");
-                        if (image != null) {
-                            mBtnSelPhoto.setVisibility(View.GONE);
-                            mImageSelPhoto.setVisibility(View.VISIBLE);
-                            mImageSelPhoto.setImageBitmap(image);
-                            isFilled = true;
-                            
-                            FileItem item = new FileItem();
-                            item.name = String.valueOf(System.currentTimeMillis()) + ".png";
-                            ByteArrayOutputStream baos = new ByteArrayOutputStream();
-                            image.compress(Bitmap.CompressFormat.PNG, 100, baos);
-                            item.file = Base64.encodeToString(baos.toByteArray(), Base64.DEFAULT);
-                            mFiles.add(item);
-                            try {
-                                File file = new File(
-                                        Environment
-                                                .getExternalStorageDirectory(),
-                                        "fastomiai.png");
-                                FileOutputStream fos = new FileOutputStream(
-                                        file);
-                                fos.write(baos.toByteArray());
-                                fos.close();
-                            } catch (Exception e) {
+                        
+                        Bitmap smallBitmap = zoomBitmap(photo,
+                                photo.getWidth() / SCALE, photo.getHeight() / SCALE);
+                        // 释放原始图片占用的内存，防止out of memory异常发生
+                        photo.recycle();
 
-                            }
+                        mBtnSelPhoto.setVisibility(View.GONE);
+                        mImageSelPhoto.setVisibility(View.VISIBLE);
+                        mImageSelPhoto.setImageBitmap(smallBitmap);
+                        isFilled = true;
+
+                        FileItem item = new FileItem();
+                        item.name = String.valueOf(System.currentTimeMillis())
+                                + ".jpg";
+                        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                        smallBitmap.compress(Bitmap.CompressFormat.PNG, 100,
+                                baos);
+                        item.file = Base64.encodeToString(baos.toByteArray(),
+                                Base64.DEFAULT);
+                        mFiles.add(item);
+                        try {
+                            File file = new File(
+                                    Environment.getExternalStorageDirectory(),
+                                    "fastomiai.jpg");
+                            FileOutputStream fos = new FileOutputStream(file);
+                            fos.write(baos.toByteArray());
+                            fos.close();
+                        } catch (Exception e) {
+
+                        }
+                    }
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            } else {
+                // 拍照后
+                Bundle extras = data.getExtras();
+                if (extras != null) {
+                    // 这里是有些拍照后的图片是直接存放到Bundle中的所以我们可以从这里面获取Bitmap图片
+                    Bitmap image = extras.getParcelable("data");
+                    if (image != null) {
+                        mBtnSelPhoto.setVisibility(View.GONE);
+                        mImageSelPhoto.setVisibility(View.VISIBLE);
+                        mImageSelPhoto.setImageBitmap(image);
+                        isFilled = true;
+
+                        FileItem item = new FileItem();
+                        item.name = String.valueOf(System.currentTimeMillis())
+                                + ".png";
+                        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                        image.compress(Bitmap.CompressFormat.PNG, 100, baos);
+                        item.file = Base64.encodeToString(baos.toByteArray(),
+                                Base64.DEFAULT);
+                        mFiles.add(item);
+                        try {
+                            File file = new File(
+                                    Environment.getExternalStorageDirectory(),
+                                    "fastomiai.png");
+                            FileOutputStream fos = new FileOutputStream(file);
+                            fos.write(baos.toByteArray());
+                            fos.close();
+                        } catch (Exception e) {
+
                         }
                     }
                 }
             }
-            break;
-        default:
-            break;
-
         }
 	}
+
+    /** 缩放Bitmap图片 **/
+    public Bitmap zoomBitmap(Bitmap bitmap, int width, int height) {
+        int w = bitmap.getWidth();
+        int h = bitmap.getHeight();
+        Matrix matrix = new Matrix();
+        float scaleWidth = ((float) width / w);
+        float scaleHeight = ((float) height / h);
+        matrix.postScale(scaleWidth, scaleHeight);// 利用矩阵进行缩放不会造成内存溢出
+        Bitmap newbmp = Bitmap.createBitmap(bitmap, 0, 0, w, h, matrix, true);
+        return newbmp;
+    }
     
+    public Bitmap getSmallBitmap(Context mContext, String filePath) {
+        DisplayMetrics dm;
+        dm = new DisplayMetrics();
+        ((Activity) mContext).getWindowManager().getDefaultDisplay().getMetrics(dm);
+        final BitmapFactory.Options options = new BitmapFactory.Options();
+        options.inJustDecodeBounds = true;
+        BitmapFactory.decodeFile(filePath, options);
+        // Calculate inSampleSize
+        options.inSampleSize = calculateInSampleSize(options, dm.widthPixels, dm.heightPixels);
+        // Decode bitmap with inSampleSize set
+        options.inJustDecodeBounds = false;
+        return BitmapFactory.decodeFile(filePath, options);
+    }
+    
+    public int calculateInSampleSize(BitmapFactory.Options options, int reqWidth, int reqHeight) {
+        // Raw height and width of image
+        final int height = options.outHeight;
+        final int width = options.outWidth;
+        int inSampleSize = 1;
+        if (height > reqHeight || width > reqWidth) {
+            // Calculate ratios of height and width to requested height and
+            // width
+            final int heightRatio = Math.round((float) height / (float) reqHeight);
+            final int widthRatio = Math.round((float) width / (float) reqWidth);
+    
+            // Choose the smallest ratio as inSampleSize value, this will
+            // guarantee
+            // a final image with both dimensions larger than or equal to the
+            // requested height and width.
+            inSampleSize = heightRatio < widthRatio ? heightRatio : widthRatio;
+        }
+        return inSampleSize;
+    }
+
     public void fillInfo(UserSupplementInfo info) {
         info.photo = new ArrayList<FileItem>();
         info.vedio = new ArrayList<FileItem>();

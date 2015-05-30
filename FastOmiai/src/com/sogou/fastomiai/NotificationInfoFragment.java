@@ -94,7 +94,10 @@ public class NotificationInfoFragment extends Fragment {
 				Intent intent = new Intent(mContext, PlacePickerActivity.class);
 				intent.putExtra("places", mPlaces);
 				intent.putExtra("inviteid", mInviteID);
-				intent.putExtra("ismale", (inviteInfo.data.user.sex == SexEnum.SEX_MALE));
+				if (inviteInfo != null && inviteInfo.data != null 
+				        && inviteInfo.data.user != null && inviteInfo.data.user.sex != null) {
+				    intent.putExtra("ismale", (inviteInfo.data.user.sex == SexEnum.SEX_MALE));
+				}
 			    startActivity(intent);
 			}
 		});

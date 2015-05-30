@@ -162,8 +162,7 @@
 		<activity
             android:name=".MeetingActivity"
             android:launchMode="singleTask"
-            android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
+            android:screenOrientation="portrait" >
         </activity>
         
         <activity 

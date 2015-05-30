@@ -52,9 +52,12 @@ public class PlacePickerActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         
-        mPlaces = getIntent().getBooleanArrayExtra("places"); // 暂时注释
-        mInviteID = getIntent().getIntExtra("inviteid", -1);
-        mMale = getIntent().getBooleanExtra("ismale", false);
+        Intent intent = getIntent();
+        if (intent != null) {
+            //mPlaces = getIntent().getBooleanArrayExtra("places"); // 暂时注释
+            mInviteID = getIntent().getIntExtra("inviteid", -1);
+            mMale = getIntent().getBooleanExtra("ismale", false);
+        }
         
         setContentView(R.layout.activity_confirm_place);
         

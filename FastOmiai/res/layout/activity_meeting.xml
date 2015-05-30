@@ -33,9 +33,11 @@
 	    android:id="@+id/meeting_tip"
 	    android:layout_width="@dimen/meeting_text_width"
 	    android:layout_height="@dimen/meeting_text_width"
-	    android:background="@drawable/add_photo_shape"
+	    android:background="@drawable/meeting_text_shape"
 	    android:text="@string/meeting_tip"
+	    android:textColor="#FFFFFF"
 	    android:textSize="20sp"
+	    android:padding="5dp"
 	    android:gravity="center_vertical"
 	    android:layout_gravity="center" />
 	
@@ -44,9 +46,11 @@
 	    android:layout_width="@dimen/meeting_gift_width"
 	    android:layout_height="@dimen/meeting_gift_height"
 	    android:layout_marginTop="@dimen/meeting_top_margin"
-	    android:background="@drawable/add_photo_shape"
-	    android:text="@string/meeting_tip"
-	    android:textSize="20sp"
+	    android:background="@drawable/meeting_text_shape"
+	    android:text="@string/meeting_gift"
+	    android:textColor="#FFFFFF"
+	    android:textSize="16sp"
+	    android:padding="5dp"
 	    android:gravity="center_vertical"
 	    android:layout_gravity="center"
 	    android:visibility="gone"/>

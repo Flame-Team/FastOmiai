@@ -15,7 +15,7 @@ import android.widget.Button;
 
 public class FillDesireFragment extends Fragment {
     
-    private int levelPosition = 0;
+    private int levelPosition = 2;
 	
 	private Button mImageDesire01 = null;
 	private Button mImageDesire02 = null;

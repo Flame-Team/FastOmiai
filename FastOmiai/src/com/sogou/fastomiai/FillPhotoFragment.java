@@ -48,6 +48,10 @@ public class FillPhotoFragment extends Fragment {
     
     private ImageView mImagePhoto1;
     private ImageView mImagePhoto2;
+    private ImageView mImagePhoto3;
+    private ImageView mImagePhoto4;
+    
+    private Button mBtnVideo;
     
     private Button mBtnSelPhoto;
     private ImageView mImageSelPhoto;
@@ -63,6 +67,8 @@ public class FillPhotoFragment extends Fragment {
 		
 		mImagePhoto1 = (ImageView)v.findViewById(R.id.image_photo1);
 		mImagePhoto2 = (ImageView)v.findViewById(R.id.image_photo2);
+		mImagePhoto3 = (ImageView)v.findViewById(R.id.image_photo3);
+		mImagePhoto4 = (ImageView)v.findViewById(R.id.image_photo4);
 		
 		mBtnPhoto1 = (Button)v.findViewById(R.id.btn_photo1);
 		mBtnPhoto1.setOnClickListener(new OnClickListener() {
@@ -90,13 +96,25 @@ public class FillPhotoFragment extends Fragment {
 
             @Override
             public void onClick(View v) {
-                Toast.makeText(getActivity().getApplicationContext(), "暂未实现",
-                        Toast.LENGTH_SHORT).show();
+                mBtnSelPhoto = mBtnVideo1;
+                mImageSelPhoto = mImagePhoto3;
+                takePhoto();
             }
         });
         mBtnVideo2 = (Button)v.findViewById(R.id.btn_video2);
         mBtnVideo2.setOnClickListener(new OnClickListener() {
 
+            @Override
+            public void onClick(View v) {
+                mBtnSelPhoto = mBtnVideo2;
+                mImageSelPhoto = mImagePhoto3;
+                takePhoto();
+            }
+        });
+        
+        mBtnVideo = (Button)v.findViewById(R.id.btn_video);
+        mBtnVideo.setOnClickListener(new OnClickListener() {
+            
             @Override
             public void onClick(View v) {
                 Toast.makeText(getActivity().getApplicationContext(), "暂未实现",
@@ -166,7 +184,9 @@ public class FillPhotoFragment extends Fragment {
                         Bitmap smallBitmap = zoomBitmap(photo,
                                 photo.getWidth() / SCALE, photo.getHeight() / SCALE);
                         // 释放原始图片占用的内存，防止out of memory异常发生
-                        photo.recycle();
+                        if (SCALE != 1) { 
+                            photo.recycle();
+                        }
 
                         mBtnSelPhoto.setVisibility(View.GONE);
                         mImageSelPhoto.setVisibility(View.VISIBLE);
@@ -246,40 +266,6 @@ public class FillPhotoFragment extends Fragment {
         matrix.postScale(scaleWidth, scaleHeight);// 利用矩阵进行缩放不会造成内存溢出
         Bitmap newbmp = Bitmap.createBitmap(bitmap, 0, 0, w, h, matrix, true);
         return newbmp;
-    }
-    
-    public Bitmap getSmallBitmap(Context mContext, String filePath) {
-        DisplayMetrics dm;
-        dm = new DisplayMetrics();
-        ((Activity) mContext).getWindowManager().getDefaultDisplay().getMetrics(dm);
-        final BitmapFactory.Options options = new BitmapFactory.Options();
-        options.inJustDecodeBounds = true;
-        BitmapFactory.decodeFile(filePath, options);
-        // Calculate inSampleSize
-        options.inSampleSize = calculateInSampleSize(options, dm.widthPixels, dm.heightPixels);
-        // Decode bitmap with inSampleSize set
-        options.inJustDecodeBounds = false;
-        return BitmapFactory.decodeFile(filePath, options);
-    }
-    
-    public int calculateInSampleSize(BitmapFactory.Options options, int reqWidth, int reqHeight) {
-        // Raw height and width of image
-        final int height = options.outHeight;
-        final int width = options.outWidth;
-        int inSampleSize = 1;
-        if (height > reqHeight || width > reqWidth) {
-            // Calculate ratios of height and width to requested height and
-            // width
-            final int heightRatio = Math.round((float) height / (float) reqHeight);
-            final int widthRatio = Math.round((float) width / (float) reqWidth);
-    
-            // Choose the smallest ratio as inSampleSize value, this will
-            // guarantee
-            // a final image with both dimensions larger than or equal to the
-            // requested height and width.
-            inSampleSize = heightRatio < widthRatio ? heightRatio : widthRatio;
-        }
-        return inSampleSize;
     }
 
     public void fillInfo(UserSupplementInfo info) {

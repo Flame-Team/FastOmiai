@@ -41,7 +41,7 @@
             android:layout_width="match_parent"
         	android:layout_height="@dimen/fill_desire_item_height"
         	android:layout_marginTop="@dimen/fill_desire_child_margin"
-        	android:background="@drawable/desire_unchecked_shape"
+        	android:background="@drawable/desire_checked_shape"
         	android:text="3" />
         
         <Button
@@ -49,7 +49,7 @@
             android:layout_width="match_parent"
         	android:layout_height="@dimen/fill_desire_item_height"
         	android:layout_marginTop="@dimen/fill_desire_child_margin"
-        	android:background="@drawable/desire_unchecked_shape"
+        	android:background="@drawable/desire_checked_shape"
         	android:text="2" />
         
         <Button

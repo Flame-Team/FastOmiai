@@ -28,7 +28,7 @@ public class NoticeListInfo extends ResponseInfo {
         public String fromUid;
 
         @SerializedName("invite_id")
-        public String inviteId; // 若 type = 1，则此字段为约会 id
+        public int inviteId; // 若 type = 1，则此字段为约会 id
     }
 
     public enum MsgTypeEnum {

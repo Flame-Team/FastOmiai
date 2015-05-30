@@ -38,10 +38,11 @@ public class NotificationInfoFragment extends Fragment {
     /**
      * Factory method for this fragment class. Constructs a new fragment for the given page number.
      */
-    public static NotificationInfoFragment create(Context context, int pageNumber) {
+    public static NotificationInfoFragment create(Context context, int pageNumber, boolean[] places) {
     	NotificationInfoFragment fragment = new NotificationInfoFragment(context);
         Bundle args = new Bundle();
         args.putInt(ARG_PAGE, pageNumber);
+        args.putBooleanArray("places", places);
         fragment.setArguments(args);
         return fragment;
     }
@@ -54,6 +55,7 @@ public class NotificationInfoFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mPageNumber = getArguments().getInt(ARG_PAGE); 
+        mPlaces = getArguments().getBooleanArray("places");
     }
 
     @Override

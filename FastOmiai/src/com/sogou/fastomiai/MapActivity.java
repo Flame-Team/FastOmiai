@@ -26,13 +26,12 @@ import android.widget.Button;
 public class MapActivity extends Activity {
 	
 	// 默认约会地点
-	final LatLng default_des1 = new LatLng(39.917478, 116.378928); // 西单
-	final LatLng default_des2 = new LatLng(39.921171, 116.418094); // 王府井
-	final LatLng default_des3 = new LatLng(39.940045, 116.46115); // 三里屯
-	final LatLng default_des4 = new LatLng(39.959653, 116.422325); // 地坛
-	final LatLng default_des5 = new LatLng(40.016262, 116.399059); // 奥林匹克森林公园
-	final LatLng default_des6 = new LatLng(40.006929, 116.283177); // 北宫门
-	final LatLng default_des7 = new LatLng(39.997271, 116.194793); // 香山
+	final LatLng default_des1 = new LatLng(39.974957, 116.37584);
+	final LatLng default_des2 = new LatLng(39.974957, 116.370283);
+	final LatLng default_des3 = new LatLng(39.974722, 116.436662);
+	final LatLng default_des4 = new LatLng(39.906968, 116.404503);
+	final LatLng default_des5 = new LatLng(39.876322, 116.332782);
+	final LatLng default_des6 = new LatLng(39.850179, 116.424014);
     
 	// 基础地图
 	private MapView mMapView = null;
@@ -71,7 +70,7 @@ public class MapActivity extends Activity {
         
 	    // 开启定位图层 
 	    mBaiduMap = mMapView.getMap();
-	    mBaiduMap.setMyLocationEnabled(true); 
+	    mBaiduMap.setMyLocationEnabled(true);
 	    
 	    // 发起定位
 	    mLocationClient = new LocationClient(getApplicationContext());
@@ -79,58 +78,52 @@ public class MapActivity extends Activity {
 		mLocationClient.start();
 		mLocationClient.requestLocation();
 		
-		// 标注默认约会地点
-		BitmapDescriptor bitmap = BitmapDescriptorFactory  
-		    .fromResource(R.drawable.destination_icon);
-		LatLng point1 = new LatLng(default_des1.latitude, default_des1.longitude);
-		OverlayOptions option1 = new MarkerOptions()
-			.position(point1)
-			.icon(bitmap)
-			.zIndex(9)
-			.draggable(false);
-		mBaiduMap.addOverlay(option1);
-		LatLng point2 = new LatLng(default_des2.latitude, default_des2.longitude);
-		OverlayOptions option2 = new MarkerOptions()
-			.position(point2)
-			.icon(bitmap)
-			.zIndex(9)
-			.draggable(false);
-		mBaiduMap.addOverlay(option2);
+		BitmapDescriptor bitmapBlue = BitmapDescriptorFactory  
+			    .fromResource(R.drawable.location_blue);
 		LatLng point3 = new LatLng(default_des3.latitude, default_des3.longitude);
 		OverlayOptions option3 = new MarkerOptions()
 			.position(point3)
-			.icon(bitmap)
+			.icon(bitmapBlue)
 			.zIndex(9)
 			.draggable(false);
 		mBaiduMap.addOverlay(option3);
-		LatLng point4 = new LatLng(default_des4.latitude, default_des4.longitude);
-		OverlayOptions option4 = new MarkerOptions()
-			.position(point4)
-			.icon(bitmap)
-			.zIndex(9)
-			.draggable(false);
-		mBaiduMap.addOverlay(option4);		
-		LatLng point5 = new LatLng(default_des5.latitude, default_des5.longitude);
-		OverlayOptions option5 = new MarkerOptions()
-			.position(point5)
-			.icon(bitmap)
-			.zIndex(9)
-			.draggable(false);
-		mBaiduMap.addOverlay(option5);
 		LatLng point6 = new LatLng(default_des6.latitude, default_des6.longitude);
 		OverlayOptions option6 = new MarkerOptions()
 			.position(point6)
-			.icon(bitmap)
+			.icon(bitmapBlue)
 			.zIndex(9)
 			.draggable(false);
 		mBaiduMap.addOverlay(option6);
-		LatLng point7 = new LatLng(default_des7.latitude, default_des7.longitude);
-		OverlayOptions option7 = new MarkerOptions()
-			.position(point7)
-			.icon(bitmap)
-			.zIndex(9)
+		
+		BitmapDescriptor bitmapBubble1 = BitmapDescriptorFactory  
+			    .fromResource(R.drawable.meeting);
+		LatLng pointBubble = new LatLng(default_des1.latitude, default_des1.longitude);
+		OverlayOptions optionBubble1 = new MarkerOptions()
+			.position(pointBubble)
+			.icon(bitmapBubble1)
+			.zIndex(0)
 			.draggable(false);
-		mBaiduMap.addOverlay(option7);
+		mBaiduMap.addOverlay(optionBubble1);
+		
+		BitmapDescriptor bitmapBubble4 = BitmapDescriptorFactory  
+			    .fromResource(R.drawable.confirm_to_meet);
+		LatLng pointBubble4 = new LatLng(default_des4.latitude, default_des4.longitude);
+		OverlayOptions optionBubble4 = new MarkerOptions()
+			.position(pointBubble4)
+			.icon(bitmapBubble4)
+			.zIndex(0)
+			.draggable(false);
+		mBaiduMap.addOverlay(optionBubble4);
+		
+		BitmapDescriptor bitmapBubble5 = BitmapDescriptorFactory  
+			    .fromResource(R.drawable.information_ok);
+		LatLng pointBubble5 = new LatLng(default_des5.latitude, default_des5.longitude);
+		OverlayOptions optionBubble5 = new MarkerOptions()
+			.position(pointBubble5)
+			.icon(bitmapBubble5)
+			.zIndex(0)
+			.draggable(false);
+		mBaiduMap.addOverlay(optionBubble5);
     }
     
     private void startLoginActivity(boolean isRegister) {
@@ -191,7 +184,7 @@ public class MapActivity extends Activity {
 				.position(point)
 				.icons(giflist)
 				.zIndex(9)
-				.period(10)
+				.period(60)
 				.draggable(false);
 			mBaiduMap.addOverlay(option);
 		}

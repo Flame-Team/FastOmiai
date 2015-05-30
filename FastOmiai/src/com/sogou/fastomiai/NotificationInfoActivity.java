@@ -33,13 +33,14 @@ public class NotificationInfoActivity extends FragmentActivity {
     public static final String EXTRA_NOTICE_ID = "NOTICE_ID";
     public static final String EXTRA_INVITE_ID = "INVITE_ID";
     
-    private static final int NUM_PAGES = 2;
+    private static final int NUM_PAGES = 1;
     private ViewPager mPager;
     private PagerAdapter mPagerAdapter;
     
-    private TextView mTitle = null;
+//    private TextView mTitle = null;
     private ImageButton mBtnBack = null;
     
+    boolean[] mPlaces = {false, false, false, false, false};
     private int mNoticeID = -1;
     private int mInviteID = -1;
 
@@ -56,9 +57,9 @@ public class NotificationInfoActivity extends FragmentActivity {
             mNoticeID = intent.getIntExtra(EXTRA_NOTICE_ID, -1);
         }
         
-        mTitle = (TextView) findViewById(R.id.text_notification_title);
-        mTitle.setText(getString(R.string.notification_title) + 
-				"(1/" + NUM_PAGES + ")");
+//        mTitle = (TextView) findViewById(R.id.text_notification_title);
+//        mTitle.setText(getString(R.string.notification_title) + 
+//				"(1/" + NUM_PAGES + ")");
         
         mBtnBack = (ImageButton) findViewById(R.id.btn_notification_back);
         mBtnBack.setOnClickListener(new OnClickListener() {
@@ -86,8 +87,8 @@ public class NotificationInfoActivity extends FragmentActivity {
 			@Override
 			public void onPageScrollStateChanged(int arg0) {
 				if (arg0 == ViewPager.SCROLL_STATE_IDLE) {
-					mTitle.setText(getString(R.string.notification_title) + 
-							"(" + (mPager.getCurrentItem() + 1) + "/" + NUM_PAGES + ")");
+//					mTitle.setText(getString(R.string.notification_title) + 
+//							"(" + (mPager.getCurrentItem() + 1) + "/" + NUM_PAGES + ")");
 				}
 			}
 		});
@@ -114,7 +115,10 @@ public class NotificationInfoActivity extends FragmentActivity {
                         @Override
                         public void onResponse(InviteItemInfo inviteItem) {
                             if (inviteItem != null && inviteItem.isSuccess()) {
-                                // TODO inviteItem 里存放的有本次约会信息，应该根据它来设置界面状态
+                            	String s = inviteItem.data.pos;
+                                for (int i = 0; i < s.length(); i++ ) {
+                                	mPlaces[i] = s.charAt(i) == '1' ? true : false;
+                                }
                             } else {                                
                                 Toast.makeText(getApplicationContext(), "获取约会信息出错", Toast.LENGTH_SHORT).show();
                             }
@@ -156,7 +160,7 @@ public class NotificationInfoActivity extends FragmentActivity {
 
         @Override
         public Fragment getItem(int position) {
-            return NotificationInfoFragment.create(getApplicationContext(), position);
+            return NotificationInfoFragment.create(getApplicationContext(), position, mPlaces);
         }
 
         @Override

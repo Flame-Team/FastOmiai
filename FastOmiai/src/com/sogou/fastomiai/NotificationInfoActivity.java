@@ -43,6 +43,8 @@ public class NotificationInfoActivity extends FragmentActivity {
     boolean[] mPlaces = {false, false, false, false, false};
     private int mNoticeID = -1;
     private int mInviteID = -1;
+    
+    private InviteItemInfo mInviteInfo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -119,6 +121,7 @@ public class NotificationInfoActivity extends FragmentActivity {
                                 for (int i = 0; i < s.length(); i++ ) {
                                 	mPlaces[i] = s.charAt(i) == '1' ? true : false;
                                 }
+                                mInviteInfo = inviteItem;
                             } else {                                
                                 Toast.makeText(getApplicationContext(), "获取约会信息出错", Toast.LENGTH_SHORT).show();
                             }
@@ -151,6 +154,10 @@ public class NotificationInfoActivity extends FragmentActivity {
                     public void onErrorResponse(VolleyError error) {
                     }
                 }, false);
+    }
+    
+    public InviteItemInfo getInviteInfo() {
+        return mInviteInfo;
     }
 
     private class ScreenSlidePagerAdapter extends FragmentStatePagerAdapter {

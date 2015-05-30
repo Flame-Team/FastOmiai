@@ -1,6 +1,8 @@
 package com.sogou.fastomiai;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -13,9 +15,17 @@ import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.sogou.fastomiai.controller.SessionManager;
+import com.sogou.fastomiai.model.NoticeListInfo;
 import com.sogou.fastomiai.model.NoticeListInfo.MsgTypeEnum;
 import com.sogou.fastomiai.model.NoticeListInfo.NoticeInfo;
+import com.sogou.fastomiai.util.Constants;
+import com.sogou.fastomiai.util.NetworkRequest;
+import com.sogou.fastomiai.util.NetworkUtil;
 
 public class NotificationListActivity extends Activity {
     private ListView mList;
@@ -28,16 +38,6 @@ public class NotificationListActivity extends Activity {
         
         mList = (ListView)findViewById(R.id.notification_list);
         
-        // TODO 此处 Adapter 的数据应该是从网上拿
-        ArrayList<NoticeInfo> infos = new ArrayList<NoticeInfo>();
-        NoticeInfo info1 = new NoticeInfo();
-        NoticeInfo info2 = new NoticeInfo();
-        infos.add(info1);
-        infos.add(info2);
-        NotificationListAdapter listAdapter = new NotificationListAdapter(infos);
-        
-        mList.setAdapter(listAdapter);
-        
         mBtnBack = (ImageButton) findViewById(R.id.btn_notification_list_back);
         mBtnBack.setOnClickListener(new OnClickListener() {
             
@@ -47,6 +47,38 @@ public class NotificationListActivity extends Activity {
                 startActivity(intent);
             }
         });
+        
+        requestNoticeInfo();
+    }
+    
+    public void requestNoticeInfo() {
+        String token = SessionManager.getInstance(getApplicationContext())
+                .getToken();
+        Map<String, String> params = new HashMap<String, String>();
+        params.put(Constants.TOKEN, token);
+        String url = NetworkUtil.getUrl(Constants.NOTICE_LIST_URL, params);
+        NetworkRequest.get(url, NoticeListInfo.class,
+                new Response.Listener<NoticeListInfo>() {
+                    @Override
+                    public void onResponse(NoticeListInfo info) {
+                        if (info != null && info.isSuccess()) {
+                            NotificationListAdapter listAdapter = new NotificationListAdapter(
+                                    info.data);
+                            mList.setAdapter(listAdapter);
+                        } else {
+                            Toast.makeText(NotificationListActivity.this,
+                                    "获取通知列表失败", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Toast.makeText(NotificationListActivity.this,
+                                "获取通知列表失败", Toast.LENGTH_SHORT).show();
+                    }
+                },
+                false);
     }
     
     private class NotificationListAdapter extends ArrayAdapter<NoticeInfo> {

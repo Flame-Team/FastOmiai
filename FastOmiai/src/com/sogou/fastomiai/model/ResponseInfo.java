@@ -51,32 +51,6 @@ enum InviteTypeEnum {
     RECEIVE // 收到的
 }
 
-class InviteUser {
-    @SerializedName("uid")
-    public String uid;
-
-    @SerializedName("name")
-    public String name;
-
-    @SerializedName("sex")
-    public SexEnum sex;
-
-    @SerializedName("birth")
-    public int age;
-
-    @SerializedName("degree")
-    public int degree;
-
-    @SerializedName("rep")
-    public int reputation;
-
-    @SerializedName("score")
-    public float score;
-
-    @SerializedName("head")
-    public String headUrl;
-}
-
 class InvitePosition {
     @SerializedName("id")
     public int id = 0; // 地点 id

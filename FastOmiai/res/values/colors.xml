@@ -6,5 +6,6 @@
     <color name="button_register_color">#b1ea85</color>
     <color name="button_login_color">#85b2ea</color>
     <color name="tags_color">#dd3b3b3b</color>
+    <color name="regret_color">#e1e1e1</color>
 
 </resources>

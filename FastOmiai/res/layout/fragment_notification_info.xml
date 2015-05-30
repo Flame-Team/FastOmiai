@@ -74,7 +74,7 @@
         android:id="@+id/btn_regret"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@android:color/transparent"
+        android:background="@drawable/light_shape"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="@dimen/browse_button_bottom_margin"
         android:text="@string/notification_regret"

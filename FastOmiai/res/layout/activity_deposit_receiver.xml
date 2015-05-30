@@ -60,27 +60,34 @@
 		 	android:layout_margin="@dimen/activity_horizontal_margin"
 		 	android:text="@string/deposit_sponsor"
 		 	android:textSize="@dimen/body_text_size" />
-    
-	    <Button
-		    android:id="@+id/btn_begin_chat"
-		    android:layout_width="wrap_content"
-		    android:layout_height="wrap_content"
-		    android:background="@drawable/blue_button_shape"
-		    android:layout_marginBottom="@dimen/browse_button_bottom_margin"
-		    android:layout_gravity="center_horizontal"
-		    android:text="@string/deposit_agree_and_chat"
-		    android:textSize="@dimen/body_text_size"
-	        android:padding="@dimen/button_text_padding" />
 	    
-	    <Button
-		    android:id="@+id/btn_receiver_cancel_date"
-		    android:layout_width="wrap_content"
-		    android:layout_height="wrap_content"
-		    android:layout_gravity="center_horizontal"
-		    android:layout_marginBottom="@dimen/browse_button_bottom_margin"
-		    android:text="@string/deposit_cancel"
-		    android:textSize="@dimen/body_text_size"
-	        android:padding="@dimen/button_text_padding" />
+	    <RelativeLayout
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:paddingLeft="@dimen/activity_horizontal_margin"
+    		android:paddingRight="@dimen/activity_horizontal_margin"
+	        android:orientation="horizontal" >
+	        
+	        <Button
+			    android:id="@+id/btn_receiver_cancel_date"
+			    android:layout_width="wrap_content"
+			    android:layout_height="wrap_content"
+			    android:background="@android:color/transparent"
+			    android:text="@string/deposit_cancel"
+			    android:textSize="@dimen/body_text_size"
+		        android:padding="@dimen/button_text_padding" />
+    
+		    <Button
+			    android:id="@+id/btn_begin_chat"
+			    android:layout_width="wrap_content"
+			    android:layout_height="wrap_content"
+			    android:layout_alignParentRight="true"
+			    android:background="@drawable/blue_button_shape"
+			    android:text="@string/deposit_agree_and_chat"
+			    android:textSize="@dimen/body_text_size"
+		        android:padding="@dimen/button_text_padding" />
+		    
+		</RelativeLayout>
         
     </LinearLayout>
    

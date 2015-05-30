@@ -1,17 +1,26 @@
 package com.sogou.fastomiai;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import android.app.Activity;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.view.View;
-import android.view.View.OnClickListener;
-import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
 import com.libra.sinvoice.LogHelper;
 import com.libra.sinvoice.SinVoicePlayer;
 import com.libra.sinvoice.SinVoiceRecognition;
+import com.sogou.fastomiai.controller.SessionManager;
+import com.sogou.fastomiai.model.InviteFinishInfo;
+import com.sogou.fastomiai.util.Constants;
+import com.sogou.fastomiai.util.NetworkRequest;
+import com.sogou.fastomiai.util.NetworkUtil;
 
 public class MeetingActivity extends Activity implements SinVoiceRecognition.Listener,
 SinVoicePlayer.Listener {
@@ -27,6 +36,14 @@ SinVoicePlayer.Listener {
     private Handler mHandler;
     private SinVoicePlayer mSinVoicePlayer;
     private SinVoiceRecognition mRecognition;
+    
+    private String mText;
+    
+    private TextView mTextTip;
+    private TextView mTextGift;
+    
+    private final static int MSG_LENGTH = 7;
+    private int mCountDown = 3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,44 +54,86 @@ SinVoicePlayer.Listener {
 
         mRecognition = new SinVoiceRecognition(CODEBOOK);
         mRecognition.setListener(this);
+        
+        mRecognition.start();
+        
+        mText = genText(7);
+        mSinVoicePlayer.play(mText, true, 1000);
 
-        final TextView playTextView = (TextView) findViewById(R.id.playtext);
-        TextView recognisedTextView = (TextView) findViewById(R.id.regtext);
-        mHandler = new RegHandler(recognisedTextView);
-
-        Button playStart = (Button) this.findViewById(R.id.start_play);
-        playStart.setOnClickListener(new OnClickListener() {
+        mHandler = new Handler() {
+            private StringBuilder mTextBuilder = new StringBuilder();
+            private boolean isOneMoreTime = false;
+            
             @Override
-            public void onClick(View arg0) {
-                String text = genText(7);
-                playTextView.setText(text);
-                mSinVoicePlayer.play(text, true, 1000);
-            }
-        });
+            public void handleMessage(Message msg) {
+                switch (msg.what) {
+                case MSG_SET_RECG_TEXT:
+                    char ch = (char) msg.arg1;
+                    mTextBuilder.append(ch);
+                    break;
 
-        Button playStop = (Button) this.findViewById(R.id.stop_play);
-        playStop.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View arg0) {
-                mSinVoicePlayer.stop();
-            }
-        });
+                case MSG_RECG_START:
+                    mTextBuilder.delete(0, mTextBuilder.length());
+                    break;
 
-        Button recognitionStart = (Button) this.findViewById(R.id.start_reg);
-        recognitionStart.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View arg0) {
-                mRecognition.start();
-            }
-        });
+                case MSG_RECG_END:
+                    if (isOneMoreTime) {
+                        if (mCountDown <= 0) {
+                            mCountDown--;
+                            meetingSuccess();
+                        }
 
-        Button recognitionStop = (Button) this.findViewById(R.id.stop_reg);
-        recognitionStop.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View arg0) {
-                mRecognition.stop();
+                    } else {
+                        Toast.makeText(getApplicationContext(), mTextBuilder.toString(), Toast.LENGTH_SHORT).show();
+                        if (mTextBuilder.length() < MSG_LENGTH) {
+                            isOneMoreTime = true;
+                        }
+                    }
+                    LogHelper.d(TAG, "recognition end");
+                    break;
+                }
+                super.handleMessage(msg);
             }
-        });
+        };
+        
+        mTextTip = (TextView)findViewById(R.id.meeting_tip);
+        mTextGift = (TextView)findViewById(R.id.meeting_gift);
+    }
+    
+    private void meetingSuccess() {
+        mRecognition.stop();
+        mSinVoicePlayer.stop();
+        Toast.makeText(getApplicationContext(), "确认见面成功", Toast.LENGTH_SHORT).show();
+        mTextGift.setVisibility(View.VISIBLE);
+        mTextTip.setText(R.string.meeting_tip_success);
+        
+        SessionManager sm = SessionManager.getInstance(this);
+        String token = sm.getToken();
+        if (token.isEmpty()) {
+        } else {
+            Map<String, String> params = new HashMap<String, String>();
+            params.put(Constants.TOKEN, token);
+            String url = NetworkUtil.getUrl(Constants.INVITE_FINISH_URL, params);
+            NetworkRequest.get(url, InviteFinishInfo.class,
+                    new Response.Listener<InviteFinishInfo>() {
+                        @Override
+                        public void onResponse(InviteFinishInfo info) {
+                            if (info != null) {
+                                if (info.isSuccess()) {
+                                } else {
+                                }
+                            } else {
+                            }
+                        }
+                    },
+                    new Response.ErrorListener() {
+                        @Override
+                        public void onErrorResponse(VolleyError error) {  
+                        }
+                    },
+                    false);
+        }
+        
     }
 
     private String genText(int count) {
@@ -91,36 +150,12 @@ SinVoicePlayer.Listener {
 
         return sb.toString();
     }
-
-    private static class RegHandler extends Handler {
-        private StringBuilder mTextBuilder = new StringBuilder();
-        private TextView mRecognisedTextView;
-
-        public RegHandler(TextView textView) {
-            mRecognisedTextView = textView;
-        }
-
-        @Override
-        public void handleMessage(Message msg) {
-            switch (msg.what) {
-            case MSG_SET_RECG_TEXT:
-                char ch = (char) msg.arg1;
-                mTextBuilder.append(ch);
-                if (null != mRecognisedTextView) {
-                    mRecognisedTextView.setText(mTextBuilder.toString());
-                }
-                break;
-
-            case MSG_RECG_START:
-                mTextBuilder.delete(0, mTextBuilder.length());
-                break;
-
-            case MSG_RECG_END:
-                LogHelper.d(TAG, "recognition end");
-                break;
-            }
-            super.handleMessage(msg);
-        }
+    
+    @Override
+    protected void onPause() {
+        super.onPause();
+        mRecognition.stop();
+        mSinVoicePlayer.stop();
     }
 
     @Override

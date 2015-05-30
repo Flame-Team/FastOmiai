@@ -89,4 +89,6 @@
 	<string name="chat_content4">哇，直接说吧，我数学不好</string>
 	<string name="meeting_title">见面中</string>
 	<string name="meeting_tip">请将两个手机碰在一起，并关闭静音以确定见面！</string>
+	<string name="meeting_tip_success">系统已经成功退回50元，祝你们聊得愉快！</string>
+	<string name="meeting_gift">这是系统赠送的美团打折券，感谢使用我们的服务！</string>
 </resources>

@@ -55,5 +55,8 @@
 
     <dimen name="chat_item_child_margin">16dp</dimen>
     
-    <dimen name="meeting_text_width">150dp</dimen>
+    <dimen name="meeting_text_width">140dp</dimen>
+    <dimen name="meeting_gift_width">150dp</dimen>
+    <dimen name="meeting_gift_height">60dp</dimen>
+    <dimen name="meeting_top_margin">30dp</dimen>
 </resources>

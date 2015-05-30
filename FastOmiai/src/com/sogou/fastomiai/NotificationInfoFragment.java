@@ -119,14 +119,19 @@ public class NotificationInfoFragment extends Fragment {
             if (tags != null) {
                 switch(tags.size()) {
                 case 5:
+                    btnTag5.setText(tags.get(4));
                     btnTag5.setVisibility(View.VISIBLE);
                 case 4:
+                    btnTag4.setText(tags.get(3));
                     btnTag4.setVisibility(View.VISIBLE);
                 case 3:
+                    btnTag3.setText(tags.get(2));
                     btnTag3.setVisibility(View.VISIBLE);
                 case 2:
+                    btnTag2.setText(tags.get(1));
                     btnTag2.setVisibility(View.VISIBLE);
                 case 1:
+                    btnTag1.setText(tags.get(0));
                     btnTag1.setVisibility(View.VISIBLE);
                 default:
                     break;

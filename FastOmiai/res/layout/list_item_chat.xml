@@ -8,7 +8,8 @@
     <com.android.volley.toolbox.NetworkImageView
         android:id="@+id/image_chat_head"
         android:layout_width="@dimen/homepage_my_photo_size"
-        android:layout_height="@dimen/homepage_my_photo_size"/>
+        android:layout_height="@dimen/homepage_my_photo_size"
+        android:scaleType="centerCrop"/>
     
     <TextView 
         android:id="@+id/text_chat_tip"

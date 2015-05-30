@@ -61,6 +61,7 @@ public class TargetInfoActivity extends Activity {
 			public void onClick(View v) {
 				Intent intent = new Intent(getApplicationContext(), BrowseActivity.class);
 			    startActivity(intent);
+			    finish();
 			}
 		});
         

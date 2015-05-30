@@ -51,7 +51,7 @@
 		        android:id="@+id/image_my_photo" 
 		        android:layout_width="@dimen/homepage_my_photo_size"
 			    android:layout_height="@dimen/homepage_my_photo_size"
-			    android:scaleType="fitXY"
+			    android:scaleType="centerCrop"
 			    android:layout_marginTop="@dimen/homepage_child_margin"
 			    android:background="@drawable/add_photo_shape" />
 	        

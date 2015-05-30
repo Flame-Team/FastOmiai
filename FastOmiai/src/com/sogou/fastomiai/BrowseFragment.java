@@ -107,6 +107,14 @@ public class BrowseFragment extends Fragment {
 	                .inflate(R.layout.fragment_confirm, container, false);	
             NetworkImageView imageHead = (NetworkImageView)rootView.findViewById(R.id.image_user_photo);
             imageHead.setImageUrl(mStrUrl, NetworkRequest.getInstance(mContext.getApplicationContext()).getImageLoader());
+            imageHead.setOnClickListener(new OnClickListener() {
+				
+				@Override
+				public void onClick(View v) {
+					Intent intent = new Intent(mContext, TargetInfoActivity.class);
+    			    startActivity(intent);
+				}
+			});
             //imageHead.setBackgroundResource(imageIds[mPageNumber]);
             mBtnTag1 = (Button) rootView.findViewById(R.id.text_tag1);
             mBtnTag2 = (Button) rootView.findViewById(R.id.text_tag2);
@@ -156,6 +164,14 @@ public class BrowseFragment extends Fragment {
     	                .inflate(R.layout.fragment_browse, container, false);	
             NetworkImageView imageHead = (NetworkImageView)rootView.findViewById(R.id.image_user_photo);
             imageHead.setImageUrl(mStrUrl, NetworkRequest.getInstance(mContext.getApplicationContext()).getImageLoader());
+            imageHead.setOnClickListener(new OnClickListener() {
+				
+				@Override
+				public void onClick(View v) {
+					Intent intent = new Intent(mContext, TargetInfoActivity.class);
+    			    startActivity(intent);
+				}
+			});
             //imageHead.setBackgroundResource(imageIds[mPageNumber]);
             mBtnTag1 = (Button) rootView.findViewById(R.id.text_tag1);
             mBtnTag2 = (Button) rootView.findViewById(R.id.text_tag2);

@@ -83,6 +83,11 @@
         </activity>
         
         <activity
+            android:name=".TargetInfoActivity"
+            android:launchMode="singleTask" >
+        </activity>
+        
+        <activity
             android:name=".BrowseActivity"
             android:launchMode="singleTask" >
         </activity>

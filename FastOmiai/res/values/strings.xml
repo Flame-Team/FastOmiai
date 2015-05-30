@@ -95,4 +95,12 @@
 	<string name="target_name">王** 见面后可见全名</string>
 	<string name="target_verify">车：已验证    房：已验证    银行流水：无</string>
 	<string name="target_stars">4.3星</string>
+	<string name="wait_meeting_title">等待见面</string>
+	<string name="wait_meeting_uber">uber码</string>
+	<string name="wait_meeting_flower">鲜花送</string>
+	<string name="wait_meeting_coupon">审美券</string>
+	<string name="wait_meeting_more">更多>></string>
+	<string name="wait_meeting_chat_list">私信</string>
+	<string name="wait_meeting_navigation">地点导航</string>
+	<string name="wait_meeting_ing">正在见面</string>
 </resources>

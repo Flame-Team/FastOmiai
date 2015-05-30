@@ -47,7 +47,7 @@
     <dimen name="browse_button_margin">40dp</dimen>
     
     <dimen name="choose_hint_height">150dp</dimen>
-    <dimen name="choose_button_left_margin">100dp</dimen>
+    <dimen name="choose_button_left_margin">60dp</dimen>
     <dimen name="choose_button_padding">10dp</dimen>
     <dimen name="choose_hint_padding">5dp</dimen>
     <dimen name="choose_map_top_margin">10dp</dimen>

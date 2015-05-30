@@ -2,10 +2,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
     android:orientation="vertical"
     tools:context="com.sogou.fastomiai.MapActivity" >
     
@@ -52,10 +50,9 @@
 		        android:id="@+id/text_confirm_place_hint"
 		        android:layout_width="wrap_content"
 		        android:layout_height="wrap_content"
-		        android:background="@drawable/blue_button_shape"
 		        android:text="@string/confirm_place_hint"
 		        android:layout_gravity="center_vertical"
-		        android:textSize="16sp"
+		        android:textSize="@dimen/body_text_size"
 		        android:padding="@dimen/choose_hint_padding" />
             
             <LinearLayout
@@ -79,9 +76,9 @@
 		            android:layout_width="wrap_content"
 		            android:layout_height="wrap_content"
 		            android:layout_gravity="center_vertical"
-		            android:layout_margin="@dimen/confirm_place_child_margin"
 		            android:text="@string/confirm_place_partner"
-		            android:textSize="16sp" />
+		            android:textSize="@dimen/button_text_size"
+		            android:padding="@dimen/button_text_padding" />
                 
             </LinearLayout>
             
@@ -95,9 +92,9 @@
 	        android:layout_gravity="center_vertical"
 	        android:layout_marginLeft="@dimen/choose_button_left_margin"
 	        android:text="@string/confirm_place_ok"
-	        android:textSize="22sp"
+	        android:textSize="@dimen/big_button_text_size"
 	        android:textColor="@android:color/white"
-	        android:padding="@dimen/choose_button_padding" />
+	        android:padding="@dimen/big_button_text_padding" />
         
     </LinearLayout>
     

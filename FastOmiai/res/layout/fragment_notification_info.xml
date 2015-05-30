@@ -74,25 +74,23 @@
         android:id="@+id/btn_regret"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/blue_button_shape"
+        android:background="@android:color/transparent"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="@dimen/browse_button_bottom_margin"
         android:text="@string/notification_regret"
-        android:textSize="22sp"
-        android:textColor="@android:color/white"
-        android:padding="@dimen/browse_button_padding" />
+        android:textSize="@dimen/big_button_text_size"
+        android:padding="@dimen/button_text_horizontal_padding" />
     
     <Button
         android:id="@+id/btn_agree"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/pink_button_shape"
+        android:background="@drawable/blue_button_shape"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:layout_marginBottom="@dimen/browse_button_bottom_margin"
         android:text="@string/notification_agree"
-        android:textSize="22sp"
-        android:textColor="@android:color/white"
-        android:padding="@dimen/browse_button_padding" />
+        android:textSize="@dimen/big_button_text_size"
+        android:padding="@dimen/button_text_horizontal_padding" />
 
 </RelativeLayout>

@@ -16,9 +16,5 @@ public class MyApplication extends Application {
         Context context = getApplicationContext();
         NetworkRequest.getInstance(context);
         SessionManager.getInstance(context);
-        
-        ServiceManager serviceManager = new ServiceManager(this);
-        serviceManager.setNotificationIcon(R.drawable.notification);
-        serviceManager.startService();
     }
 }

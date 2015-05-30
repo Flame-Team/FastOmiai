@@ -35,6 +35,8 @@ import org.jivesoftware.smack.packet.Packet;
 import org.jivesoftware.smack.packet.Registration;
 import org.jivesoftware.smack.provider.ProviderManager;
 
+import com.sogou.fastomiai.controller.SessionManager;
+
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
@@ -339,7 +341,6 @@ public class XmppManager {
             Log.i(LOGTAG, "RegisterTask.run()...");
 
             if (!xmppManager.isRegistered()) {
-                final String newUsername = "aaa";
                 final String newPassword = newRandomUUID();
 
                 Registration registration = new Registration();
@@ -367,14 +368,13 @@ public class XmppManager {
                                                             .getCondition());
                                 }
                             } else if (response.getType() == IQ.Type.RESULT) {
-                                xmppManager.setUsername(newUsername);
                                 xmppManager.setPassword(newPassword);
-                                Log.d(LOGTAG, "username=" + newUsername);
+                                Log.d(LOGTAG, "username=" + username);
                                 Log.d(LOGTAG, "password=" + newPassword);
 
                                 Editor editor = sharedPrefs.edit();
                                 editor.putString(Constants.XMPP_USERNAME,
-                                        newUsername);
+                                        username);
                                 editor.putString(Constants.XMPP_PASSWORD,
                                         newPassword);
                                 editor.commit();
@@ -395,7 +395,7 @@ public class XmppManager {
                 // attributes.put("username", rUsername);
                 // attributes.put("password", rPassword);
                 // registration.setAttributes(attributes);
-                registration.addAttribute("username", newUsername);
+                registration.addAttribute("username", username);
                 registration.addAttribute("password", newPassword);
                 connection.sendPacket(registration);
 

@@ -43,6 +43,9 @@ public class BrowseActivity extends FragmentActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_browse);
+		
+		NetworkRequest.getInstance(getApplicationContext()).startPushService();
+		
 		Intent intent = getIntent();
 		if (intent != null) {
 			strConfirmID = (String) intent.getStringExtra(EXTRA_USERID);

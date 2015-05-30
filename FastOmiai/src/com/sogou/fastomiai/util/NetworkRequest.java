@@ -6,6 +6,7 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.util.LruCache;
 
+import com.android.pushclient.ServiceManager;
 import com.android.volley.AuthFailureError;
 import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
@@ -13,14 +14,16 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.toolbox.GsonRequest;
 import com.android.volley.toolbox.ImageLoader;
-import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.sogou.fastomiai.R;
 
 public class NetworkRequest {
     private volatile static NetworkRequest sInstance;
     private RequestQueue mRequestQueue;
     private ImageLoader mImageLoader;
     private static Context sContext;
+    
+    private boolean isPushServiceStarted = false;
     
     private NetworkRequest(Context context) {
         sContext = context;
@@ -92,5 +95,14 @@ public class NetworkRequest {
             }
         };
         return queue.add(request);
+    }
+    
+    public void startPushService() {
+        if (!isPushServiceStarted) {
+            ServiceManager serviceManager = new ServiceManager(sContext.getApplicationContext());
+            serviceManager.setNotificationIcon(R.drawable.notification);
+            serviceManager.startService();
+            isPushServiceStarted = true;
+        }
     }
 }

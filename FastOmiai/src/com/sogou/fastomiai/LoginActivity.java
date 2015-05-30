@@ -90,7 +90,7 @@ public class LoginActivity extends Activity {
             @Override
             public void onClick(View v) {
                 
-                String phone = mEditTel.getText().toString();
+                final String phone = mEditTel.getText().toString();
                 if (phone == null || phone.isEmpty()) {
                     Toast.makeText(LoginActivity.this, "手机号不能为空", Toast.LENGTH_LONG).show();
                     return;
@@ -118,6 +118,8 @@ public class LoginActivity extends Activity {
                                         Toast.makeText(LoginActivity.this, "注册成功", Toast.LENGTH_SHORT).show();
                                         SessionManager.getInstance(LoginActivity.this)
                                             .setToken(regInfo.token);
+                                        SessionManager.getInstance(LoginActivity.this)
+                                            .setPhone(phone);
                                         
                                         Intent intent = new Intent(getApplicationContext(), FillInfoActivity.class);
                         			    startActivity(intent);
@@ -145,6 +147,8 @@ public class LoginActivity extends Activity {
                                         Toast.makeText(LoginActivity.this, "登录成功", Toast.LENGTH_SHORT).show();
                                         SessionManager.getInstance(LoginActivity.this)
                                             .setToken(loginInfo.token);
+                                        SessionManager.getInstance(LoginActivity.this)
+                                            .setPhone(phone);
                                         
                                         Intent intent = new Intent(getApplicationContext(), BrowseActivity.class);
                         			    startActivity(intent);

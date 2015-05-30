@@ -10,6 +10,8 @@ public class PreferenceUtil {
     private static final String LOGGED_ID = "logged_id";
     // 曾经登录过的用户 Token
     private static final String LOGGED_TOKEN = "logged_token";
+    // 登录用户的 Phone
+    private static final String LOGGED_PHONE = "logged_phone";
     
     public static String getLoggedID(Context context) {
         return getString(context, LOGGED_ID);
@@ -25,6 +27,14 @@ public class PreferenceUtil {
     
     public static void setLoggedToken(Context context, String s) {
         saveString(context, LOGGED_TOKEN, s);
+    }
+    
+    public static String getLoggedPhone(Context context) {
+        return getString(context, LOGGED_PHONE);
+    }
+    
+    public static void setLoggedPhone(Context context, String s) {
+        saveString(context, LOGGED_PHONE, s);
     }
     
     ///////////////////////////////////////////////////////////////////////////

@@ -21,11 +21,11 @@ import java.util.UUID;
 import java.util.concurrent.Future;
 
 import org.jivesoftware.smack.ConnectionConfiguration;
+import org.jivesoftware.smack.ConnectionConfiguration.SecurityMode;
 import org.jivesoftware.smack.ConnectionListener;
 import org.jivesoftware.smack.PacketListener;
 import org.jivesoftware.smack.XMPPConnection;
 import org.jivesoftware.smack.XMPPException;
-import org.jivesoftware.smack.ConnectionConfiguration.SecurityMode;
 import org.jivesoftware.smack.filter.AndFilter;
 import org.jivesoftware.smack.filter.PacketFilter;
 import org.jivesoftware.smack.filter.PacketIDFilter;
@@ -34,8 +34,6 @@ import org.jivesoftware.smack.packet.IQ;
 import org.jivesoftware.smack.packet.Packet;
 import org.jivesoftware.smack.packet.Registration;
 import org.jivesoftware.smack.provider.ProviderManager;
-
-import com.sogou.fastomiai.controller.SessionManager;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -49,7 +47,7 @@ import android.util.Log;
  * @author Sehwan Noh (devnoh@gmail.com)
  */
 public class XmppManager {
-
+    
     private static final String LOGTAG = LogUtil.makeLogTag(XmppManager.class);
 
     private static final String XMPP_RESOURCE_NAME = "AndroidpnClient";
@@ -341,7 +339,8 @@ public class XmppManager {
             Log.i(LOGTAG, "RegisterTask.run()...");
 
             if (!xmppManager.isRegistered()) {
-                final String newPassword = newRandomUUID();
+                //final String newPassword = newRandomUUID();
+                final String newPassword = username;
 
                 Registration registration = new Registration();
 
@@ -368,6 +367,7 @@ public class XmppManager {
                                                             .getCondition());
                                 }
                             } else if (response.getType() == IQ.Type.RESULT) {
+                                xmppManager.setUsername(username);
                                 xmppManager.setPassword(newPassword);
                                 Log.d(LOGTAG, "username=" + username);
                                 Log.d(LOGTAG, "password=" + newPassword);

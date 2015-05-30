@@ -60,6 +60,7 @@ public class SessionManager {
         SharedPreferences.Editor editor = mContext.getSharedPreferences(com.android.pushclient.Constants.SHARED_PREFERENCE_NAME,
                 Context.MODE_PRIVATE).edit();
         editor.putString(com.android.pushclient.Constants.XMPP_USERNAME, phone);
+        editor.putString(com.android.pushclient.Constants.XMPP_PASSWORD, phone);
         editor.commit();
     }
     

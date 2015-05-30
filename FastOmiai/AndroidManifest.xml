@@ -128,6 +128,11 @@
         </activity>
         
 		<activity
+            android:name=".WaitMeetingActivity"
+            android:launchMode="singleTask" >
+        </activity>
+        
+		<activity
             android:name=".ChatActivity"
             android:launchMode="singleTask" >
         </activity>

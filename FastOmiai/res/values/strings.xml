@@ -37,7 +37,7 @@
     <string name="homepage_reputation">信誉</string>
     <string name="homepage_fate">缘分</string>
     <string name="homepage_photo">相册</string>
-    <string name="homepage_photo_hint">想看你的家庭视频!</string>
+    <string name="homepage_photo_hint">章泽天想看你的家庭视频!</string>
     <string name="homepage_notification">通知</string>
     <string name="homepage_message">私信</string>
     <string name="homepage_data">资料</string>
@@ -47,6 +47,7 @@
     <string name="homepage_coupon">使用券</string>
     <string name="homepage_meeting">见面</string>
     <string name="browse_title">发现</string>
+    <string name="browse_distance">10公里</string>
     <string name="browse_filter">筛选</string>
     <string name="browse_no_love">无爱</string>
     <string name="browse_date">约TA</string>
@@ -78,7 +79,7 @@
 	<string name="notification_hint">若你在规定时间内不回复将会扣除\n你的信誉值，拒绝不扣任何信誉值</string>
 	<string name="deposit_title">支付保证金</string>
 	<string name="deposit_sponsor">为了保证你们能够真实见面，我们将收取见面的保证金。\n\n我们承诺：\n见面后立即退还到您的现金账号。\n\n因为任何原因见面失败，将会在7天内退还保证金。</string>
-	<string name="deposit_cancel">取消见面>></string>
+	<string name="deposit_cancel">取消见面</string>
 	<string name="deposit_agree">保存50元</string>
 	<string name="deposit_invite">已经支付了保证金50元，诚心邀请您见面。</string>
 	<string name="deposit_agree_and_chat">保存50元，并开始聊天</string>

@@ -2,7 +2,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.sogou.fastomiai.SplashActivity"
     android:orientation="vertical" >
     
@@ -20,11 +19,11 @@
 	        android:background="@drawable/homepage_notification_shape"
 	        android:layout_centerVertical="true"
 	        android:text="@string/homepage_title"
-	        android:textSize="22sp"
-	        android:paddingLeft="30dp"
-	        android:paddingRight="30dp"
-	        android:paddingTop="@dimen/browse_title_button_padding"
-	        android:paddingBottom="@dimen/browse_title_button_padding" />
+	        android:paddingLeft="@dimen/button_text_horizontal_padding"
+    		android:paddingRight="@dimen/button_text_horizontal_padding"
+    		android:paddingTop="@dimen/button_text_vertical_padding"
+    		android:paddingBottom="@dimen/button_text_vertical_padding"
+	        android:textSize="@dimen/title_text_size" />
         
         <TextView
 	        android:id="@+id/text_fill_info_title"
@@ -32,21 +31,21 @@
 	        android:layout_height="wrap_content"
 	        android:layout_centerInParent="true"
 	        android:text="@string/browse_title"
-	        android:textSize="28sp" />
+	        android:textSize="@dimen/title_text_size" />
         
         <Button
 	        android:id="@+id/btn_filter"
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
 	        android:background="@drawable/homepage_notification_shape"
+	        android:paddingLeft="@dimen/button_text_horizontal_padding"
+    		android:paddingRight="@dimen/button_text_horizontal_padding"
+    		android:paddingTop="@dimen/button_text_vertical_padding"
+    		android:paddingBottom="@dimen/button_text_vertical_padding"
 	        android:layout_centerVertical="true"
 	        android:layout_alignParentRight="true"
 	        android:text="@string/browse_filter"
-	        android:textSize="22sp"
-	        android:paddingLeft="30dp"
-	        android:paddingRight="30dp"
-	        android:paddingTop="@dimen/browse_title_button_padding"
-	        android:paddingBottom="@dimen/browse_title_button_padding" />
+	        android:textSize="@dimen/title_text_size" />
         
     </RelativeLayout>
     

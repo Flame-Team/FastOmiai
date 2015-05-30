@@ -2,10 +2,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
     android:orientation="vertical"
     tools:context="com.sogou.fastomiai.MapActivity" >
     
@@ -30,7 +28,7 @@
 	        android:layout_height="wrap_content"
 	        android:layout_centerInParent="true"
 	        android:text="@string/choose_place_title"
-	        android:textSize="28sp"/>
+	        android:textSize="@dimen/title_text_size" />
         
     </RelativeLayout>
     
@@ -48,7 +46,6 @@
 	        android:id="@+id/text_choose_hint"
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
-	        android:background="@drawable/blue_button_shape"
 	        android:text="@string/choose_place_hint"
 	        android:layout_gravity="center_vertical"
 	        android:textSize="16sp"
@@ -58,13 +55,13 @@
 	        android:id="@+id/btn_choose"
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
-	        android:background="@drawable/pink_button_shape"
+	        android:background="@drawable/blue_button_shape"
 	        android:layout_gravity="center_vertical"
 	        android:layout_marginLeft="@dimen/choose_button_left_margin"
 	        android:text="@string/choose_ok"
-	        android:textSize="22sp"
+	        android:textSize="@dimen/big_button_text_size"
 	        android:textColor="@android:color/white"
-	        android:padding="@dimen/choose_button_padding" />
+	        android:padding="@dimen/big_button_text_padding" />
         
     </LinearLayout>
     

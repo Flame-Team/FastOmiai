@@ -193,7 +193,10 @@ public class MapActivity extends Activity implements MKOfflineMapListener {
 				.zIndex(9)
 				.period(60)
 				.draggable(false);
-			mBaiduMap.addOverlay(option);
+			if (null != option) {
+				mBaiduMap.addOverlay(option);
+			}
+			
 		}
 	}
 

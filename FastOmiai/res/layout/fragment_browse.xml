@@ -3,6 +3,15 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp">
+    
+    <TextView
+        android:id="@+id/text_login_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="@string/browse_distance"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:textSize="@dimen/big_button_text_size"/>
 
     <com.android.volley.toolbox.NetworkImageView 
         android:id="@+id/image_user_photo"
@@ -16,89 +25,86 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="80dp"
-        android:background="@drawable/homepage_baseinfo_item_shape"
+        android:layout_marginTop="100dp"
+        android:background="@drawable/tag_shape"
         android:text="是不是"
-        android:textSize="@dimen/browse_tag_textsize"
-        android:padding="@dimen/browse_tag_padding" 
-        android:visibility="gone"
-        />
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/button_text_size"
+        android:padding="@dimen/button_text_padding"
+        android:visibility="gone" />
     
     <Button
         android:id="@+id/text_tag2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="150dp"
-        android:background="@drawable/homepage_baseinfo_item_shape"
+        android:layout_marginTop="170dp"
+        android:background="@drawable/tag_shape"
         android:text="是不是"
-        android:textSize="@dimen/browse_tag_textsize"
-        android:padding="@dimen/browse_tag_padding"
-         android:visibility="gone"
-         />
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/button_text_size"
+        android:padding="@dimen/button_text_padding"
+        android:visibility="gone" />
     
     <Button
         android:id="@+id/text_tag3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="300dp"
-        android:background="@drawable/homepage_baseinfo_item_shape"
+        android:layout_marginTop="320dp"
+        android:background="@drawable/tag_shape"
         android:text="是不是"
-        android:textSize="@dimen/browse_tag_textsize"
-        android:padding="@dimen/browse_tag_padding"
-         android:visibility="gone"
-         />
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/button_text_size"
+        android:padding="@dimen/button_text_padding"
+        android:visibility="gone" />
     
     <Button
         android:id="@+id/text_tag4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
-        android:layout_marginTop="150dp"
-        android:background="@drawable/homepage_baseinfo_item_shape"
+        android:layout_marginTop="170dp"
+        android:background="@drawable/tag_shape"
         android:text="是不是"
-        android:textSize="@dimen/browse_tag_textsize"
-        android:padding="@dimen/browse_tag_padding"
-         android:visibility="gone"
-         />
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/button_text_size"
+        android:padding="@dimen/button_text_padding"
+        android:visibility="gone" />
     
     <Button
         android:id="@+id/text_tag5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
-        android:layout_marginTop="300dp"
-        android:background="@drawable/homepage_baseinfo_item_shape"
+        android:layout_marginTop="320dp"
+        android:background="@drawable/tag_shape"
         android:text="是不是"
-        android:textSize="@dimen/browse_tag_textsize"
-        android:padding="@dimen/browse_tag_padding" 
-         android:visibility="gone"
-        />
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/button_text_size"
+        android:padding="@dimen/button_text_padding"
+        android:visibility="gone" />
     
     <Button
         android:id="@+id/btn_no_love"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/blue_button_shape"
+        android:background="@android:color/transparent"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="@dimen/browse_button_bottom_margin"
-        android:layout_marginLeft="@dimen/browse_button_margin"
+        android:layout_centerHorizontal="true"
         android:text="@string/browse_no_love"
-        android:textSize="22sp"
-        android:textColor="@android:color/white"
-        android:padding="@dimen/browse_button_padding" />
+        android:textSize="@dimen/big_button_text_size"
+        android:padding="@dimen/button_text_horizontal_padding" />
     
     <Button
         android:id="@+id/btn_browse_date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/pink_button_shape"
+        android:background="@drawable/blue_button_shape"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
+        android:layout_centerHorizontal="true"
         android:layout_marginBottom="@dimen/browse_button_bottom_margin"
-        android:layout_marginRight="@dimen/browse_button_margin"
         android:text="@string/browse_date"
-        android:textSize="22sp"
         android:textColor="@android:color/white"
-        android:padding="@dimen/browse_button_padding" />
+        android:textSize="@dimen/big_button_text_size"
+        android:padding="@dimen/button_text_horizontal_padding" />
 
 </RelativeLayout>

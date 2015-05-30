@@ -8,10 +8,14 @@
     <dimen name="content_text_padding">10dp</dimen>
     <dimen name="button_text_size">16dp</dimen>
     <dimen name="button_text_padding">10dp</dimen>
+    <dimen name="button_text_horizontal_padding">20dp</dimen>
+    <dimen name="button_text_vertical_padding">5dp</dimen>
+    <dimen name="big_button_text_size">24dp</dimen>
+    <dimen name="big_button_text_padding">12dp</dimen>       
     
-    <dimen name="login_bar_height">100dp</dimen>
-    
-    <dimen name="title_height">60dp</dimen>
+    <dimen name="title_height">54dp</dimen>
+    <dimen name="title_text_size">16sp</dimen>
+    <dimen name="body_text_size">14sp</dimen>
     <dimen name="sepline_height">1dp</dimen>
     
     <dimen name="login_left_right_margin">50dp</dimen>
@@ -39,11 +43,11 @@
     <dimen name="browse_photo_size">300dp</dimen>
     <dimen name="browse_tag_padding">10dp</dimen>
     <dimen name="browse_button_padding">30dp</dimen>
-    <dimen name="browse_button_bottom_margin">40dp</dimen>
+    <dimen name="browse_button_bottom_margin">70dp</dimen>
     <dimen name="browse_button_margin">40dp</dimen>
     
     <dimen name="choose_hint_height">150dp</dimen>
-    <dimen name="choose_button_left_margin">40dp</dimen>
+    <dimen name="choose_button_left_margin">100dp</dimen>
     <dimen name="choose_button_padding">10dp</dimen>
     <dimen name="choose_hint_padding">5dp</dimen>
     <dimen name="choose_map_top_margin">10dp</dimen>

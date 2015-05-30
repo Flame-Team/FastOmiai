@@ -1,6 +1,9 @@
 package com.sogou.fastomiai;
 
 
+import java.util.HashMap;
+import java.util.Map;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,11 +12,19 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
-import android.widget.Toast;
 import android.widget.CompoundButton.OnCheckedChangeListener;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.ImageButton;
+import android.widget.Toast;
+
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.sogou.fastomiai.controller.SessionManager;
+import com.sogou.fastomiai.model.InviteDealInfo;
+import com.sogou.fastomiai.util.Constants;
+import com.sogou.fastomiai.util.NetworkRequest;
+import com.sogou.fastomiai.util.NetworkUtil;
 
 public class PlacePickerActivity extends Activity {
 
@@ -35,12 +46,15 @@ public class PlacePickerActivity extends Activity {
 	private LinearLayout mLayoutPartner = null;
 	private boolean mMale = false;
 	private boolean[] mPlaces = {true, false, true, false, true}; // to do 测试数据，实际要从intent中获取
+	private int mInviteID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         
-//        mPlaces = getIntent().getBooleanArrayExtra("places"); // 暂时注释
+        mPlaces = getIntent().getBooleanArrayExtra("places"); // 暂时注释
+        mInviteID = getIntent().getIntExtra("inviteid", -1);
+        mMale = getIntent().getBooleanExtra("ismale", false);
         
         setContentView(R.layout.activity_confirm_place);
         
@@ -68,6 +82,8 @@ public class PlacePickerActivity extends Activity {
 							Toast.LENGTH_SHORT).show();
 				}
 				else {
+				    inviteDeal(true);
+				    
 					Intent intent = new Intent(getApplicationContext(), DepositReceiverActivity.class);
 				    startActivity(intent);
 				}				
@@ -176,6 +192,43 @@ public class PlacePickerActivity extends Activity {
         mCheckPlace5.setVisibility(mPlaces[4] ? View.VISIBLE : View.INVISIBLE);
         mTextPlace5.setVisibility(mPlaces[4] ? View.VISIBLE : View.INVISIBLE);
         
+    }
+    
+    private void inviteDeal(boolean isDeal) {
+        SessionManager sm = SessionManager.getInstance(this.getApplicationContext());
+        String token = sm.getToken();
+        if (token.isEmpty()) {
+        } else {
+            String strPos = "";
+            for (int i = 0; i < mPlaces.length; i++) {
+                strPos += mPlaces[i] ? "1" : "0";
+            }            
+            
+            Map<String, String> params = new HashMap<String, String>();
+            params.put(Constants.TOKEN, token);
+            params.put(Constants.ID, String.valueOf(mInviteID));
+            params.put(Constants.ACT, String.valueOf(isDeal ? 1 : 2));
+            params.put(Constants.POSITION, strPos);
+            String url = NetworkUtil.getUrl(Constants.INVITE_DEAL_URL, params);
+            NetworkRequest.get(url, InviteDealInfo.class,
+                    new Response.Listener<InviteDealInfo>() {
+                        @Override
+                        public void onResponse(InviteDealInfo info) {
+                            if (info != null) {
+                                if (info.isSuccess()) {
+                                } else {
+                                }
+                            } else {
+                            }
+                        }
+                    },
+                    new Response.ErrorListener() {
+                        @Override
+                        public void onErrorResponse(VolleyError error) {  
+                        }
+                    },
+                    false);
+        }
     }
     
     private int getCheckedCount() {

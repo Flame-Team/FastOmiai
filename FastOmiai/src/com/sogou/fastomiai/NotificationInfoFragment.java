@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import com.android.volley.toolbox.NetworkImageView;
 import com.sogou.fastomiai.model.InviteItemInfo;
+import com.sogou.fastomiai.model.InviteItemInfo.SexEnum;
 import com.sogou.fastomiai.util.NetworkRequest;
 
 /**
@@ -40,15 +41,17 @@ public class NotificationInfoFragment extends Fragment {
     private Button mBtnAgree = null;
     
     boolean[] mPlaces = {false, false, false, false, false};
+    private int mInviteID;
 
     /**
      * Factory method for this fragment class. Constructs a new fragment for the given page number.
      */
-    public static NotificationInfoFragment create(Context context, int pageNumber, boolean[] places) {
+    public static NotificationInfoFragment create(Context context, int pageNumber, boolean[] places, int inviteID) {
     	NotificationInfoFragment fragment = new NotificationInfoFragment(context);
         Bundle args = new Bundle();
         args.putInt(ARG_PAGE, pageNumber);
         args.putBooleanArray("places", places);
+        args.putInt("inviteid", inviteID);
         fragment.setArguments(args);
         return fragment;
     }
@@ -62,6 +65,7 @@ public class NotificationInfoFragment extends Fragment {
         super.onCreate(savedInstanceState);
         mPageNumber = getArguments().getInt(ARG_PAGE); 
         mPlaces = getArguments().getBooleanArray("places");
+        mInviteID = getArguments().getInt("inviteid");
     }
 
     @Override
@@ -80,6 +84,8 @@ public class NotificationInfoFragment extends Fragment {
 			}
 		});
         
+        final InviteItemInfo inviteInfo = ((NotificationInfoActivity)getActivity()).getInviteInfo();
+        
         mBtnAgree = (Button) rootView.findViewById(R.id.btn_agree);
         mBtnAgree.setOnClickListener(new OnClickListener() {
 			
@@ -87,11 +93,12 @@ public class NotificationInfoFragment extends Fragment {
 			public void onClick(View v) {
 				Intent intent = new Intent(mContext, PlacePickerActivity.class);
 				intent.putExtra("places", mPlaces);
+				intent.putExtra("inviteid", mInviteID);
+				intent.putExtra("ismale", (inviteInfo.data.user.sex == SexEnum.SEX_MALE));
 			    startActivity(intent);
 			}
 		});
         
-        InviteItemInfo inviteInfo = ((NotificationInfoActivity)getActivity()).getInviteInfo();
         if (inviteInfo != null) {
             NetworkImageView headImage = (NetworkImageView) rootView
                     .findViewById(R.id.image_user_photo);

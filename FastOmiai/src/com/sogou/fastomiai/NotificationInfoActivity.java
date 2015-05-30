@@ -167,7 +167,7 @@ public class NotificationInfoActivity extends FragmentActivity {
 
         @Override
         public Fragment getItem(int position) {
-            return NotificationInfoFragment.create(getApplicationContext(), position, mPlaces);
+            return NotificationInfoFragment.create(getApplicationContext(), position, mPlaces, mInviteID);
         }
 
         @Override

@@ -1,0 +1,95 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" 
+		android:gravity="center_horizontal"
+		android:layout_marginTop="10dp"
+        >
+
+        <Button
+            android:id="@+id/btn_uber_code"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/homepage_baseinfo_item_shape"
+            android:padding="@dimen/button_text_padding"
+            android:text="@string/wait_meeting_uber"
+            android:textSize="@dimen/button_text_size" />
+
+        <Button
+            android:id="@+id/btn_flower"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/homepage_baseinfo_item_shape"
+            android:padding="@dimen/button_text_padding"
+            android:text="@string/wait_meeting_flower"
+            android:textSize="@dimen/button_text_size" />
+
+        <Button
+            android:id="@+id/btn_coupon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/homepage_baseinfo_item_shape"
+            android:padding="@dimen/button_text_padding"
+            android:text="@string/wait_meeting_coupon"
+            android:textSize="@dimen/button_text_size" />
+
+        <Button
+            android:id="@+id/btn_more"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/homepage_baseinfo_item_shape"
+            android:padding="@dimen/button_text_padding"
+            android:text="@string/wait_meeting_more"
+            android:textSize="@dimen/button_text_size" />
+    </LinearLayout>
+
+    <com.android.volley.toolbox.NetworkImageView
+        android:id="@+id/image_user_photo"
+        android:layout_width="@dimen/browse_photo_size"
+        android:layout_height="@dimen/browse_photo_size"
+        android:layout_marginTop="135dp"
+        android:scaleType="centerCrop" 
+        android:layout_marginLeft="10dp"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="480dp"
+        android:orientation="horizontal" 
+        android:gravity="center_horizontal"
+        >
+
+        <Button
+            android:id="@+id/btn_chat_list"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/homepage_baseinfo_item_shape"
+            android:padding="@dimen/button_text_padding"
+            android:text="@string/wait_meeting_chat_list"
+            android:textSize="@dimen/button_text_size" />
+
+        <Button
+            android:id="@+id/btn_navigation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/homepage_baseinfo_item_shape"
+            android:padding="@dimen/button_text_padding"
+            android:text="@string/wait_meeting_navigation"
+            android:textSize="@dimen/button_text_size" />
+
+        <Button
+            android:id="@+id/btn_meeting"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/homepage_baseinfo_item_shape"
+            android:padding="@dimen/button_text_padding"
+            android:text="@string/wait_meeting_ing"
+            android:textSize="@dimen/button_text_size" />
+    </LinearLayout>
+
+</RelativeLayout>

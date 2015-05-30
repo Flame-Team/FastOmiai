@@ -31,7 +31,7 @@ public class BrowseFragment extends Fragment {
      * The argument key for the page number this fragment represents.
      */
     public static final String ARG_PAGE = "page";
-
+	public static final String EXTRA_USERID = "USERID";
     /**
      * The fragment's page number, which is set to the argument value for {@link #ARG_PAGE}.
      */
@@ -63,6 +63,15 @@ public class BrowseFragment extends Fragment {
 	
     private Button mBtnHomePage = null;
     private Button mBtnFilter = null; 
+    
+    private Button mBtnUber = null;
+    private Button mBtnFlower = null;
+    private Button mBtnCoupon = null;
+    private Button mBtnMore = null;
+    private Button mBtnChatList = null;
+    private Button mBtnNavigation = null;
+    private Button mBtnMeeting = null;
+    
     /**
      * Factory method for this fragment class. Constructs a new fragment for the given page number.
      */
@@ -104,6 +113,8 @@ public class BrowseFragment extends Fragment {
         strUser =  mFindListInfo.data.get(mPageNumber).uid;
         
         String strID = mContext.getID();
+        String strUri = mContext.getUri();
+        
     	if (strID != null && strID.equals(strUser)) {
     		rootView = (ViewGroup) inflater
 	                .inflate(R.layout.fragment_confirm, container, false);	
@@ -114,6 +125,7 @@ public class BrowseFragment extends Fragment {
 				@Override
 				public void onClick(View v) {
 					Intent intent = new Intent(mContext, TargetInfoActivity.class);
+					intent.putExtra(EXTRA_USERID, strUser);
     			    startActivity(intent);
 				}
 			});
@@ -161,6 +173,87 @@ public class BrowseFragment extends Fragment {
             mTimer.schedule(task, 0, 1000);
             
 		}
+    	else if ( strUri!= null && strUri.equals(strUser)) {
+    		
+    		rootView = (ViewGroup) inflater.inflate(R.layout.fragment_meeting_wait2, container, false);
+    		  NetworkImageView imageHead = (NetworkImageView)rootView.findViewById(R.id.image_user_photo);
+              imageHead.setImageUrl(mStrUrl, NetworkRequest.getInstance(mContext.getApplicationContext()).getImageLoader());
+              imageHead.setOnClickListener(new OnClickListener() {
+  				
+  				@Override
+  				public void onClick(View v) {
+  					Intent intent = new Intent(mContext, TargetInfoActivity.class);
+  					intent.putExtra(EXTRA_USERID, strUser);
+      			    startActivity(intent);
+  				}
+  			});
+              
+
+              mBtnUber = (Button) rootView.findViewById(R.id.btn_uber_code);
+              mBtnUber.setOnClickListener(new OnClickListener() {
+      			
+      			@Override
+      			public void onClick(View v) {
+      				Toast.makeText(mContext.getApplicationContext(), "Uber码功能尚未实现", Toast.LENGTH_SHORT).show();
+      			}
+      		});
+              
+              mBtnFlower = (Button) rootView.findViewById(R.id.btn_flower);
+              mBtnFlower.setOnClickListener(new OnClickListener() {
+      			
+      			@Override
+      			public void onClick(View v) {
+      				Toast.makeText(mContext.getApplicationContext(), "鲜花送功能尚未实现", Toast.LENGTH_SHORT).show();
+      			}
+      		});
+              
+              mBtnCoupon = (Button) rootView.findViewById(R.id.btn_coupon);
+              mBtnCoupon.setOnClickListener(new OnClickListener() {
+      			
+      			@Override
+      			public void onClick(View v) {
+      				Toast.makeText(mContext.getApplicationContext(), "审美券功能尚未实现", Toast.LENGTH_SHORT).show();
+      			}
+      		});
+              
+              mBtnMore = (Button) rootView.findViewById(R.id.btn_more);
+              mBtnMore.setOnClickListener(new OnClickListener() {
+      			
+      			@Override
+      			public void onClick(View v) {
+      				Toast.makeText(mContext.getApplicationContext(), "更多", Toast.LENGTH_SHORT).show();
+      			}
+      		});
+              
+              mBtnChatList = (Button) rootView.findViewById(R.id.btn_chat_list);
+              mBtnChatList.setOnClickListener(new OnClickListener() {
+      			
+      			@Override
+      			public void onClick(View v) {
+      				Toast.makeText(mContext.getApplicationContext(), "私信", Toast.LENGTH_SHORT).show();
+      			}
+      		});
+              
+              mBtnNavigation = (Button)rootView.findViewById(R.id.btn_navigation);
+              mBtnNavigation.setOnClickListener(new OnClickListener() {
+      			
+      			@Override
+      			public void onClick(View v) {
+      				Toast.makeText(mContext.getApplicationContext(), "地点导航功能尚未实现", Toast.LENGTH_SHORT).show();
+      			}
+      		});
+              
+              mBtnMeeting = (Button) rootView.findViewById(R.id.btn_meeting);
+              mBtnMeeting.setOnClickListener(new OnClickListener() {
+      			
+      			@Override
+      			public void onClick(View v) {
+    				Intent intent = new Intent(mContext.getApplicationContext(), MeetingActivity.class);
+    				startActivity(intent);      			}
+      		});
+             
+    		
+		}
     	else {
     		rootView = (ViewGroup) inflater
     	                .inflate(R.layout.fragment_browse, container, false);	
@@ -171,6 +264,7 @@ public class BrowseFragment extends Fragment {
 				@Override
 				public void onClick(View v) {
 					Intent intent = new Intent(mContext, TargetInfoActivity.class);
+					intent.putExtra(EXTRA_USERID, strUser);
     			    startActivity(intent);
 				}
 			});

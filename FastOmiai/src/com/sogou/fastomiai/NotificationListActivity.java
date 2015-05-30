@@ -82,6 +82,7 @@ public class NotificationListActivity extends Activity {
     }
     
     private class NotificationListAdapter extends ArrayAdapter<NoticeInfo> {
+    	
         public NotificationListAdapter(ArrayList<NoticeInfo> infos) {
             super(NotificationListActivity.this, 0, infos);
         }

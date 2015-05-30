@@ -17,8 +17,6 @@ package com.android.pushclient;
 
 import java.util.Random;
 
-import com.sogou.fastomiai.NotificationListActivity;
-
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -27,6 +25,9 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.util.Log;
 import android.widget.Toast;
+
+import com.sogou.fastomiai.BrowseActivity;
+import com.sogou.fastomiai.NotificationListActivity;
 
 /** 
  * This class is to notify the user of messages with NotificationManager.
@@ -100,8 +101,13 @@ public class Notifier {
             //                intent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
             //            }
 
-            Intent intent = new Intent(context,
-            		NotificationListActivity.class);
+			Intent intent = null;
+			if (uri != null && !uri.isEmpty()) {
+				intent = new Intent(context, BrowseActivity.class);
+			} else {
+
+				intent = new Intent(context, NotificationListActivity.class);
+			}
             intent.putExtra(Constants.NOTIFICATION_ID, notificationId);
             intent.putExtra(Constants.NOTIFICATION_API_KEY, apiKey);
             intent.putExtra(Constants.NOTIFICATION_TITLE, title);

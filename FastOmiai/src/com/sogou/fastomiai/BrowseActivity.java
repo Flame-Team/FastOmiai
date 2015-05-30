@@ -38,6 +38,8 @@ public class BrowseActivity extends FragmentActivity {
 	private FindListInfo mFindListInfo;
 
 	private String strConfirmID;
+	private String notificationUri;
+	NotificationReceiver notificationReceiver;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -50,8 +52,13 @@ public class BrowseActivity extends FragmentActivity {
 		Intent intent = getIntent();
 		if (intent != null) {
 			strConfirmID = (String) intent.getStringExtra(EXTRA_USERID);
+	        notificationUri = intent
+	                .getStringExtra(Constants.NOTIFICATION_URI);
 			getFindListData();
 		}
+		
+
+		
 		mBtnHomePage = (Button) findViewById(R.id.btn_homepage);
 		mBtnHomePage.setOnClickListener(new OnClickListener() {
 
@@ -83,6 +90,11 @@ public class BrowseActivity extends FragmentActivity {
 		return strConfirmID;
 	}
 
+	public String getUri()
+	{
+		return notificationUri;
+	}
+	
 	private class ScreenSlidePagerAdapter extends FragmentStatePagerAdapter {
 
 		public ScreenSlidePagerAdapter(FragmentManager fm) {
@@ -140,28 +152,34 @@ public class BrowseActivity extends FragmentActivity {
 	}
 
 	protected void onNewIntent(Intent intent) {
-		if (strConfirmID != null) {
-			return;
-		}
 		if (intent != null
 				&& (String) intent.getStringExtra(EXTRA_USERID) != null) {
 			strConfirmID = (String) intent.getStringExtra(EXTRA_USERID);
+	        notificationUri = intent
+	                .getStringExtra(Constants.NOTIFICATION_URI);
 			getFindListData();
-			NotificationReceiver notificationReceiver = new NotificationReceiver();
-			IntentFilter filter = new IntentFilter();
-	        filter.addAction(Constants.ACTION_SHOW_NOTIFICATION);
-	        filter.addAction(Constants.ACTION_NOTIFICATION_CLICKED);
-	        filter.addAction(Constants.ACTION_NOTIFICATION_CLEARED);
-	        registerReceiver(notificationReceiver, filter);
-			
-			Intent intent1 = new Intent(Constants.ACTION_SHOW_NOTIFICATION);
-			intent1.putExtra(Constants.NOTIFICATION_ID, "2222");
-			intent1.putExtra(Constants.NOTIFICATION_API_KEY, "222");
-			intent1.putExtra(Constants.NOTIFICATION_TITLE, "来自逗逼花花");
-			intent1.putExtra(Constants.NOTIFICATION_MESSAGE, "美女我们能合个影嘛，我想向我朋友证明其实这个世界上是有天使的");
-			intent1.putExtra(Constants.NOTIFICATION_URI, "CCCC");
-			sendBroadcast(intent1);
+//			notificationReceiver = new NotificationReceiver();
+//			IntentFilter filter = new IntentFilter();
+//	        filter.addAction(Constants.ACTION_SHOW_NOTIFICATION);
+//	        filter.addAction(Constants.ACTION_NOTIFICATION_CLICKED);
+//	        filter.addAction(Constants.ACTION_NOTIFICATION_CLEARED);
+//	        registerReceiver(notificationReceiver, filter);
+//			
+//			Intent intent1 = new Intent(Constants.ACTION_SHOW_NOTIFICATION);
+//			intent1.putExtra(Constants.NOTIFICATION_ID, "2222");
+//			intent1.putExtra(Constants.NOTIFICATION_API_KEY, "222");
+//			intent1.putExtra(Constants.NOTIFICATION_TITLE, "来自逗逼花花");
+//			intent1.putExtra(Constants.NOTIFICATION_MESSAGE, "美女我们能合个影嘛，我想向我朋友证明其实这个世界上是有天使的");
+//			intent1.putExtra(Constants.NOTIFICATION_URI, "CCCC");
+//			sendBroadcast(intent1);
 			
 		}
+	}
+	
+	@Override
+	protected void onDestroy() {
+		// TODO Auto-generated method stub
+		super.onDestroy();
+//		unregisterReceiver(notificationReceiver);
 	}
 }

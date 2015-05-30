@@ -72,7 +72,7 @@ public class Constants {
 
     // INTENT ACTIONS
 
-    public static final String ACTION_SHOW_NOTIFICATION = "org.androidpn.client.SHOW_NOTIFICATION";
+    public static final String ACTION_SHOW_NOTIFICATION = "com.android.pushclient.SHOW_NOTIFICATION";
 
     public static final String ACTION_NOTIFICATION_CLICKED = "org.androidpn.client.NOTIFICATION_CLICKED";
 

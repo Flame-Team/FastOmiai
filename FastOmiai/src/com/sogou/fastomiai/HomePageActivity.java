@@ -27,6 +27,7 @@ public class HomePageActivity extends Activity {
     private RelativeLayout mLayoutHelp = null;
     private RelativeLayout mLayoutCoupon = null;
     private RelativeLayout mLayoutMeeting = null;
+    private RelativeLayout mLayoutWaitMeeting = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -124,6 +125,16 @@ public class HomePageActivity extends Activity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), MeetingActivity.class);
+                startActivity(intent);
+            }
+        });
+        
+        mLayoutWaitMeeting = (RelativeLayout) findViewById(R.id.layout_wait_meeting);
+        mLayoutWaitMeeting.setOnClickListener(new OnClickListener() {
+            
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), WaitMeetingActivity.class);
                 startActivity(intent);
             }
         });

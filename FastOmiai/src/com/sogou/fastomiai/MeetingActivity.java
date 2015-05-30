@@ -43,7 +43,7 @@ SinVoicePlayer.Listener {
     private TextView mTextGift;
     
     private final static int MSG_LENGTH = 7;
-    private int mCountDown = 3;
+    private int mCountDown = 5;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,18 +77,13 @@ SinVoicePlayer.Listener {
                     break;
 
                 case MSG_RECG_END:
-                    if (isOneMoreTime) {
-                        if (mCountDown <= 0) {
-                            mCountDown--;
-                            meetingSuccess();
-                        }
-
+                    mCountDown--;
+                    if (mCountDown <= 0) {
+                        meetingSuccess();
                     } else {
-                        Toast.makeText(getApplicationContext(), mTextBuilder.toString(), Toast.LENGTH_SHORT).show();
-                        if (mTextBuilder.length() < MSG_LENGTH) {
-                            isOneMoreTime = true;
-                        }
+                        //Toast.makeText(getApplicationContext(), mTextBuilder.toString(), Toast.LENGTH_SHORT).show();
                     }
+                    
                     LogHelper.d(TAG, "recognition end");
                     break;
                 }

@@ -46,6 +46,7 @@
     <string name="homepage_help">帮助</string>
     <string name="homepage_coupon">使用券</string>
     <string name="homepage_meeting">见面</string>
+    <string name="homepage_wait_meeting">等待见面</string>
     <string name="browse_title">发现</string>
     <string name="browse_distance">10公里</string>
     <string name="browse_filter">筛选</string>

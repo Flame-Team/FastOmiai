@@ -96,7 +96,8 @@ public class WaitMeetingActivity extends Activity {
 			
 			@Override
 			public void onClick(View v) {
-				Toast.makeText(getApplicationContext(), "正在见功能尚未实现", Toast.LENGTH_SHORT).show();
+				Intent intent = new Intent(getApplicationContext(), MeetingActivity.class);
+				startActivity(intent);
 			}
 		});
 

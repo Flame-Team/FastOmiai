@@ -45,6 +45,7 @@ public class BrowseActivity extends FragmentActivity {
 		setContentView(R.layout.activity_browse);
 		
 		NetworkRequest.getInstance(getApplicationContext()).startPushService();
+		SessionManager.getInstance(getApplicationContext()).pullCurrentUserInfo();
 		
 		Intent intent = getIntent();
 		if (intent != null) {

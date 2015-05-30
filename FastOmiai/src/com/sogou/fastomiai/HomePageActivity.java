@@ -7,7 +7,13 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageButton;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import com.android.volley.toolbox.NetworkImageView;
+import com.sogou.fastomiai.controller.SessionManager;
+import com.sogou.fastomiai.model.UserGetInfo;
+import com.sogou.fastomiai.util.NetworkRequest;
 
 
 public class HomePageActivity extends Activity {
@@ -26,6 +32,9 @@ public class HomePageActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_homepage);
+        
+        UserGetInfo userInfo = SessionManager.getInstance(
+                getApplicationContext()).getCurrentUserInfo();
      
         mBtnBack = (ImageButton) findViewById(R.id.btn_homepage_back);
         mBtnBack.setOnClickListener(new OnClickListener() {
@@ -118,6 +127,27 @@ public class HomePageActivity extends Activity {
                 startActivity(intent);
             }
         });
+        
+        NetworkImageView headImage = (NetworkImageView)findViewById(R.id.image_my_photo);
+        if (userInfo.data != null && userInfo.data.headUrl != null) {
+            headImage.setImageUrl(userInfo.data.headUrl, NetworkRequest
+                    .getInstance(getApplicationContext()).getImageLoader());
+        }
+        
+        TextView textName = (TextView)findViewById(R.id.text_homepage_name);
+        textName.setText(userInfo.data.name);
+        
+        TextView textDatedCount = (TextView) findViewById(R.id.text_homepage_dated_count);
+        String datedCount = String.format(
+                getResources().getString(R.string.homepage_dating_count),
+                userInfo.data.datedCount);
+        textDatedCount.setText(datedCount);
+        
+        TextView textDatingCount = (TextView)findViewById(R.id.text_homepage_dating_count);
+        textDatingCount.setText(String.valueOf(userInfo.data.choice));
+        
+        TextView textReputation = (TextView)findViewById(R.id.text_homepage_reputation);
+        textReputation.setText(String.valueOf(userInfo.data.reputation));
     }
     
 }

@@ -32,7 +32,7 @@
     <string name="fill_info_finish">完成</string>
     <string name="fill_info_declaration">个人宣言</string>
     <string name="homepage_title">我</string>
-    <string name="homepage_dating_count">已经进行过5次快相亲</string>
+    <string name="homepage_dating_count">已经进行过%1$d次快相亲</string>
     <string name="homepage_opportunity">机会</string>
     <string name="homepage_reputation">信誉</string>
     <string name="homepage_fate">缘分</string>

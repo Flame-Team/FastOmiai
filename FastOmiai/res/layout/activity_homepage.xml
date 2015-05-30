@@ -49,7 +49,7 @@
 	        android:layout_width="match_parent"
 	        android:layout_height="@dimen/homepage_baseinfo_height" >
             
-            <ImageView
+            <com.android.volley.toolbox.NetworkImageView
 		        android:id="@+id/image_my_photo" 
 		        android:layout_width="@dimen/homepage_my_photo_size"
 			    android:layout_height="@dimen/homepage_my_photo_size"
@@ -68,6 +68,7 @@
 		        android:textSize="16sp"/>
 	        
 	        <TextView
+	            android:id="@+id/text_homepage_dated_count"
 		        android:layout_width="wrap_content"
 		        android:layout_height="wrap_content"
 		        android:layout_alignLeft="@id/text_homepage_name"
@@ -91,7 +92,7 @@
 				    android:gravity="center" />
 		        
 		        <TextView
-		            android:id="@+id/text_dating_count"
+		            android:id="@+id/text_homepage_dating_count"
 			        android:layout_width="wrap_content"
 			        android:layout_height="wrap_content"
 			        android:layout_marginLeft="@dimen/homepage_child_margin"
@@ -107,6 +108,7 @@
 				    android:gravity="center" />
 		        
 		        <TextView
+		            android:id="@+id/text_homepage_reputation"
 			        android:layout_width="wrap_content"
 			        android:layout_height="wrap_content"
 			        android:layout_marginLeft="@dimen/homepage_child_margin"

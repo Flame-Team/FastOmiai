@@ -14,7 +14,7 @@
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
 	        android:text="@string/fill_info_name"
-	        android:textSize="20sp"/>
+	        android:textSize="@dimen/body_text_size"/>
         
         <EditText
             android:id="@+id/edit_name"
@@ -31,7 +31,7 @@
 	        android:layout_height="wrap_content"
 	        android:text="@string/fill_info_name_hint"
 	        android:layout_gravity="center_vertical"
-	        android:textSize="12sp"/>
+	        android:textSize="@dimen/body_text_size"/>
         
     </LinearLayout>
     
@@ -44,7 +44,7 @@
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
 	        android:text="@string/fill_info_sex"
-	        android:textSize="20sp"/>
+	        android:textSize="@dimen/body_text_size"/>
         
         <Spinner
             android:id="@+id/spinner_sex"
@@ -59,7 +59,7 @@
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
 	        android:text="@string/fill_info_age"
-	        android:textSize="20sp"/>
+	        android:textSize="@dimen/body_text_size"/>
         
 		<Spinner
             android:id="@+id/spinner_age"
@@ -81,7 +81,7 @@
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
 	        android:text="@string/fill_info_income"
-	        android:textSize="20sp"/>
+	        android:textSize="@dimen/body_text_size"/>
         
         <Spinner
             android:id="@+id/spinner_income"

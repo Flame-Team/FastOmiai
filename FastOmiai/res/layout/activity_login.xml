@@ -29,7 +29,7 @@
 	        android:layout_height="wrap_content"
 	        android:layout_centerInParent="true"
 	        android:text="@string/register"
-	        android:textSize="28sp"/>
+	        android:textSize="@dimen/title_text_size"/>
         
     </RelativeLayout>
     
@@ -52,7 +52,7 @@
 	        android:layout_height="wrap_content"
 	        android:layout_marginTop="@dimen/login_account_hint_top_margin"
 	        android:text="@string/login_account_hint"
-	        android:textSize="22sp"/>
+	        android:textSize="@dimen/body_text_size"/>
         
         <RelativeLayout 
 	        android:layout_width="match_parent"
@@ -84,7 +84,7 @@
 	        android:layout_height="wrap_content"
 	        android:layout_marginTop="@dimen/login_tel_hint_top_margin"
 	        android:text="@string/login_tel_hint"
-	        android:textSize="22sp"/>
+	        android:textSize="@dimen/body_text_size"/>
         
         <EditText
             android:id="@+id/edit_tel"
@@ -102,7 +102,7 @@
 		        android:layout_width="wrap_content"
 		        android:layout_height="wrap_content"
 		        android:text="@string/login_code"
-		        android:textSize="22sp"/>
+		        android:textSize="@dimen/body_text_size"/>
 	        
 	        <EditText
 	            android:id="@+id/edit_code"

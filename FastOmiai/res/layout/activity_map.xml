@@ -12,7 +12,7 @@
     
     <LinearLayout 
         android:layout_width="match_parent"  
-	    android:layout_height="@dimen/login_bar_height"
+	    android:layout_height="@dimen/title_height"
 	    android:layout_alignParentBottom="true"
         android:orientation="horizontal" >
         
@@ -20,6 +20,7 @@
 	        android:id="@+id/btn_register"
 	        android:layout_width="0dp"
 	        android:layout_height="match_parent"
+	        android:background="@color/button_register_color"
 	        android:text="@string/register"
 	        android:layout_weight="1" />
         
@@ -27,6 +28,7 @@
 	        android:id="@+id/btn_loggin"
 	        android:layout_width="0dp"
 	        android:layout_height="match_parent"
+	        android:background="@color/button_login_color"
 	        android:text="@string/login"
 	        android:layout_weight="1" />
         

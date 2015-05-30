@@ -58,7 +58,7 @@ public class HomePageActivity extends Activity {
 			
 			@Override
 			public void onClick(View v) {
-				Toast.makeText(getApplicationContext(), "相册", Toast.LENGTH_SHORT).show();
+				Toast.makeText(getApplicationContext(), "相册功能尚未实现", Toast.LENGTH_SHORT).show();
 			}
 		});
         
@@ -87,7 +87,7 @@ public class HomePageActivity extends Activity {
 			
 			@Override
 			public void onClick(View v) {
-				Toast.makeText(getApplicationContext(), "资料", Toast.LENGTH_SHORT).show();				
+				Toast.makeText(getApplicationContext(), "资料功能尚未实现", Toast.LENGTH_SHORT).show();				
 			}
 		});
         
@@ -96,7 +96,7 @@ public class HomePageActivity extends Activity {
 			
 			@Override
 			public void onClick(View v) {
-				Toast.makeText(getApplicationContext(), "攻略", Toast.LENGTH_SHORT).show();				
+				Toast.makeText(getApplicationContext(), "攻略功能尚未实现", Toast.LENGTH_SHORT).show();				
 			}
 		});
         
@@ -105,7 +105,7 @@ public class HomePageActivity extends Activity {
 			
 			@Override
 			public void onClick(View v) {
-				Toast.makeText(getApplicationContext(), "帮助", Toast.LENGTH_SHORT).show();				
+				Toast.makeText(getApplicationContext(), "帮助功能尚未实现", Toast.LENGTH_SHORT).show();				
 			}
 		});
         
@@ -114,7 +114,7 @@ public class HomePageActivity extends Activity {
 			
 			@Override
 			public void onClick(View v) {
-				Toast.makeText(getApplicationContext(), "免费券", Toast.LENGTH_SHORT).show();				
+				Toast.makeText(getApplicationContext(), "免费券功能尚未实现", Toast.LENGTH_SHORT).show();				
 			}
 		});
 

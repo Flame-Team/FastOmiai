@@ -13,6 +13,8 @@ import com.baidu.mapapi.map.MapView;
 import com.baidu.mapapi.map.MarkerOptions;
 import com.baidu.mapapi.map.MyLocationData;
 import com.baidu.mapapi.map.OverlayOptions;
+import com.baidu.mapapi.map.offline.MKOfflineMap;
+import com.baidu.mapapi.map.offline.MKOfflineMapListener;
 import com.baidu.mapapi.model.LatLng;
 import com.sogou.fastomiai.controller.SessionManager;
 
@@ -23,7 +25,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 
-public class MapActivity extends Activity {
+public class MapActivity extends Activity implements MKOfflineMapListener {
 	
 	// 默认约会地点
 	final LatLng default_des1 = new LatLng(39.974957, 116.37584);
@@ -35,6 +37,7 @@ public class MapActivity extends Activity {
     
 	// 基础地图
 	private MapView mMapView = null;
+	private MKOfflineMap mOffline = null;
 	private static BaiduMap mBaiduMap = null;
 	
 	// 定位
@@ -67,6 +70,10 @@ public class MapActivity extends Activity {
 			    startLoginActivity(false);
 			}
 		});
+        
+        mOffline = new MKOfflineMap();
+		mOffline.init(this);
+		mOffline.importOfflineData();
         
 	    // 开启定位图层 
 	    mBaiduMap = mMapView.getMap();
@@ -191,4 +198,9 @@ public class MapActivity extends Activity {
 	}
 
 	public BDLocationListener myListener = new MyLocationListener();
+
+	@Override
+	public void onGetOfflineMapState(int arg0, int arg1) {
+		
+	}
 }

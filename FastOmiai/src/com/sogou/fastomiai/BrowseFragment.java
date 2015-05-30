@@ -13,6 +13,7 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.toolbox.NetworkImageView;
 import com.sogou.fastomiai.model.FindListInfo;
@@ -37,6 +38,7 @@ public class BrowseFragment extends Fragment {
     private int mPageNumber;
     
     private BrowseActivity mContext;
+    private Button mBtnNoLove = null;
     private Button mBtnDate = null;
     private ArrayList<Button> listBtn = new ArrayList<Button>();
     private Button mBtnTag1 = null;
@@ -198,6 +200,16 @@ public class BrowseFragment extends Fragment {
         				Intent intent = new Intent(mContext, MapChoosePlaceActivity.class);
         				intent.putExtra("USERID", strUser);
         			    startActivity(intent);
+        			}
+        		});
+    		}
+            mBtnNoLove = (Button) rootView.findViewById(R.id.btn_no_love);
+            if (mBtnNoLove != null) {
+            	mBtnNoLove.setOnClickListener(new OnClickListener() {
+        			
+        			@Override
+        			public void onClick(View v) {
+        				Toast.makeText(mContext, "该用户不会再被推荐", Toast.LENGTH_SHORT).show();
         			}
         		});
     		}

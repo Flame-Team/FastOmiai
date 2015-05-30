@@ -17,33 +17,36 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="80dp"
-        android:background="@drawable/homepage_baseinfo_item_shape"
-        android:padding="@dimen/browse_tag_padding"
+        android:layout_marginTop="120dp"
+        android:background="@drawable/tag_shape"
         android:text="是不是"
-        android:textSize="@dimen/browse_tag_textsize"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/button_text_size"
+        android:padding="@dimen/button_text_padding"
         android:visibility="gone" />
 
     <Button
         android:id="@+id/text_tag2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="150dp"
-        android:background="@drawable/homepage_baseinfo_item_shape"
-        android:padding="@dimen/browse_tag_padding"
+        android:layout_marginTop="190dp"
+        android:background="@drawable/tag_shape"
         android:text="是不是"
-        android:textSize="@dimen/browse_tag_textsize"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/button_text_size"
+        android:padding="@dimen/button_text_padding"
         android:visibility="gone" />
 
     <Button
         android:id="@+id/text_tag3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="300dp"
-        android:background="@drawable/homepage_baseinfo_item_shape"
-        android:padding="@dimen/browse_tag_padding"
+        android:layout_marginTop="340dp"
+        android:background="@drawable/tag_shape"
         android:text="是不是"
-        android:textSize="@dimen/browse_tag_textsize"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/button_text_size"
+        android:padding="@dimen/button_text_padding"
         android:visibility="gone" />
 
     <Button
@@ -51,11 +54,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
-        android:layout_marginTop="150dp"
-        android:background="@drawable/homepage_baseinfo_item_shape"
-        android:padding="@dimen/browse_tag_padding"
+        android:layout_marginTop="190dp"
+        android:background="@drawable/tag_shape"
         android:text="是不是"
-        android:textSize="@dimen/browse_tag_textsize"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/button_text_size"
+        android:padding="@dimen/button_text_padding"
         android:visibility="gone" />
 
     <Button
@@ -63,11 +67,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
-        android:layout_marginTop="300dp"
-        android:background="@drawable/homepage_baseinfo_item_shape"
-        android:padding="@dimen/browse_tag_padding"
+        android:layout_marginTop="340dp"
+        android:background="@drawable/tag_shape"
         android:text="是不是"
-        android:textSize="@dimen/browse_tag_textsize"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/button_text_size"
+        android:padding="@dimen/button_text_padding"
         android:visibility="gone" />
 
     <TextView
@@ -80,7 +85,7 @@
         android:gravity="center"
         android:padding="@dimen/countdown_padding"
         android:text="等待对方回复\n23:59:59"
-        android:textSize="22sp" />
+        android:textSize="@dimen/body_text_size" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -88,6 +93,6 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:text="@string/confirm_hint"
-        android:textSize="22sp" />
+        android:textSize="@dimen/body_text_size" />
 
 </RelativeLayout>

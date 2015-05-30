@@ -69,7 +69,7 @@ public class BrowseActivity extends FragmentActivity {
 
 			@Override
 			public void onClick(View v) {
-				Toast.makeText(getApplicationContext(), "筛选",
+				Toast.makeText(getApplicationContext(), "筛选功能尚未实现",
 						Toast.LENGTH_SHORT).show();
 			}
 		});

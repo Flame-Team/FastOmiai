@@ -43,7 +43,7 @@ SinVoicePlayer.Listener {
     private TextView mTextGift;
     
     private final static int MSG_LENGTH = 7;
-    private int mCountDown = 5;
+    private int mCountDown = 4;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

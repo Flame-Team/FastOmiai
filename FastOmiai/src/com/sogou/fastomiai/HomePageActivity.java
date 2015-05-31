@@ -42,9 +42,15 @@ public class HomePageActivity extends Activity {
 			
 			@Override
 			public void onClick(View v) {
-				Intent intent = null;
-				String strFrom = getIntent().getExtras().getString("from");
-		        if (strFrom.equals("ConfirmActivity")) {
+				Intent intent = getIntent();
+				String strFrom = null;
+				if (intent != null) {
+				    Bundle bundle = intent.getExtras();
+				    if (bundle != null) {
+				        strFrom = bundle.getString("from");
+				    }
+				}
+		        if (strFrom != null && strFrom.equals("ConfirmActivity")) {
 		        	intent = new Intent(getApplicationContext(), ConfirmActivity.class);
 		        }
 		        else if (strFrom.equals("BrowseActivity")) {
@@ -140,7 +146,7 @@ public class HomePageActivity extends Activity {
         });
         
         NetworkImageView headImage = (NetworkImageView)findViewById(R.id.image_my_photo);
-        if (userInfo.data != null && userInfo.data.headUrl != null) {
+        if (userInfo != null && userInfo.data != null && userInfo.data.headUrl != null) {
             headImage.setImageUrl(userInfo.data.headUrl, NetworkRequest
                     .getInstance(getApplicationContext()).getImageLoader());
         }
